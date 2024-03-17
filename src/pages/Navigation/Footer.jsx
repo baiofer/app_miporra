@@ -6,7 +6,7 @@ export const Footer = () => {
       sx={{
         width: '100%',
         height: 'auto',
-        color: 'colorPrimary',
+        color: 'inherit',
         paddingTop: '1rem',
         paddingBottom: '1rem',
       }}

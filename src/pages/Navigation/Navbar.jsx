@@ -154,6 +154,8 @@ function Navbar() {
               ))}
             </Menu>
           </Box>
+          <Button color="inherit">Login</Button>
+          <Button color="inherit">Register</Button>
         </Toolbar>
       </Container>
     </AppBar>

@@ -1,6 +1,7 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import AppLayout from './pages/Layout/AppLayout';
-import PorrasPage from './pages/Porras/PorrasPage';
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import AppLayout from "./pages/Layout/AppLayout";
+import PorrasPage from "./pages/Porras/PorrasPage";
+import Button from "./components/Button";
 
 function App() {
   return (

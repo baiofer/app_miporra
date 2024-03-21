@@ -1,7 +1,7 @@
 import React from "react";
 
-function Button({ miporracta, text }) {
-  return <button className={miporracta}>{text}</button>;
+function Button({ type, text }) {
+  return <button className={type}>{text}</button>;
 }
 
 export default Button;

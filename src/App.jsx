@@ -4,6 +4,7 @@ import PorrasPage from "./pages/Porras/PorrasPage";
 import Button from "./components/Button";
 import { ClubBets } from "./pages/ClubBets/ClubBets";
 import { ClientsPage } from "./pages/Clients/ClientsPage";
+import NextBets from "./pages/NextBets/NextBets";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="porras" element={<PorrasPage />} />
           <Route path="club-bets" element={<ClubBets />} />
           <Route path="clients" element={<ClientsPage />} />
+          <Route path="next-bets" element={<NextBets />} />
         </Route>
       </Routes>
     </BrowserRouter>

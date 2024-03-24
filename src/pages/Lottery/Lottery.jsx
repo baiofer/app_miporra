@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
 import { client } from "../../client/client";
 
-export const ClubBets = () => {
+export const LotteryPage = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [clubs, setClubs] = useState([]);
+  const [lotteries, setLottery] = useState([]);
 
   useEffect(() => {
-    const fetchClubs = async () => {
+    const fetchLottery = async () => {
       try {
         setIsLoading(true);
-        const { data } = await client.get("/clubs");
+        const { data } = await client.get("/lotteries");
         console.log(data);
       } catch (error) {
         console.log(error);
       }
     };
-    fetchClubs();
+    fetchLottery();
   }, []);
 
-  return <h1>Apuestas</h1>;
+  return <h1>Rifas</h1>;
 };
-export default ClubBets;
+
+export default LotteryPage;

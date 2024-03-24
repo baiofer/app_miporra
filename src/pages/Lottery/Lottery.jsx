@@ -22,3 +22,7 @@ export const LotteryPage = () => {
 };
 
 export default LotteryPage;
+
+// Página de rifas, resultado de todas las rifas activas
+// TODO: Fichas de rifas con info de la fecha, el bar que pertenece, fecha sorteo, etc
+// TODO: Página detalle rifa? Hacer apuesta en rifa?

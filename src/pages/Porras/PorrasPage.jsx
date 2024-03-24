@@ -32,3 +32,5 @@ const PorrasPage = () => {
 };
 
 export default PorrasPage;
+
+// esta página es la landing? de momento es la de pruebas para los inputs y los bototnes

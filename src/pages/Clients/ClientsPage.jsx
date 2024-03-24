@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { client } from "../../client/client";
 
-const ClientsPage = () => {
+export const ClientsPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [clubs, setClubs] = useState([]);
 

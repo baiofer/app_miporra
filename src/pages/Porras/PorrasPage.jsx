@@ -17,7 +17,7 @@ const PorrasPage = () => {
       <h1>Registro</h1>
       <FormInput
         type="text"
-        label="nombre de usario"
+        label="nombre de usuario"
         defaultValue="Introduce tu nombre"
         name="username"
       />

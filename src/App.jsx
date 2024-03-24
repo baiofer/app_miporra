@@ -3,6 +3,7 @@ import AppLayout from "./pages/Layout/AppLayout";
 import PorrasPage from "./pages/Porras/PorrasPage";
 import Button from "./components/Button";
 import { ClubBets } from "./pages/ClubBets/ClubBets";
+// import { ClientsPage } from "./pages/Clients/ClientsPage";
 
 function App() {
   return (
@@ -11,7 +12,10 @@ function App() {
         <Route element={<AppLayout />}>
           <Route index element={<Navigate replace to="porras" />} />
           <Route path="porras" element={<PorrasPage />} />
-          <Route path="club-bets" element={<ClubBets />} />
+          {
+            <Route path="club-bets" element={<ClubBets />} />
+            /* <Route path="clients" element={<ClientsPage />} /> */
+          }
         </Route>
       </Routes>
     </BrowserRouter>

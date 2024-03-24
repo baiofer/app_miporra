@@ -1,4 +1,5 @@
 import Button from "../../components/Button";
+import FormInput from "../../components/FormInput";
 
 const PorrasPage = () => {
   return (
@@ -14,7 +15,18 @@ const PorrasPage = () => {
       </div>
 
       <h1>Registro</h1>
-      <div></div>
+      <FormInput
+        type="text"
+        label="nombre de usario"
+        defaultValue="Introduce tu nombre"
+        name="username"
+      />
+      <FormInput
+        type="password"
+        label="password"
+        defaultValue=""
+        name="password"
+      />
     </div>
   );
 };

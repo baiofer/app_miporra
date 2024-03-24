@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
 import { client } from "../../client/client";
 
-export const ClubBets = () => {
+const ClientsPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [clubs, setClubs] = useState([]);
 
   useEffect(() => {
-    const fetchClubs = async () => {
+    const fetchClients = async () => {
       try {
         setIsLoading(true);
-        const { data } = await client.get("/clubs");
+        const { data } = await client.get("/clients");
         console.log(data);
       } catch (error) {
         console.log(error);
       }
     };
-    fetchClubs();
+    fetchClients();
   }, []);
 
-  return <h1>Club Bets</h1>;
+  return <h1>Bares</h1>;
 };
-export default ClubBets;
+
+export default ClientsPage;

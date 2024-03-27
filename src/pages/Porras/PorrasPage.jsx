@@ -1,16 +1,20 @@
 import { useState } from "react";
 import Button from "../../components/Button";
 import FormInput from "../../components/FormInput";
+//import useHistory from "react-router-dom";
 
 const PorrasPage = () => {
   const [Usuario, setUsuario] = useState("");
   const [TextoLibre, setTextoLibre] = useState("");
   const [Selector, setSelector] = useState("Apuestas");
+  const [isPending, setIsPending] = useState(false);
+  //const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const apuesta = { Usuario, TextoLibre, Selector };
     console.log(apuesta);
+    setIsPending(true);
 
     // TODO: hacer el POST bien!
 
@@ -20,6 +24,7 @@ const PorrasPage = () => {
       body: JSON.stringify(apuesta),
     }).then(() => {
       console.log("Nueva apuesta añadida con éxito");
+      setIsPending(false);
     });
   };
 
@@ -75,7 +80,8 @@ const PorrasPage = () => {
             <option value="Apuestas">Apuestas</option>
             <option value="Rifas">Rifas</option>
           </select>
-          <button>Ver</button>
+          {!isPending && <button>Ver</button>}
+          {isPending && <button disabled>Generando apuesta...</button>}
           <p>{Usuario}</p>
           <p>{TextoLibre}</p>
           <p>{Selector}</p>

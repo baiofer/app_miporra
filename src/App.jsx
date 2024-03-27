@@ -1,11 +1,11 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import AppLayout from "./pages/Layout/AppLayout";
-import PorrasPage from "./pages/Porras/PorrasPage";
+import AppLayout from "./Usuarios/pages/Layout/AppLayout";
+import PorrasPage from "./Usuarios/pages/Porras/PorrasPage";
 import Button from "./components/Button";
-import { ClubBets } from "./pages/ClubBets/ClubBets";
-import { ClientsPage } from "./pages/Clients/ClientsPage";
-import NextBets from "./pages/NextBets/NextBets";
-import LotteryPage from "./pages/Lottery/Lottery";
+import { ClubBets } from "./Usuarios/pages/ClubBets/ClubBets";
+import { ClientsPage } from "./Usuarios/pages/Clients/ClientsPage";
+import NextBets from "./Usuarios/pages/NextBets/NextBets";
+import LotteryPage from "./Usuarios/pages/Lottery/Lottery";
 
 function App() {
   return (

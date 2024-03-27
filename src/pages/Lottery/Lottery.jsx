@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { client } from "../../client/client";
+import { client } from "../../api/config/client";
 
 export const LotteryPage = () => {
   const [isLoading, setIsLoading] = useState(false);

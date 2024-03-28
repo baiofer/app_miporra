@@ -10,15 +10,34 @@ export const LotteryPage = () => {
       try {
         setIsLoading(true);
         const { data } = await client.get("/lotteries");
+        setIsLoading(false);
+        setLottery(data.results);
         console.log(data);
       } catch (error) {
         console.log(error);
+        setIsLoading(false);
       }
     };
     fetchLottery();
   }, []);
 
-  return <h1>Rifas</h1>;
+  return (
+    <div>
+      <h1>Rifas</h1>
+      {isLoading ? (
+        <p>Cargando...</p>
+      ) : (
+        <ul>
+          {lotteries.map((bet) => (
+            <li key={bet.clientId}>
+              <strong>Fecha límite: {bet.dateLimitOfBets}</strong> Premio:{" "}
+              {bet.lotteryPrize}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
 };
 
 export default LotteryPage;

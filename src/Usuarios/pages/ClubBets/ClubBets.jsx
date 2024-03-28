@@ -10,15 +10,34 @@ export const ClubBets = () => {
       try {
         setIsLoading(true);
         const { data } = await client.get("/clubBets");
+        setIsLoading(false);
+        setClubBets(data.results);
         console.log(data);
       } catch (error) {
         console.log(error);
+        setIsLoading(false);
       }
     };
     fetchClubs();
   }, []);
 
-  return <h1>Apuestas</h1>;
+  return (
+    <div>
+      <h1>Apuestas</h1>
+      {isLoading ? (
+        <p>Cargando...</p>
+      ) : (
+        <ul>
+          {clubBets.map((bet) => (
+            <li key={bet.id}>
+              <strong>{bet.userName}</strong> - Id: {bet.id} | Fecha :{" "}
+              {bet.betDate} €{bet.betPrice}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
 };
 export default ClubBets;
 

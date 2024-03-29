@@ -19,6 +19,9 @@ function Navbar() {
         <NavLink to="/clients" className="navLink">
           Bares
         </NavLink>
+        <NavLink to="/login" className="navLink">
+          LOGIN
+        </NavLink>
       </ul>
     </div>
   );

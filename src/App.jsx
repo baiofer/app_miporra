@@ -6,6 +6,7 @@ import { ClubBets } from "./Usuarios/pages/ClubBets/ClubBets";
 import { ClientsPage } from "./Usuarios/pages/Clients/ClientsPage";
 import NextBets from "./Usuarios/pages/NextBets/NextBets";
 import LotteryPage from "./Usuarios/pages/Lottery/Lottery";
+import { Homepage } from "./components/Homepage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="clients" element={<ClientsPage />} />
           <Route path="next-bets" element={<NextBets />} />
           <Route path="lottery-bets" element={<LotteryPage />} />
+          <Route path="homepage" element={<Homepage />} />
         </Route>
       </Routes>
     </BrowserRouter>

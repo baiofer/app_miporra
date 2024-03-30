@@ -1,11 +1,12 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from '../Navigation/Navbar';
 import Footer from '../Navigation/Footer';
+import NavbarClient from '../../../clients/navigation/NavBarClient';
 
-const AppLayout = () => {
+const AppLayout = ({ origin }) => {
   return (
     <>
-      <Navbar />
+      { origin === "clients" ? <NavbarClient /> : <Navbar />}
       <div className="container">
         <Outlet />
       </div>

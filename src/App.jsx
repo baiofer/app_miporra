@@ -16,10 +16,13 @@ import ValidationsList from "./clients/validations/ValidationsList";
 import Logout from "./authorization/Logout";
 
 function App() {
+
+  const navigationOrigin = "users"
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<AppLayout />}>
+        <Route element={<AppLayout origin={ navigationOrigin }/>}>
           <Route index element={<Navigate replace to="porras" />} />
           <Route path="porras" element={<PorrasPage />} />
           <Route path="club-bets" element={<ClubBets />} />

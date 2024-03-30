@@ -2,7 +2,7 @@ const ValidationsList = () => {
 
     return (
         <div>
-            <p>Página Detalle de una porra</p>
+            <p>Página de VALIDACIONES de apuestas</p>
         </div>
     )
 }

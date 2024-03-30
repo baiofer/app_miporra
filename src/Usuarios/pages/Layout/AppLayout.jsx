@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux';
 const AppLayout = () => {
 
   const origin = useSelector(state => state.origin.origin)
-  console.log('AppLayout: ', origin)
 
   return (
     <>

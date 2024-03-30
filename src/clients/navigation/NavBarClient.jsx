@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 function NavbarClient() {
   return (
     <div className="navBar">
-      <NavLink to="/" className="navLink">
+      <NavLink to="/myClubsList" className="navLink">
         Logo del cliente
       </NavLink>
       <ul className="navBar-items">

@@ -1,12 +1,18 @@
+/* eslint-disable react/prop-types */
 import { Outlet } from 'react-router-dom';
 import Navbar from '../Navigation/Navbar';
 import Footer from '../Navigation/Footer';
 import NavbarClient from '../../../clients/navigation/NavBarClient';
+import { useSelector } from 'react-redux';
 
-const AppLayout = ({ origin }) => {
+const AppLayout = () => {
+
+  const origin = useSelector(state => state.origin.origin)
+  console.log('AppLayout: ', origin)
+
   return (
     <>
-      { origin === "clients" ? <NavbarClient /> : <Navbar />}
+      { origin === "client" ? <NavbarClient /> : <Navbar />}
       <div className="container">
         <Outlet />
       </div>

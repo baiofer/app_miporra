@@ -4,31 +4,27 @@ import { useDispatch } from "react-redux"
 import { setOrigin } from "../redux/reducers/originReducer"
 import FormInput from '../components/FormInput.jsx'
 import { useState } from 'react'
-import { client } from '../api/config/client.js'
 import Cookies from 'js-cookie'
+import { login } from './service.js'
 
 const Login = () => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [token, setToken] = useState("")
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
     const handleOnClick = async () => {
-        console.log(email, password)
-        const token = await client.post('/login', { email, password })
-        setToken(token.data.token)
-        Cookies.set('token', token.data.token, { secure: true, sameSite: 'Strict' });
-        console.log('Token: ', token.data.token)
+        const token = await login({ email, password })
+        Cookies.set('token', token, { secure: true, sameSite: 'Strict' });
         dispatch(setOrigin('client'))
         navigate('/myClubsList')
     }
 
     return (
         <div>
-            <p>Página LOGIN</p>
+            <h2>Soy un bar</h2>
             <FormInput 
                 type="text"
                 required
@@ -46,7 +42,6 @@ const Login = () => {
                 name="password"
             />
             <Button type="primary-cta" onClick={handleOnClick}>Acceso</Button>
-            <p>Token: { token }</p>
         </div>
     )
 }

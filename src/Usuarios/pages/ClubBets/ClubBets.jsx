@@ -29,10 +29,26 @@ export const ClubBets = () => {
       ) : (
         <ul>
           {clubBets.map((bet) => (
-            <li key={bet.id}>
-              <strong>{bet.userName}</strong> - Id: {bet.id} | Fecha :{" "}
-              {bet.betDate} €{bet.betPrice}
-            </li>
+            <>
+              <li key={bet.id}>
+                <strong>{bet.client.name}</strong>
+              </li>
+              <li>
+                <p>
+                  {/* {new Date(bet.club.match1Date).toLocaleDateString()}{" "} */}
+                  {bet.club.match1Date} {bet.club.match1Hour}
+                </p>
+              </li>
+              <li>
+                <div style={{ display: "flex", gap: "2rem" }}>
+                  <div>{bet.club.match1HomeTeam}</div>
+                  <div>{bet.club.match2HomeTeam}</div>
+                  <div>{bet.match1HomeTeamResult}</div>
+                  <div>-</div>
+                  <div>{bet.match1AwayTeamResult}</div>
+                </div>
+              </li>
+            </>
           ))}
         </ul>
       )}

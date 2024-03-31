@@ -18,6 +18,7 @@ import ValidationsList from "./clients/validations/ValidationsList";
 import Logout from "./authorization/Logout";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import { Homepage } from "./Usuarios/pages/Homepage/Homepage";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
             <Route path="myLotteriesList" element={<MyLotteriesList />} />
             <Route path="myLotteryDetail" element={<MyLotteryDetail />} />
             <Route path="validationsList" element={<ValidationsList />} />
+            <Route path="homepage" element={<Homepage />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -1,4 +1,4 @@
-import { Button } from "@mui/material"
+import Button from "../components/Button"
 import { Link } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { setOrigin } from "../redux/reducers/originReducer"

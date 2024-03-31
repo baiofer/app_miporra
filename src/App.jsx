@@ -19,6 +19,8 @@ import Logout from "./authorization/Logout";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import { Homepage } from "./Usuarios/pages/Homepage/Homepage";
+import { Clubs } from "./Usuarios/pages/Clubs/Clubs";
+import { MakeBet } from "./components/MakeBet";
 
 function App() {
   return (
@@ -29,7 +31,7 @@ function App() {
             <Route index element={<Navigate replace to="porras" />} />
             <Route path="porras" element={<PorrasPage />} />
             <Route path="club-bets" element={<ClubBets />} />
-            <Route path="clubs" element={<Bets />} />
+            <Route path="clubs" element={<Clubs />} />
             <Route path="clients" element={<ClientsPage />} />
             <Route path="next-bets" element={<NextBets />} />
             <Route path="lottery-bets" element={<LotteryPage />} />
@@ -42,6 +44,7 @@ function App() {
             <Route path="myLotteryDetail" element={<MyLotteryDetail />} />
             <Route path="validationsList" element={<ValidationsList />} />
             <Route path="homepage" element={<Homepage />} />
+            <Route path="make-bet" element={<MakeBet />} />
           </Route>
         </Routes>
       </BrowserRouter>

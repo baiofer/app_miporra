@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { client } from "/src/api/config/client";
 import { Link } from "react-router-dom";
 
-export const Clubs = () => {
+export const ClubBets = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [clubBets, setClubBets] = useState([]);
 
@@ -10,7 +10,7 @@ export const Clubs = () => {
     const fetchClubs = async () => {
       try {
         setIsLoading(true);
-        const { data } = await client.get("/clubs");
+        const { data } = await client.get("/clubBets");
         setIsLoading(false);
         setClubBets(data.results);
         console.log(data);

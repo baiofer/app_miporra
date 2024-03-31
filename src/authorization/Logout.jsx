@@ -1,22 +1,19 @@
-import { Button } from "@mui/material"
 import { Link } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { setOrigin } from "../redux/reducers/originReducer"
+import { useEffect } from "react"
 
 const Logout = () => {
 
     const dispatch = useDispatch()
-
-    const handleOnClick = () => {
-        dispatch(setOrigin('user'))
-    }
+    dispatch(setOrigin('user'))
+    useEffect(() => {
+        dispatch(setOrigin('user'));
+      }, [dispatch]);
 
     return (
         <div>
-            <p>Página de LOGOUT</p>
-            <Link to="/porras">
-                <Button type="primary-cta" onClick={handleOnClick}>Logout correcto</Button>
-            </Link>
+            <Link to="/porras"></Link>
         </div>
     )
 }

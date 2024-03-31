@@ -1,6 +1,6 @@
 import React from "react";
 
-function FormInput({ type, name, defaultValue, label, isDisabled }) {
+function FormInput({ type, name, defaultValue, label }) {
   return (
     <div className="input-field">
       <label htmlFor={name}>{label}</label>
@@ -10,6 +10,8 @@ function FormInput({ type, name, defaultValue, label, isDisabled }) {
         name={name}
         defaultValue={defaultValue}
         className="input"
+        {...props}
+        style={{...props}}
       />
     </div>
   );

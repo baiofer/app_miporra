@@ -29,6 +29,7 @@ function App() {
             <Route index element={<Navigate replace to="porras" />} />
             <Route path="porras" element={<PorrasPage />} />
             <Route path="club-bets" element={<ClubBets />} />
+            <Route path="clubs" element={<Bets />} />
             <Route path="clients" element={<ClientsPage />} />
             <Route path="next-bets" element={<NextBets />} />
             <Route path="lottery-bets" element={<LotteryPage />} />

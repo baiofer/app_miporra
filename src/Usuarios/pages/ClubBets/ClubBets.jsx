@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { client } from "/src/api/config/client";
+import { Link } from "react-router-dom";
 
 export const ClubBets = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -35,7 +36,8 @@ export const ClubBets = () => {
               </li>
 
               <li>
-                <div
+                <Link
+                  to={`/make-bet/${bet.clubId}`}
                   style={{
                     display: "flex",
                     gap: "2rem",
@@ -64,7 +66,7 @@ export const ClubBets = () => {
                     <div>-</div>
                     <div>{bet.match2AwayTeamResult}</div>
                   </div>
-                </div>
+                </Link>
               </li>
             </>
           ))}

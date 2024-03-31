@@ -48,12 +48,14 @@ const PorrasPage = () => {
         // Value={title}
         // onChange={(e) => setTitle(e.target.value)}
         name="username"
+        isDisabled={true}
       />
       <FormInput
         type="password"
         label="Password"
         defaultValue=""
         name="password"
+        isDisabled={false}
       />
 
       <div className="input-field">

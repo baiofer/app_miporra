@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const Clubs = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [clubBets, setClubBets] = useState([]);
+  const [Clubs, setClubBets] = useState([]);
 
   useEffect(() => {
     const fetchClubs = async () => {
@@ -29,7 +29,7 @@ export const Clubs = () => {
         <p>Cargando...</p>
       ) : (
         <ul style={{ listStyle: "none" }}>
-          {clubBets.map((bet) => (
+          {Clubs.map((bet) => (
             <>
               <li key={bet.id} style={{ marginTop: "1rem" }}>
                 <strong>{bet.client.name}</strong>

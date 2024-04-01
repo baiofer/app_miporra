@@ -79,6 +79,10 @@ button:active {
   width: 200px;
 }
 
+.logoClient {
+  height: 100px;
+}
+
 .navBar-items {
   display: flex;
   align-items: center;

@@ -75,6 +75,10 @@ button:active {
   padding: 20px;
 }
 
+.logo {
+  width: 200px;
+}
+
 .navBar-items {
   display: flex;
   align-items: center;

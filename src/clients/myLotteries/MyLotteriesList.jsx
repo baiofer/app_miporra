@@ -5,13 +5,19 @@ const MyLotteriesList = () => {
 
     return (
         <div>
-            <p>Listado de rifas</p>
-            <Link to="/myLotteryDetail">
-                <Button type="primary-cta">Rifa seleccionada</Button>
-            </Link>
-            <Link to="/myClubsList">
-                <Button type="primary-cta">Listado de porras</Button>
-            </Link>
+            <div style={{ display: 'block' }}>
+                <p>Listado de rifas</p>
+                <div style={{ marginTop: '10px '}}>
+                    <Link to="/myLotteryDetail">
+                        <Button type="primary-cta">Rifa seleccionada</Button>
+                    </Link>
+                </div>
+                <div style={{ marginTop: '10px '}}>
+                    <Link to="/myClubsList">
+                        <Button type="primary-cta">Listado de porras</Button>
+                    </Link>
+                </div>
+            </div>
         </div>
     )
 }

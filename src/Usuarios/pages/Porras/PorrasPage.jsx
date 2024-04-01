@@ -33,18 +33,29 @@ const PorrasPage = () => {
 
   return (
     <div>
-      <Link to="/lottery-bets">
-        <Button type="primary-cta">Participa en una rifa (QR)</Button>
-      </Link>
-      <Link to="/clubs">
-        <Button type="primary-cta">Apuesta ahora en tu bar (QR)</Button>
-      </Link>
-      <Link to="/homepage">
-        <Button type="primary-cta">¿Que es miporra?</Button>
-      </Link>
-      <Link to="/clients">
-        <Button type="primary-cta">Encuentra tu bar</Button>
-      </Link>
+      <div style={{ display: 'block' }}>
+        <div style={{ marginTop: '10px '}}>
+            <Link to="/lottery-bets">
+              <Button type="primary-cta">Participa en una rifa (QR)</Button>
+            </Link>
+          </div>
+          <div style={{ marginTop: '10px '}}>
+            <Link to="/clubs">
+              <Button type="primary-cta">Apuesta ahora en tu bar (QR)</Button>
+            </Link>
+          </div>
+          <div style={{ marginTop: '10px '}}>
+            <Link to="/homepage">
+              <Button type="primary-cta">¿Que es miporra?</Button>
+            </Link>
+          </div>
+          <div style={{ marginTop: '10px '}}>
+            <Link to="/clients">
+              <Button type="primary-cta">Encuentra tu bar</Button>
+            </Link>
+          <div style={{ marginTop: '10px '}}></div>
+        </div>
+      </div>
       {/*
       <h1>Ver porras</h1>
       <div>
@@ -105,7 +116,7 @@ const PorrasPage = () => {
           <p>{Selector}</p>
         </form>
       </div>
-  */}
+    */}
     </div>
   );
 };

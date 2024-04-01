@@ -7,20 +7,17 @@ function Navbar() {
         Logo
       </NavLink>
       <ul className="navBar-items">
-        <NavLink to="/club-bets" className="navLink">
-          Apuestas
-        </NavLink>
-        <NavLink to="/next-bets" className="navLink">
-          Próximos sorteos
+        <NavLink to="/clubs" className="navLink">
+          Porra (QR)
         </NavLink>
         <NavLink to="/lottery-bets" className="navLink">
-          Rifas
+          Rifa (QR)
         </NavLink>
         <NavLink to="/clients" className="navLink">
-          Bares
+          Encuentra tu bar
         </NavLink>
         <NavLink to="/login" className="navLink">
-          LOGIN
+          Soy un bar
         </NavLink>
       </ul>
     </div>

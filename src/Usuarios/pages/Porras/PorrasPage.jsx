@@ -1,15 +1,17 @@
-import { useState } from "react";
+//import { useState } from "react";
+import { Link } from "react-router-dom";
 import Button from "../../../components/Button";
-import FormInput from "../../../components/FormInput";
+//import FormInput from "../../../components/FormInput";
 //import useHistory from "react-router-dom";
 
 const PorrasPage = () => {
-  const [Usuario, setUsuario] = useState("");
-  const [TextoLibre, setTextoLibre] = useState("");
-  const [Selector, setSelector] = useState("Apuestas");
-  const [isPending, setIsPending] = useState(false);
+  //const [Usuario, setUsuario] = useState("");
+  //const [TextoLibre, setTextoLibre] = useState("");
+  //const [Selector, setSelector] = useState("Apuestas");
+  //const [isPending, setIsPending] = useState(false);
   //const history = useHistory();
 
+  /*
   const handleSubmit = (e) => {
     e.preventDefault();
     const apuesta = { Usuario, TextoLibre, Selector };
@@ -27,9 +29,23 @@ const PorrasPage = () => {
       setIsPending(false);
     });
   };
+  */
 
   return (
     <div>
+      <Link to="/lottery-bets">
+        <Button type="primary-cta">Participa en una rifa (QR)</Button>
+      </Link>
+      <Link to="/clubs">
+        <Button type="primary-cta">Apuesta ahora en tu bar (QR)</Button>
+      </Link>
+      <Link to="/homepage">
+        <Button type="primary-cta">¿Que es miporra?</Button>
+      </Link>
+      <Link to="/clients">
+        <Button type="primary-cta">Encuentra tu bar</Button>
+      </Link>
+      {/*
       <h1>Ver porras</h1>
       <div>
         <Button type="primary-cta">Primary CTA activo</Button>
@@ -89,6 +105,7 @@ const PorrasPage = () => {
           <p>{Selector}</p>
         </form>
       </div>
+  */}
     </div>
   );
 };

@@ -1,7 +1,8 @@
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { setOrigin } from "../redux/reducers/originReducer"
 import { useEffect } from "react"
+import { removeAuthorizationHeader } from "../api/config/client"
 
 const Logout = () => {
 
@@ -12,6 +13,7 @@ const Logout = () => {
     useEffect(() => {
         dispatch(setOrigin('user'));
         navigate('/porras')
+        removeAuthorizationHeader()
     }, [dispatch, navigate]);
 
     return (

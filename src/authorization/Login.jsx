@@ -5,7 +5,8 @@ import { setOrigin } from "../redux/reducers/originReducer"
 import FormInput from '../components/FormInput.jsx'
 import { useState } from 'react'
 import Cookies from 'js-cookie'
-import { login } from './service.js'
+import { getClient, login } from './service.js'
+import { setAuthorizationHeader } from '../api/config/client.js'
 
 const Login = () => {
 
@@ -18,7 +19,14 @@ const Login = () => {
     const handleOnClick = async () => {
         const token = await login({ email, password })
         Cookies.set('token', token, { secure: true, sameSite: 'Strict' });
+        await setAuthorizationHeader(token)
         dispatch(setOrigin('client'))
+        // Get client data
+        const client = await getClient()
+        console.log(client.results)
+        client.results.map( cli => {
+            console.log(cli)
+        })
         navigate('/myClubsList')
     }
 

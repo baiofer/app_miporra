@@ -1,10 +1,11 @@
 import { NavLink } from "react-router-dom";
+import logo from '../../../images/LOGO.png'
 
 function Navbar() {
   return (
     <div className="navBar">
       <NavLink to="/homepage" className="navLink">
-        Logo
+        <img className="logo" src={logo} alt="Logo" />
       </NavLink>
       <ul className="navBar-items">
         <NavLink to="/clubs" className="navLink">

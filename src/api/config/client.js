@@ -21,9 +21,9 @@ clientJWT.interceptors.response.use(
   }
 )
 
-export const setAuthorizationHeader = token => (   
+export const setAuthorizationHeader = async token => { 
   clientJWT.defaults.headers.common['Authorization'] = `Bearer ${token}`
-)
+}
 
 export const removeAuthorizationHeader = () => {
   delete clientJWT.defaults.headers.common['Authorization']

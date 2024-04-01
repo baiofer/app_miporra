@@ -1,7 +1,7 @@
 import Button from '../components/Button.jsx'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from "react-redux"
-import { setOrigin } from "../redux/reducers/originReducer"
+import { setClientLogged, setOrigin } from "../redux/reducers/authReducer.jsx"
 import FormInput from '../components/FormInput.jsx'
 import { useState } from 'react'
 import Cookies from 'js-cookie'
@@ -22,11 +22,9 @@ const Login = () => {
         await setAuthorizationHeader(token)
         dispatch(setOrigin('client'))
         // Get client data
-        const client = await getClient()
-        console.log(client.results)
-        client.results.map( cli => {
-            console.log(cli)
-        })
+        const clientData = await getClient()
+        console.log(clientData.results[0])
+        dispatch(setClientLogged(clientData.results[0]))
         navigate('/myClubsList')
     }
 

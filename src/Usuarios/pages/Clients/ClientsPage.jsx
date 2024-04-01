@@ -29,7 +29,7 @@ export const ClientsPage = () => {
       ) : (
         <ul>
           {clubs.map((bet) => (
-            <li hey={bet.id}>
+            <li key={bet.id}>
               <strong>BAR {bet.name}</strong> - Fecha: {bet.createdAt} @ BAR{" "}
               {bet.email}
             </li>

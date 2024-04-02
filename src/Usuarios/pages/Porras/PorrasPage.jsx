@@ -36,22 +36,22 @@ const PorrasPage = () => {
       <div style={{ display: 'block' }}>
         <div style={{ marginTop: '10px '}}>
             <Link to="/lottery-bets">
-              <Button type="primary-cta">Participa en una rifa (QR)</Button>
+              <Button variant="primary-cta">Participa en una rifa (QR)</Button>
             </Link>
           </div>
           <div style={{ marginTop: '10px '}}>
             <Link to="/clubs">
-              <Button type="primary-cta">Apuesta ahora en tu bar (QR)</Button>
+              <Button variant="primary-cta">Apuesta ahora en tu bar (QR)</Button>
             </Link>
           </div>
           <div style={{ marginTop: '10px '}}>
             <Link to="/homepage">
-              <Button type="primary-cta">¿Que es miporra?</Button>
+              <Button variant="primary-cta">¿Que es miporra?</Button>
             </Link>
           </div>
           <div style={{ marginTop: '10px '}}>
             <Link to="/clients">
-              <Button type="primary-cta">Encuentra tu bar</Button>
+              <Button variant="primary-cta">Encuentra tu bar</Button>
             </Link>
           <div style={{ marginTop: '10px '}}></div>
         </div>

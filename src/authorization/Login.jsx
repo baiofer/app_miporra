@@ -47,7 +47,7 @@ const Login = () => {
                 label="Contraseña"
                 name="password"
             />
-            <Button type="primary-cta" onClick={handleOnClick}>Acceso</Button>
+            <Button variant="primary-cta" onClick={handleOnClick}>Acceso</Button>
         </div>
     )
 }

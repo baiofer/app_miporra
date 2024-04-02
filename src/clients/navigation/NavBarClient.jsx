@@ -1,10 +1,18 @@
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 function NavbarClient() {
+
+  const clientLogged = useSelector(state => state.clientLogged)
+
+  const logoPath = clientLogged.clientLogged.logo
+  console.log(clientLogged)
+  console.log(logoPath)
+
   return (
     <div className="navBar">
       <NavLink to="/myClubsList" className="navLink">
-        Logo del cliente
+        <img className="logoClient" src={logoPath} alt="Logo del cliente" /> 
       </NavLink>
       <ul className="navBar-items">
         <NavLink to="/myClubsList" className="navLink">

@@ -6,6 +6,7 @@ import { updateClient } from "./service"
 import { useDispatch, useSelector } from "react-redux"
 import { setClientLogged, setOrigin } from "../../redux/reducers/authReducer"
 import { useNavigate } from "react-router-dom"
+import './Profile.css'
 
 const Profile = () => {
 

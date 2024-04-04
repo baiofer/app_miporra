@@ -1,26 +1,58 @@
-import { Link } from "react-router-dom"
-import Button from "../../components/Button"
+import './MyClubsList.css'
+import { getClubs } from "./service"
+import { useEffect, useState } from "react"
+import Club from "../../components/ClubCard"
 
 const MyClubsList = () => {
 
-    const handleClick = () => {
-        console.log('Click')
+    const [isFetching, setIsFetching] = useState(false)
+    const [error, setError] = useState(null)
+    const [clubs, setClubs] = useState([])
+
+    useEffect(() => {
+        const fetchClubs = async () => {
+            try {
+                setIsFetching(true)
+                const clubsList = await getClubs()
+                console.log(clubsList)
+                setClubs(clubsList.results)
+                setIsFetching(false)
+            } catch (error) {
+                setIsFetching(false)
+                setError(error)
+                console.log(error) 
+            }
+        }
+        fetchClubs()
+        console.log('Clubs: ', clubs)
+    }, [])
+
+    const resetError = () => {
+        setError(null)        
     }
+
+    if (isFetching) return (
+        <div>Loading ...</div>
+    )
+
     return (
         <div>
-            <div style={{ display: 'block' }}>
-                <p>Listado de porras del bar</p>
-                <div style={{ marginTop: '10px '}}>
-                    <Link to="/miClubDetail">
-                        <Button variant="primary-cta">Porra seleccionada</Button>
-                    </Link>
-                </div>
-                <div style={{ marginTop: '10px '}}>
-                    <Link to="/myLotteriesList">
-                        <Button variant="primary-cta" onClick={handleClick}>Listado de rifas</Button>
-                    </Link>
-                </div>
+            <h2>Mis porras</h2>
+            <div>
+                {
+                    clubs ?
+                        clubs.map( club => {
+                            return(
+                                <Club club={ club } key={ club.id }/>
+                                
+                            )
+                        })
+                        :
+                        <p>No hay ninguna porra creada</p>
+                }
+                { error && <div onClick={resetError}>{ error.message }</div>}
             </div>
+
         </div>
     )
 }

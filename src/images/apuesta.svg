@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-1, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        stroke: #abcf33;
+        stroke-width: 4px;
+      }
+
+      .cls-3 {
+        fill: #abcf33;
+      }
+    </style>
+  </defs>
+  <g id="Grupo_89" data-name="Grupo 89">
+    <g id="Elipse_3" data-name="Elipse 3">
+      <ellipse class="cls-1" cx="250" cy="250" rx="69.83" ry="70.87"/>
+      <ellipse class="cls-2" cx="250" cy="250" rx="65.66" ry="66.7"/>
+    </g>
+    <path id="Trazado_112" data-name="Trazado 112" class="cls-3" d="m235.97,287.71l1.97-8.13h21.77l1.97,8.13h28.67l-23.74-74.34h-33.83l-23.52,74.34h26.71Zm9.67-40.15c1.12-4.83,2.02-9.35,2.71-14.34h1.06c.74,4.99,1.59,9.5,2.71,14.34l3.66,15.56h-13.81l3.66-15.56Z"/>
+  </g>
+</svg>

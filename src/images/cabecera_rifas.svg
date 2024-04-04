@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2030.12 788.72">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-2 {
+        letter-spacing: -.07em;
+      }
+
+      .cls-3 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-4 {
+        fill: #fff;
+        font-family: PPRightGrotesk-WideBlack, 'PP Right Grotesk';
+        font-size: 150px;
+        font-weight: 800;
+      }
+
+      .cls-4, .cls-5 {
+        isolation: isolate;
+      }
+
+      .cls-6 {
+        fill: none;
+        stroke: #707070;
+      }
+
+      .cls-7 {
+        fill: #abcf33;
+      }
+
+      .cls-7, .cls-8 {
+        stroke-width: 0px;
+      }
+
+      .cls-8 {
+        fill: #006b5a;
+      }
+    </style>
+  </defs>
+  <g id="Rectángulo_56" data-name="Rectángulo 56">
+    <path class="cls-8" d="m-.71-26.21h2036.91c20.66,0,37.41,16.65,37.41,37.2v783.17c0,20.54-16.75,37.2-37.41,37.2H-.71c-20.66,0-37.41-16.65-37.41-37.2V10.99C-38.12-9.55-21.37-26.21-.71-26.21Z"/>
+    <path class="cls-6" d="m-.71-25.69h2036.91c20.38,0,36.89,16.42,36.89,36.68v783.17c0,20.26-16.52,36.68-36.89,36.68H-.71c-20.38,0-36.89-16.42-36.89-36.68V10.99C-37.6-9.27-21.08-25.69-.71-25.69Z"/>
+  </g>
+  <g id="RIFAS-2" class="cls-5">
+    <text class="cls-4" transform="translate(244.81 440.57)"><tspan class="cls-1" x="0" y="0">RI</tspan><tspan class="cls-2" x="153.38" y="0">F</tspan><tspan class="cls-3" x="232.41" y="0">A</tspan><tspan class="cls-1" x="338.68" y="0">S</tspan></text>
+  </g>
+  <g id="Componente_4_3" data-name="Componente 4 3">
+    <g id="Grupo_68-2" data-name="Grupo 68-2">
+      <path id="Trazado_59-2" data-name="Trazado 59-2" class="cls-7" d="m1848.29,307.3l105.46,92.71,68.62-95.41,11.23,154.16-220,88.89-103.27-116.1,117.72,20.78,20.26-145.02Zm-22.27-49.32l-18.93,159.87-169.18-28.44,160.57,191.84,271.63-109.75-22.31-250.04-93.34,136.07-128.43-99.55Z"/>
+      <rect id="Rectángulo_105-2" data-name="Rectángulo 105-2" class="cls-7" x="1801.72" y="552.15" width="301.43" height="42.42" transform="translate(-72.61 773.15) rotate(-22)"/>
+    </g>
+  </g>
+</svg>

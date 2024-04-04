@@ -30,8 +30,6 @@ button {
   --secondary-light: #fcf0ec;
 }
 
-
-
 .navBar {
   height: 100px;
   display: flex;
@@ -220,6 +218,42 @@ D => Bares
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Utility class para centrar los items de un display flex" */
+
+.center-items {
+  align-items: center;
+  justify-content: center;
+}
+
+.clubs {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 3rem;
+}
+
+.club-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 460px;
+  min-height: 140px;
+  border: 1px solid var(--primary-green-light);
+  border-radius: 18px;
+  padding: 1rem;
+}
+
+.club-logo {
+  display: flex;
+  gap: 2rem;
+}
+
+.club-teams {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 @media (width > 768px) {

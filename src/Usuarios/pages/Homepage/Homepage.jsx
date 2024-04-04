@@ -8,12 +8,12 @@ export const Homepage = () => {
       <h2> HOMEPAGE </h2>
       <div style={{ marginTop: '10px '}}>
         <Link to="/porras">
-          <Button type="primary-cta" >Haz tu apuesta</Button>
+          <Button variant="primary-cta" >Haz tu apuesta</Button>
         </Link>
       </div> 
       <div style={{ marginTop: '20px '}}>
         <Link to="/register">
-          <Button type="primary-cta">Unete a nuestra red de bares</Button>
+          <Button variant="primary-cta">Unete a nuestra red de bares</Button>
         </Link>
       </div>
       {/*

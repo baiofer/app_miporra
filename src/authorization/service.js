@@ -11,3 +11,9 @@ export const getClient = () => {
     const url = "/clientsJwt"
     return clientJWT.get(url)
 }
+
+// Add new client
+export const createClient = client => {
+    const url = ('/newClient')
+    return clientJWT.post(url, client)
+}

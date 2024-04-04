@@ -21,6 +21,7 @@ import { store } from "./redux/store";
 import { Homepage } from "./Usuarios/pages/Homepage/Homepage";
 import { Clubs } from "./Usuarios/pages/Clubs/Clubs";
 import { MakeBet } from "./components/MakeBet";
+import Profile from "./clients/profile/Profile";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
             <Route path="myLotteriesList" element={<MyLotteriesList />} />
             <Route path="myLotteryDetail" element={<MyLotteryDetail />} />
             <Route path="validationsList" element={<ValidationsList />} />
+            <Route path="profile" element={<Profile />} />
             <Route path="homepage" element={<Homepage />} />
             <Route path="make-bet" element={<MakeBet />} />
           </Route>

@@ -17,7 +17,7 @@ const MyClubDetail = () => {
             <p>Página Detalle de una porra</p>
 
             <h2>Generación de código QR</h2>
-            <Button type="primary-cta" onClick={handleOnClick}>Genera QR</Button>
+            <Button variant="primary-cta" onClick={handleOnClick}>Genera QR</Button>
             {
                 drawQR ? <QRCode value={ url } /> : null
             }

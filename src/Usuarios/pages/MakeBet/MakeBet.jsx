@@ -36,10 +36,10 @@ export const MakeBet = () => {
   }, []);
 
   return (
-    <>
+    <main className="bet-container">
       <h1>APOSTAR</h1>
       <div className="bet-card">
-        <p>{currentClub?.client.name}</p>
+        <p className="client-logo">{currentClub?.client.name}</p>
         <form method="POST" className="bet-teams" onSubmit={handleMakeBet}>
           <div className="bet-user-data">
             <FormInput
@@ -55,7 +55,7 @@ export const MakeBet = () => {
               label="Tu mail"
             />
           </div>
-          <div className="team-row">
+          <div className="teams-row">
             <div className="bet-box">
               <div>{currentClub?.match1HomeTeam}</div>
               <FormInput
@@ -80,7 +80,7 @@ export const MakeBet = () => {
               />
             </div>
           </div>
-          <div className="team-row">
+          <div className="teams-row">
             <div className="bet-box">
               <div>{currentClub?.match2HomeTeam}</div>
               <FormInput
@@ -105,12 +105,14 @@ export const MakeBet = () => {
               />
             </div>
           </div>
-          <Button type="submit">
-            {isLoading ? "Haciendo apuesta..." : "Apostar"}
-          </Button>
+          <div className="submit-bet center-items">
+            <Button type="submit" variant="primary-cta">
+              {isLoading ? "Haciendo apuesta..." : "Apostar"}
+            </Button>
+          </div>
         </form>
       </div>
-    </>
+    </main>
   );
 };
 

@@ -1,0 +1,17 @@
+.clubContainer {
+    border-width: 3px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.betZone {
+    margin: 10px;
+}
+
+.imgContainer {
+    width: 200px;
+    height: 100px;
+    object-fit: contain;
+}

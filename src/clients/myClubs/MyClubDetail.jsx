@@ -1,26 +1,12 @@
-import QRCode from 'qrcode.react'
-import { Button } from '@mui/material'
-import { useState } from 'react'
+/* eslint-disable react/prop-types */
+import './MyClubDetail.css'
 
-const MyClubDetail = () => {
+const MyClubDetail = ({ club }) => {
 
-    const [drawQR, setDrawQR] = useState(false)
-
-    const url = "https://api.miporra.es/v1.0/api-docs"
-
-    const handleOnClick = () => {
-        setDrawQR(true)
-    }
-
+    console.log('Porra: ', club)
     return (
         <div>
-            <p>Página Detalle de una porra</p>
-
-            <h2>Generación de código QR</h2>
-            <Button variant="primary-cta" onClick={handleOnClick}>Genera QR</Button>
-            {
-                drawQR ? <QRCode value={ url } /> : null
-            }
+            <h2>Detalle de porra</h2>
         </div>
     )
 }

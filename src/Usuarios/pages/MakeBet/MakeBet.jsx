@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../../../components/Button";
 import FormInput from "../../../components/FormInput";
 import { useClubContext } from "../../../context/ClubContext";
@@ -9,7 +9,6 @@ export const MakeBet = () => {
   const { currentClub } = useClubContext();
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  console.log(currentClub);
 
   const handleMakeBet = async (e) => {
     e.preventDefault();
@@ -31,20 +30,36 @@ export const MakeBet = () => {
     }
   };
 
+  useEffect(() => {
+    console.log(currentClub);
+    if (!currentClub) navigate("/clubs");
+  }, []);
+
   return (
     <>
       <h1>APOSTAR</h1>
       <div className="bet-card">
-        <p>{currentClub.client.name}</p>
+        <p>{currentClub?.client.name}</p>
         <form method="POST" className="bet-teams" onSubmit={handleMakeBet}>
           <div className="bet-user-data">
-            <FormInput type="text" name="userName" label="Tu nombre" />
-            <FormInput type="email" name="userEmail" label="Tu mail" />
+            <FormInput
+              disabled={isLoading}
+              type="text"
+              name="userName"
+              label="Tu nombre"
+            />
+            <FormInput
+              disabled={isLoading}
+              type="email"
+              name="userEmail"
+              label="Tu mail"
+            />
           </div>
           <div className="team-row">
             <div className="bet-box">
-              <div>{currentClub.match1HomeTeam}</div>
+              <div>{currentClub?.match1HomeTeam}</div>
               <FormInput
+                disabled={isLoading}
                 type="number"
                 name="match1HomeTeamResult"
                 step={1}
@@ -54,8 +69,9 @@ export const MakeBet = () => {
             </div>
             /{" "}
             <div className="bet-box">
-              <div>{currentClub.match1AwayTeam}</div>
+              <div>{currentClub?.match1AwayTeam}</div>
               <FormInput
+                disabled={isLoading}
                 type="number"
                 name="match1AwayTeamResult"
                 step={1}
@@ -66,8 +82,9 @@ export const MakeBet = () => {
           </div>
           <div className="team-row">
             <div className="bet-box">
-              <div>{currentClub.match2HomeTeam}</div>
+              <div>{currentClub?.match2HomeTeam}</div>
               <FormInput
+                disabled={isLoading}
                 type="number"
                 name="match2HomeTeamResult"
                 step={1}
@@ -77,8 +94,9 @@ export const MakeBet = () => {
             </div>
             /{" "}
             <div className="bet-box">
-              <div>{currentClub.match2AwayTeam}</div>
+              <div>{currentClub?.match2AwayTeam}</div>
               <FormInput
+                disabled={isLoading}
                 type="number"
                 name="match2AwayTeamResult"
                 step={1}
@@ -87,7 +105,9 @@ export const MakeBet = () => {
               />
             </div>
           </div>
-          <Button type="submit">Apostar</Button>
+          <Button type="submit">
+            {isLoading ? "Haciendo apuesta..." : "Apostar"}
+          </Button>
         </form>
       </div>
     </>

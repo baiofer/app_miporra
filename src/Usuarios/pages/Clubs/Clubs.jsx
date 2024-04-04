@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { client } from "/src/api/config/client";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
+import { useClubContext } from "../../../context/ClubContext";
 
 export const Clubs = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [clubs, setClubs] = useState([]);
+  const { setCurrentClub } = useClubContext();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchClubs = async () => {
@@ -23,7 +26,11 @@ export const Clubs = () => {
     fetchClubs();
   }, []);
 
-  console.log(clubs);
+  const handleCreateClub = (club) => {
+    setCurrentClub(club);
+    navigate("/make-bet");
+  };
+
   return (
     <div>
       <h1>Porras activas</h1>
@@ -32,7 +39,11 @@ export const Clubs = () => {
       ) : (
         <div className="clubs center-items">
           {clubs.map((club) => (
-            <button className="club-card">
+            <button
+              className="club-card"
+              onClick={() => handleCreateClub(club)}
+              key={club.id}
+            >
               <div className="club-logo center-items">
                 <span>A</span>
                 <span>{club.client.name}</span>

@@ -12,20 +12,31 @@ const Login = () => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [error, setError] = useState(null)
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
+    const resetError = () => {
+        setError(null)
+    }
+
     const handleOnClick = async () => {
-        const token = await login({ email, password })
-        Cookies.set('token', token, { secure: true, sameSite: 'Strict' });
-        await setAuthorizationHeader(token)
-        dispatch(setOrigin('client'))
-        // Get client data
-        const clientData = await getClient()
-        console.log(clientData.results[0])
-        dispatch(setClientLogged(clientData.results[0]))
-        navigate('/myClubsList')
+        try {
+            const token = await login({ email, password })
+            Cookies.set('token', token, { secure: true, sameSite: 'Strict' });
+            await setAuthorizationHeader(token)
+            // Get client data
+            const clientData = await getClient()
+            // Store client data in redux
+            dispatch(setClientLogged(clientData.results[0]))
+            // Change the origin to reload the client navBar
+            dispatch(setOrigin('client'))
+            navigate('/myClubsList')
+        } catch (error) {
+            setError(error)
+        }
+        
     }
 
     return (
@@ -48,6 +59,14 @@ const Login = () => {
                 name="password"
             />
             <Button variant="primary-cta" onClick={handleOnClick}>Acceso</Button>
+            { error && 
+                <div>
+                    <div 
+                        className="loginPage-error" 
+                        onClick={resetError}
+                    >{ error.message }, { error.error }</div>
+                </div>
+            }
         </div>
     )
 }

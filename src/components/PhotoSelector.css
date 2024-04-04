@@ -1,0 +1,67 @@
+.photoSelector-container {
+    width: 500px;
+    height: 500px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(19, 195, 174);
+    border-radius: 25px;
+    align-items: center;
+}
+
+.photoSelector-containerSelector {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.photoSelector-inputContainer {
+    display: flex;
+    width: 420px;
+    height: 50px;
+    font-size: 1.3rem;
+    position: relative;
+    overflow: hidden;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    align-items: center;
+    padding-left: 20px;
+    color: rgb(19, 195, 174);
+}
+
+.photoSelector-inputContainer input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.photoSelector-input {
+    display: block;
+    width: 400px;
+    height: 50px;
+    font-size: 1.3rem;
+}
+
+.photoSelector-imageContainer {
+    width: 150px;
+    height: 150px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(19, 195, 174);
+    border-radius: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+.photoSelector-image {
+    display: flex;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 420px;
+    max-height: 350px;
+    
+}

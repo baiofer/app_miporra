@@ -95,6 +95,9 @@ const Register = () => {
                 <Button variant="primary-cta">
                     {isFetching ? "Añadiendote a nuestra red ..." : "Unete a nuestra red"}
                 </Button>
+                <p>¿Ya perteneces a nuestra red? 
+                    <a href='/login' style={{ marginLeft: '20px' }}>Inicia sesión</a>
+                </p>
                 { error && 
                     <div className="loginPage-errorContainer">
                         <div 

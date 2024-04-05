@@ -39,6 +39,10 @@ const Login = () => {
         
     }
 
+    const recovePassword = () => {
+
+    }
+
     return (
         <div>
             <h2>Soy un bar</h2>
@@ -58,7 +62,16 @@ const Login = () => {
                 label="Contraseña"
                 name="password"
             />
-            <Button variant="primary-cta" onClick={handleOnClick}>Acceso</Button>
+            <div style={{ marginBottom: '10px' }}>
+                <Button onClick={recovePassword}>Olvidé mi contraseña</Button>
+            </div>
+            <div style={{ marginBottom: '10px' }}>
+                <Button variant="primary-cta" onClick={handleOnClick}>Acceso</Button>
+            </div>
+            <p>¿No perteneces a nuestra red de bares? 
+                <a href='/register' style={{ marginLeft: '20px' }}>Regístrate</a>
+            </p>
+            
             { error && 
                 <div>
                     <div 

@@ -1,0 +1,40 @@
+.navBar {
+    height: 100px;
+    display: flex;
+    /*background-color: var(--primary-green-light);*/
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    padding: 20px;
+  }
+  
+  .navBar-items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    list-style: none;
+    /*color: var(--primary-green-main);*/
+  }
+  
+  .navLink {
+    text-decoration: none;
+    color: var(--primary-green-main);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .logo {
+    width: 200px;
+    height: 100px;
+    object-fit: contain;
+  }
+
+  .loginContainer {
+    display: inline;
+    padding: 10px;
+    border-style: solid;
+    border-color: var(--primary-green-light);
+    border-radius: 25px;
+  }

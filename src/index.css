@@ -29,7 +29,7 @@ button {
   --secondary-white: #ffffff;
   --secondary-light: #fcf0ec;
 }
-
+/*
 .navBar {
   height: 100px;
   display: flex;
@@ -61,7 +61,7 @@ button {
   text-decoration: none;
   color: #fff;
 }
-
+*/
 .input-field {
   margin-bottom: 10px;
 }

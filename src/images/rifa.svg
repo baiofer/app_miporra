@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-1, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        stroke: #016b5a;
+        stroke-width: 4px;
+      }
+
+      .cls-3 {
+        fill: #006b5a;
+      }
+    </style>
+  </defs>
+  <g id="Grupo_87" data-name="Grupo 87">
+    <path id="Trazado_110" data-name="Trazado 110" class="cls-3" d="m239.04,288.9v-27.46h6.4c5.9,0,7.55,2.37,8.6,8.99l1.1,6.62c1.05,6.62,1.82,9.71,3.31,11.86h30.39l.22-1.65c-2.37-1.88-3.59-4.25-5.41-12.18l-1.76-7.89c-1.82-7.94-4.69-10.59-12.02-12.46v-1.16c10.48-1.71,15.83-7.72,15.83-18.69v-.22c0-15.15-10.2-22.94-30.66-22.94h-44.56v77.19h28.57Zm0-58.45h10.7c4.96,0,7.39,1.65,7.39,6.78v.17c0,5.07-2.44,6.67-7.39,6.67h-10.7v-13.62Z"/>
+    <g id="Elipse_2" data-name="Elipse 2">
+      <circle class="cls-1" cx="250" cy="250" r="92"/>
+      <circle class="cls-2" cx="250" cy="250" r="86.59"/>
+    </g>
+  </g>
+</svg>

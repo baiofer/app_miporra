@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 import logo from '../../../images/LOGO.png'
+import apuesta from '../../../images/apuesta.svg'
+import './Navbar.css'
 
 function Navbar() {
   return (
@@ -9,16 +11,18 @@ function Navbar() {
       </NavLink>
       <ul className="navBar-items">
         <NavLink to="/clubs" className="navLink">
-          Porra (QR)
+          Apostar
         </NavLink>
         <NavLink to="/lottery-bets" className="navLink">
-          Rifa (QR)
+          Rifas
         </NavLink>
         <NavLink to="/clients" className="navLink">
           Encuentra tu bar
         </NavLink>
         <NavLink to="/login" className="navLink">
-          Soy un bar
+          <span className="loginContainer">
+            Soy un bar
+          </span>
         </NavLink>
       </ul>
     </div>

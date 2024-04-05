@@ -1,16 +1,19 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import logoImage from '../images/LOGO.png'
 import './PhotoSelector.css'
 
-function PhotoSelector({ onFileSelected }) {
+function PhotoSelector({ onFileSelected, previousImage }) {
   
     const [selectedImage, setSelectedImage] = useState(null);
+
+    useEffect(() => {
+        setSelectedImage(previousImage)
+    }, [previousImage])
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
         onFileSelected(file)
-
         if (file) {
             const reader = new FileReader();
             reader.onload = () => {

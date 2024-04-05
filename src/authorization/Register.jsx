@@ -32,11 +32,11 @@ const Register = () => {
 
     useEffect(() => {
         if (clientCreated) {
-            dispatch(setClientLogged(clientCreated.results))
+            dispatch(setClientLogged(clientCreated))
             dispatch(setOrigin('client'))
             navigate('/myClubsList')
         }
-    }, [clientCreated, dispatch])
+    }, [clientCreated, dispatch, navigate])
 
     const handleOnSubmit = async (event) => {
         event.preventDefault()
@@ -50,14 +50,11 @@ const Register = () => {
             setIsFetching(true)
             const clientData = await createClient(formData)
             setIsFetching(false)
-            console.log('Client: ', clientData.results)
             // Login client
             const token = await login({ email, password })
             Cookies.set('token', token, { secure: true, sameSite: 'Strict' });
             await setAuthorizationHeader(token)
-            setClientCreated(clientData)
-            
-            
+            setClientCreated(clientData.results)
         } catch (error) {
             setIsFetching(false)
             setError(error)
@@ -75,7 +72,7 @@ const Register = () => {
                     value={name}
                     onChange={ e => setName(e.target.value)}
                     label="Nombre del bar"
-                    name="email"
+                    name="name"
                 />
                 <FormInput 
                     type="text"

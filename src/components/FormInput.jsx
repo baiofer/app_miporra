@@ -1,10 +1,11 @@
 import React from "react";
 
-function FormInput({ type, name, defaultValue, label, ...props }) {
+function FormInput({ type, name, defaultValue, label = "", ...props }) {
   return (
     <div className="input-field">
       <label htmlFor={name}>{label}</label>
       <input
+        defaultValue={defaultValue}
         type={type}
         name={name}
         className="input"

@@ -20,7 +20,7 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import { Homepage } from "./Usuarios/pages/Homepage/Homepage";
 import { Clubs } from "./Usuarios/pages/Clubs/Clubs";
-import { MakeBet } from "./components/MakeBet";
+import { MakeBet } from "./Usuarios/pages/MakeBet/MakeBet";
 import Profile from "./clients/profile/Profile";
 
 function App() {

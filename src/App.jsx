@@ -40,7 +40,7 @@ function App() {
             <Route path="register" element={<Register />} />
             <Route path="logout" element={<Logout />} />
             <Route path="myClubsList" element={<MyClubsList />} />
-            <Route path="miClubDetail" element={<MyClubDetail />} />
+            <Route path="myClubDetail" element={<MyClubDetail />} />
             <Route path="myLotteriesList" element={<MyLotteriesList />} />
             <Route path="myLotteryDetail" element={<MyLotteryDetail />} />
             <Route path="validationsList" element={<ValidationsList />} />

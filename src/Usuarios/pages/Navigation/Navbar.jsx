@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import logo from '../../../images/LOGO.png'
-import apuesta from '../../../images/apuesta.svg'
 import './Navbar.css'
 
 function Navbar() {

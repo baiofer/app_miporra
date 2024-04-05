@@ -23,3 +23,4 @@ export const deleteClub = (client, id) => {
     const url = ('/deleteClub', id)
     return clientJWT.delete(url, client)
 }
+

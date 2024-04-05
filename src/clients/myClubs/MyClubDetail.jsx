@@ -1,12 +1,17 @@
-/* eslint-disable react/prop-types */
-import './MyClubDetail.css'
+import { useLocation } from "react-router-dom"
+import Club from "../../components/ClubCard"
 
-const MyClubDetail = ({ club }) => {
 
-    console.log('Porra: ', club)
-    return (
+const MyClubDetail = () => {
+
+    const location = useLocation()
+    const club = location.state.club
+
+    console.log(club)
+    
+    return(
         <div>
-            <h2>Detalle de porra</h2>
+            <Club club={ club } />
         </div>
     )
 }

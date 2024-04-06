@@ -1,0 +1,26 @@
+.input-field {
+    margin-bottom: 10px;
+  }
+  
+  .input-field input:disabled {
+    opacity: O.9;
+  }
+  
+  .input-field label {
+    display: block;
+    color: var(--secondary-black);
+    font-weight: 300;
+  }
+  
+  .input-field input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 4px;
+    color: var(--primary-green-main);
+    background-color: var(--secondary-light);
+    border-color: var(--primary-green-main);
+    font-weight: 600;
+  }

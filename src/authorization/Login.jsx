@@ -7,6 +7,7 @@ import { useState } from 'react'
 import Cookies from 'js-cookie'
 import { getClient, login } from './service.js'
 import { setAuthorizationHeader } from '../api/config/client.js'
+import './Login.css'
 
 const Login = () => {
 
@@ -44,9 +45,10 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <div className='login-container'>
             <h2>Soy un bar</h2>
             <FormInput 
+                className='loginInput'
                 type="text"
                 required
                 value={email}

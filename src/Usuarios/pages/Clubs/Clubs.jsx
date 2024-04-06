@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { client } from "/src/api/config/client";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
+import { useClubContext } from "../../../context/ClubContext";
 
 export const Clubs = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [clubs, setClubs] = useState([]);
+  const { setCurrentClub } = useClubContext();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchClubs = async () => {
@@ -23,52 +26,39 @@ export const Clubs = () => {
     fetchClubs();
   }, []);
 
+  const handleCreateClub = (club) => {
+    setCurrentClub(club);
+    navigate("/make-bet");
+  };
+
   return (
     <div>
       <h1>Porras activas</h1>
       {isLoading ? (
         <p>Cargando...</p>
       ) : (
-        <ul style={{ listStyle: "none" }}>
+        <div className="clubs center-items">
           {clubs.map((club) => (
-            <>
-              <li key={club.id}>
-                <Button
-                  onclick={onclick}
-                  style={{
-                    display: "flex",
-                    gap: "2rem",
-                    flexDirection: "column",
-                  }}
-                >
-                  <strong>{club.client.name}</strong>
-                  <div>
-                    {/* {new Date(bet.club.match1Date).toLocaleDateString()}{" "} */}
-                    {club.match1Date} {club.match1Hour}
-                  </div>
-                  <div style={{ display: "flex", gap: "2rem" }}>
-                    <div>{club.match1HomeTeam}</div>
-                    <div>{club.match1AwayTeam}</div>
-                    <div>{club.match1HomeTeamResult}</div>
-                    <div>-</div>
-                    <div>{club.match1AwayTeamResult}</div>
-                  </div>
-                  <div>
-                    {/* {new Date(bet.club.match1Date).toLocaleDateString()}{" "} */}
-                    {club.match2Date} {club.match2hour}
-                  </div>
-                  <div style={{ display: "flex", gap: "2rem" }}>
-                    <div>{club.match2HomeTeam}</div>
-                    <div>{club.match2AwayTeam}</div>
-                    <div>{club.match2HomeTeamResult}</div>
-                    <div>-</div>
-                    <div>{club.match2AwayTeamResult}</div>
-                  </div>
-                </Button>
-              </li>
-            </>
+            <button
+              className="club-card"
+              onClick={() => handleCreateClub(club)}
+              key={club.id}
+            >
+              <div className="club-logo center-items">
+                <span>A</span>
+                <span>{club.client.name}</span>
+              </div>
+              <div className="club-teams center-items">
+                <div className="club-match">
+                  {club.match1HomeTeam} / {club.match1AwayTeam}
+                </div>
+                <div className="club-match">
+                  {club.match2AwayTeam} / {club.match2HomeTeam}
+                </div>
+              </div>
+            </button>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );

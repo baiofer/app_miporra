@@ -28,7 +28,7 @@ export const LotteryPage = () => {
         <p>Cargando...</p>
       ) : (
         <ul>
-          {lotteries.map((bet) => (
+          {lotteries?.map((bet) => (
             <li key={bet.clientId}>
               <strong>Fecha límite: {bet.dateLimitOfBets}</strong> Premio:{" "}
               {bet.lotteryPrize}

@@ -6,6 +6,7 @@ export const MakeLotteryBet = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [lottery, setLottery] = useState(null);
   const params = useParams();
+  const lotteryArray = Array.from({ length: 100 }, (_, index) => index);
 
   useEffect(() => {
     const fetchLottery = async () => {
@@ -23,9 +24,13 @@ export const MakeLotteryBet = () => {
   }, []);
 
   return (
-    <>
+    <main className="make-lottery-container">
       <h1>Apostar Rifas</h1>
-      <p>{params.id}</p>
-    </>
+      <div className="make-lottery-card">
+        {lotteryArray.map((number) => (
+          <button key={number}>{number}</button>
+        ))}
+      </div>
+    </main>
   );
 };

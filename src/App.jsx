@@ -22,9 +22,9 @@ import { Homepage } from "./Usuarios/pages/Homepage/Homepage";
 import { Clubs } from "./Usuarios/pages/Clubs/Clubs";
 import { MakeBet } from "./Usuarios/pages/MakeBet/MakeBet";
 import Profile from "./clients/profile/Profile";
-import ResetPassword from "./authorization/resetPassword";
-import ActiveBets from './Usuarios/pages/ActiveBets/ActiveBets'
-import MakeLotteryBet from './Usuarios/pages/MakeLotteryBet/MakeLotteryBet'
+import ResetPassword from "./authorization/ResetPassword";
+import { ActiveBets } from './Usuarios/pages/ActiveBets/ActiveBets'
+import { MakeLotteryBet } from './Usuarios/pages/MakeLotteryBet/MakeLotteryBet'
 
 function App() {
   return (

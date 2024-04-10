@@ -3,12 +3,13 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch } from "react-redux"
 import { setClientLogged, setOrigin } from "../redux/reducers/authReducer.jsx"
 import FormInput from '../components/FormInput.jsx'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
 import { getClient, login } from './service.js'
 import { setAuthorizationHeader } from '../api/config/client.js'
 import './Login.css'
 import { recovePass } from './service.js'
+import ErrorComponent from '../components/ErrorComponent.jsx'
 
 const Login = () => {
 
@@ -19,6 +20,19 @@ const Login = () => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
+    useEffect(() => {
+        if (error || message) {
+            const timer = setTimeout(() => {
+                setError(null);
+                setMessage(null)
+            }, 5000);
+            return () => {
+                clearTimeout(timer);
+            };
+        }
+    }, [error, message]);
+
 
     const resetError = () => {
         setError(null)
@@ -41,7 +55,11 @@ const Login = () => {
             dispatch(setOrigin('client'))
             navigate('/myClubsList')
         } catch (error) {
-            setError(error)
+            let errorToShow = ""
+            if (error.message === "Unauthorized") {
+                errorToShow = "Credenciales no válidas"
+            }
+            setError(errorToShow)
         }
     }
 
@@ -66,9 +84,9 @@ const Login = () => {
 
     return (
         <div className='login-container'>
+            <div>
             <h2>Soy un bar</h2>
             <FormInput 
-                className='loginInput'
                 type="text"
                 required
                 value={email}
@@ -84,32 +102,32 @@ const Login = () => {
                 label="Contraseña"
                 name="password"
             />
-            <div style={{ marginBottom: '10px' }}>
-                <Button onClick={recovePassword}>Olvidé mi contraseña</Button>
+            <div className='login-reset'>
+                <Button className="login-link-button" onClick={recovePassword}>Olvidé mi contraseña</Button>
             </div>
-            <div style={{ marginBottom: '10px' }}>
+            <div className='login-access'>
                 <Button variant="primary-cta" onClick={handleOnClick}>Acceso</Button>
             </div>
-            <p>¿No perteneces a nuestra red de bares? 
-                <a href='/register' style={{ marginLeft: '20px' }}>Regístrate</a>
+            <p className='login-register'>¿Aún no perteneces a nuestra red de bares? 
+                <a className='login-register-a' href='/register'>Regístrate</a>
             </p>
             
             { error && 
-                <div>
-                    <div 
-                        className="loginPage-error" 
-                        onClick={resetError}
-                    >{ error.message }, { error.error }</div>
-                </div>
+                <ErrorComponent error>
             }
             { message && 
                 <div>
                     <div 
-                        className="loginPage-message" 
+                        className="login-page-message" 
                         onClick={resetMessage}
-                    >{ message }</div>
+                    >
+                        <div className='login-message'>
+                            { message }
+                        </div>
+                    </div>
                 </div>
             }
+            </div>
         </div>
     )
 }

@@ -8,6 +8,7 @@ import { setAuthorizationHeader } from "../api/config/client"
 import { useDispatch } from "react-redux"
 import { setClientLogged, setOrigin } from "../redux/reducers/authReducer"
 import { useNavigate } from "react-router-dom"
+import './Register.css'
 
 const Register = () => {
 
@@ -63,7 +64,7 @@ const Register = () => {
 
     
     return (
-        <div>
+        <div className="register-container">
             <h2>Unete a nuestra red de bares</h2>
             <form onSubmit={handleOnSubmit}>
                 <FormInput 
@@ -92,11 +93,14 @@ const Register = () => {
                 />
                 <PhotoSelector onFileSelected={handleFileSelected}
                 />
-                <Button variant="primary-cta">
-                    {isFetching ? "Añadiendote a nuestra red ..." : "Unete a nuestra red"}
-                </Button>
-                <p>¿Ya perteneces a nuestra red? 
-                    <a href='/login' style={{ marginLeft: '20px' }}>Inicia sesión</a>
+                <div className="register-access">
+                    <Button variant="primary-cta">
+                        {isFetching ? "Añadiendote a nuestra red ..." : "Unete a nuestra red"}
+                    </Button>
+                </div>
+                
+                <p className="register-login">¿Ya perteneces a nuestra red? 
+                    <a className="register-login-a" href='/login' style={{ marginLeft: '20px' }}>Inicia sesión</a>
                 </p>
                 { error && 
                     <div className="loginPage-errorContainer">

@@ -19,7 +19,7 @@ function Navbar() {
           Encuentra tu bar
         </NavLink>
         <NavLink to="/login" className="navLink">
-          <span className="loginContainer">
+          <span className="navLoginContainer">
             Soy un bar
           </span>
         </NavLink>

@@ -365,7 +365,8 @@ D => Bares
   border-radius: 18px;
   justify-content: space-between;
   gap: 1rem;
-  min-width: 500px;
+  min-width: 600px;
+  background-color: transparent;
 }
 
 .circle-logo {

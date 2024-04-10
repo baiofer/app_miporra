@@ -29,11 +29,11 @@ export const LotteryPage = () => {
       ) : (
         <section className="lotteries center-items">
           {lotteries?.map((bet) => (
-            <div key={bet.id} className="lottery-card center-items">
+            <button key={bet.id} className="lottery-card center-items">
               <div className="circle-logo center-items">R</div>
               <img src={bet.client.logo} className="lottery-client" />
               <div className="lottery-description">{bet.lotteryPrize}</div>
-            </div>
+            </button>
           ))}
         </section>
       )}

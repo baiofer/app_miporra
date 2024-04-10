@@ -8,8 +8,8 @@ import { removeAuthorizationHeader } from "../api/config/client"
 const Logout = () => {
 
     const navigate = useNavigate()
-
     const dispatch = useDispatch()
+    
     dispatch(setOrigin('user'))
     useEffect(() => {
         dispatch(setOrigin('user'));

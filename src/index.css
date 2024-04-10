@@ -345,6 +345,47 @@ D => Bares
   gap: 2rem;
 }
 
+.lottery-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.lotteries {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.lottery-card {
+  display: flex;
+  padding: 2rem;
+  border: 1px solid var(--primary-green-light);
+  border-radius: 18px;
+  justify-content: space-between;
+  gap: 1rem;
+  min-width: 500px;
+}
+
+.circle-logo {
+  display: flex;
+  padding: 0.5rem;
+  border: 1px solid var(--primary-green-main);
+  border-radius: 100%;
+  width: 15px;
+  height: 15px;
+  color: var(--primary-green-main);
+}
+
+.lottery-client {
+  width: 100px;
+}
+
+.lottery-description {
+  min-width: 315px;
+}
+
 @media (width > 768px) {
   .homepage-container {
     display: grid;

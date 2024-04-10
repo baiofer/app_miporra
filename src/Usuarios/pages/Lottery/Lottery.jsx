@@ -22,21 +22,22 @@ export const LotteryPage = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Rifas</h1>
+    <main className="lottery-container center-items">
+      <h1>Escoge tu rifa</h1>
       {isLoading ? (
         <p>Cargando...</p>
       ) : (
-        <ul>
+        <section className="lotteries center-items">
           {lotteries?.map((bet) => (
-            <li key={bet.clientId}>
-              <strong>Fecha límite: {bet.dateLimitOfBets}</strong> Premio:{" "}
-              {bet.lotteryPrize}
-            </li>
+            <div key={bet.id} className="lottery-card center-items">
+              <div className="circle-logo center-items">R</div>
+              <img src={bet.client.logo} className="lottery-client" />
+              <div className="lottery-description">{bet.lotteryPrize}</div>
+            </div>
           ))}
-        </ul>
+        </section>
       )}
-    </div>
+    </main>
   );
 };
 

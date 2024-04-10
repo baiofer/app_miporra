@@ -304,6 +304,90 @@ D => Bares
   margin-top: 1rem;
 }
 
+.club-bets {
+  display: flex;
+  flex-direction: column;
+}
+
+.active-bets-container {
+  display: flex;
+  max-width: 90%;
+  margin: 0 auto;
+  color: #ffffff;
+}
+
+.active-bets-title {
+  color: var(--primary-green-light);
+  font-style: italic;
+  font-size: 2rem;
+}
+
+.active-bets {
+  display: flex;
+  flex-direction: column;
+  padding: 4rem;
+  border: 1px solid var(--primary-green-main);
+  border-radius: 18px;
+  background-color: var(--primary-green-main);
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.active-bet-card {
+  display: flex;
+  gap: 3rem;
+  border-bottom: 1px solid white;
+  padding: 1rem;
+}
+
+.active-bet-teams {
+  display: flex;
+  gap: 2rem;
+}
+
+.lottery-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.lotteries {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.lottery-card {
+  display: flex;
+  padding: 2rem;
+  border: 1px solid var(--primary-green-light);
+  border-radius: 18px;
+  justify-content: space-between;
+  gap: 1rem;
+  min-width: 600px;
+  background-color: transparent;
+}
+
+.circle-logo {
+  display: flex;
+  padding: 0.5rem;
+  border: 1px solid var(--primary-green-main);
+  border-radius: 100%;
+  width: 15px;
+  height: 15px;
+  color: var(--primary-green-main);
+}
+
+.lottery-client {
+  width: 100px;
+}
+
+.lottery-description {
+  min-width: 315px;
+}
+
 @media (width > 768px) {
   .homepage-container {
     display: grid;

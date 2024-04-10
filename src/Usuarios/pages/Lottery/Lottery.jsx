@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { client } from "/src/api/config/client.js";
+import { useNavigate } from "react-router-dom";
 
 export const LotteryPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [lotteries, setLottery] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchLottery = async () => {
@@ -21,22 +23,31 @@ export const LotteryPage = () => {
     fetchLottery();
   }, []);
 
+  const handleMakeLotteryBet = (id) => {
+    navigate(`/make-lottery-bet/${id}`);
+  };
+
   return (
-    <div>
-      <h1>Rifas</h1>
+    <main className="lottery-container center-items">
+      <h1>Escoge tu rifa</h1>
       {isLoading ? (
         <p>Cargando...</p>
       ) : (
-        <ul>
+        <section className="lotteries center-items">
           {lotteries?.map((bet) => (
-            <li key={bet.clientId}>
-              <strong>Fecha límite: {bet.dateLimitOfBets}</strong> Premio:{" "}
-              {bet.lotteryPrize}
-            </li>
+            <button
+              key={bet.id}
+              className="lottery-card center-items"
+              onClick={() => handleMakeLotteryBet(bet.id)}
+            >
+              <div className="circle-logo center-items">R</div>
+              <img src={bet.client.logo} className="lottery-client" />
+              <div className="lottery-description">{bet.lotteryPrize}</div>
+            </button>
           ))}
-        </ul>
+        </section>
       )}
-    </div>
+    </main>
   );
 };
 

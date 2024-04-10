@@ -22,6 +22,8 @@ import { Homepage } from "./Usuarios/pages/Homepage/Homepage";
 import { Clubs } from "./Usuarios/pages/Clubs/Clubs";
 import { MakeBet } from "./Usuarios/pages/MakeBet/MakeBet";
 import Profile from "./clients/profile/Profile";
+import { ActiveBets } from "./Usuarios/pages/ActiveBets/ActiveBets";
+import { MakeLotteryBet } from "./Usuarios/pages/MakeLotteryBet/MakeLotteryBet";
 
 function App() {
   return (
@@ -47,6 +49,8 @@ function App() {
             <Route path="profile" element={<Profile />} />
             <Route path="homepage" element={<Homepage />} />
             <Route path="make-bet" element={<MakeBet />} />
+            <Route path="active-bets" element={<ActiveBets />} />
+            <Route path="make-lottery-bet/:id" element={<MakeLotteryBet />} />
           </Route>
         </Routes>
       </BrowserRouter>

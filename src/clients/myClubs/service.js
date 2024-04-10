@@ -24,3 +24,4 @@ export const deleteClub = (client, id) => {
     return clientJWT.delete(url, client)
 }
 
+

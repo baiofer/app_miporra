@@ -17,3 +17,15 @@ export const createClient = client => {
     const url = ('/newClient')
     return clientJWT.post(url, client)
 }
+
+// Recove password
+export const recovePass = (email, link) => {
+    const url = (`/recovePassword?email=${email}&link=${link}`)
+    return clientJWT.get(url)
+}
+
+// ResetPassword
+export const resetPassword = (data) => {
+    const url = ('/resetPassword')
+    return clientJWT.post(url, data)
+}

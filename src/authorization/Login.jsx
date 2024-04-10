@@ -8,18 +8,24 @@ import Cookies from 'js-cookie'
 import { getClient, login } from './service.js'
 import { setAuthorizationHeader } from '../api/config/client.js'
 import './Login.css'
+import { recovePass } from './service.js'
 
 const Login = () => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState(null)
+    const [message, setMessage] = useState(null)
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
     const resetError = () => {
         setError(null)
+    }
+
+    const resetMessage = () => {
+        setMessage(null)
     }
 
     const handleOnClick = async () => {
@@ -37,11 +43,25 @@ const Login = () => {
         } catch (error) {
             setError(error)
         }
-        
     }
 
-    const recovePassword = () => {
-
+    const recovePassword = async () => {
+        try {
+            if (email !== "") {
+                const link = "http://localhost:5173/resetPassword"
+                const result = await recovePass(email, link)
+                if (result === 'Email enviado') {
+                    setMessage(`Se ha enviado un correo electrónico a la dirección ${email} con las instrucciones necesarias para resetear su contraseña.`)
+                } else {
+                    setMessage(`Este email no está registrado en nuestro sistema. Puedes seleccionar la opción "Regístrate"`)
+                }
+            } else {
+                setMessage(`Introduzca una dirección de email válida`)
+            }
+        } catch (error) {
+            setError(error)
+        }
+        
     }
 
     return (
@@ -80,6 +100,14 @@ const Login = () => {
                         className="loginPage-error" 
                         onClick={resetError}
                     >{ error.message }, { error.error }</div>
+                </div>
+            }
+            { message && 
+                <div>
+                    <div 
+                        className="loginPage-message" 
+                        onClick={resetMessage}
+                    >{ message }</div>
                 </div>
             }
         </div>

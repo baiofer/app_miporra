@@ -3,15 +3,23 @@ import { createContext, useContext, useState } from "react";
 const BadgesContext = createContext();
 const BadgesContextProvider = ({ children }) => {
   const [currentBadges, setCurrentBadges] = useState();
+  const [isLoadingBadges, setIsLoadingBadges] = useState(false);
 
   const getBadge = (teamName) => {
     const team = currentBadges.filter((team) => team.name === teamName);
-    return team.badge;
+    console.log(team[0]);
+    return team[0]?.badge;
   };
 
   return (
     <BadgesContext.Provider
-      value={{ currentBadges, setCurrentBadges, getBadge }}
+      value={{
+        currentBadges,
+        setCurrentBadges,
+        getBadge,
+        isLoadingBadges,
+        setIsLoadingBadges,
+      }}
     >
       {children}
     </BadgesContext.Provider>

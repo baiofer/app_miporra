@@ -15,7 +15,6 @@ export const MakeLotteryBet = () => {
         const { data } = await client.get(`/lotteries?id=${params.id}`);
         setIsLoading(false);
         setLottery(data.results);
-        console.log(data);
       } catch (error) {
         console.log(error);
       }

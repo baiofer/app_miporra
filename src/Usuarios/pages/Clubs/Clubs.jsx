@@ -3,12 +3,14 @@ import { client } from "/src/api/config/client";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import { useClubContext } from "../../../context/ClubContext";
+import { useBadgesContext } from "../../../context/BadgesContext";
 
 export const Clubs = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [clubs, setClubs] = useState([]);
   const { setCurrentClub } = useClubContext();
   const navigate = useNavigate();
+  const { getBadge, currentBadges, isLoadingBadges } = useBadgesContext();
 
   useEffect(() => {
     const fetchClubs = async () => {
@@ -34,7 +36,7 @@ export const Clubs = () => {
   return (
     <div>
       <h1>Porras activas</h1>
-      {isLoading ? (
+      {isLoading || isLoadingBadges ? (
         <p>Cargando...</p>
       ) : (
         <div className="clubs center-items">
@@ -50,10 +52,12 @@ export const Clubs = () => {
               </div>
               <div className="club-teams center-items">
                 <div className="club-match">
-                  {club.match1HomeTeam} / {club.match1AwayTeam}
+                  <img src={getBadge(club.match1HomeTeam)} />/{" "}
+                  <img src={getBadge(club.match1AwayTeam)} />
                 </div>
                 <div className="club-match">
-                  {club.match2AwayTeam} / {club.match2HomeTeam}
+                  <img src={getBadge(club.match2HomeTeam)} />/{" "}
+                  <img src={getBadge(club.match2AwayTeam)} />
                 </div>
               </div>
             </button>

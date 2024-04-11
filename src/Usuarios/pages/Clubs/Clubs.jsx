@@ -10,7 +10,7 @@ export const Clubs = () => {
   const [clubs, setClubs] = useState([]);
   const { setCurrentClub } = useClubContext();
   const navigate = useNavigate();
-  const { getBadge, currentBadges, isLoadingBadges } = useBadgesContext();
+  const { getBadge, isLoadingBadges } = useBadgesContext();
 
   useEffect(() => {
     const fetchClubs = async () => {

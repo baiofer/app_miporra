@@ -4,11 +4,13 @@ import FormInput from "../../../components/FormInput";
 import { useClubContext } from "../../../context/ClubContext";
 import { client } from "../../../api/config/client";
 import { useNavigate } from "react-router-dom";
+import { useBadgesContext } from "../../../context/BadgesContext";
 
 export const MakeBet = () => {
   const { currentClub } = useClubContext();
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const { getBadge, isLoadingBadges } = useBadgesContext();
 
   const handleMakeBet = async (e) => {
     e.preventDefault();
@@ -57,7 +59,7 @@ export const MakeBet = () => {
           </div>
           <div className="teams-row">
             <div className="bet-box">
-              <div>{currentClub?.match1HomeTeam}</div>
+              <img src={getBadge(currentClub?.match1HomeTeam)} />
               <FormInput
                 disabled={isLoading}
                 type="number"
@@ -69,7 +71,7 @@ export const MakeBet = () => {
             </div>
             /{" "}
             <div className="bet-box">
-              <div>{currentClub?.match1AwayTeam}</div>
+              <img src={getBadge(currentClub?.match1AwayTeam)} />
               <FormInput
                 disabled={isLoading}
                 type="number"
@@ -82,7 +84,7 @@ export const MakeBet = () => {
           </div>
           <div className="teams-row">
             <div className="bet-box">
-              <div>{currentClub?.match2HomeTeam}</div>
+              <img src={getBadge(currentClub?.match2HomeTeam)} />
               <FormInput
                 disabled={isLoading}
                 type="number"
@@ -94,7 +96,7 @@ export const MakeBet = () => {
             </div>
             /{" "}
             <div className="bet-box">
-              <div>{currentClub?.match2AwayTeam}</div>
+              <img src={getBadge(currentClub?.match2AwayTeam)} />
               <FormInput
                 disabled={isLoading}
                 type="number"

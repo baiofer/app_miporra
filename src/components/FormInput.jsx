@@ -28,7 +28,8 @@ function FormInput({ type, name, defaultValue, label, ...props }) {
           type === 'password' &&
             <img 
               style={{ marginLeft: '10px', width: '30px', height: '30px' }} 
-              src={seePassword ? seePassIcon : notSeePassIcon} alt='See password'
+              src={seePassword ? seePassIcon : notSeePassIcon} 
+              alt='See password'
               onClick={handleClick}
             />
         }

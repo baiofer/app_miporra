@@ -9,12 +9,14 @@ import { useDispatch } from "react-redux"
 import { setClientLogged, setOrigin } from "../redux/reducers/authReducer"
 import { useNavigate } from "react-router-dom"
 import './Register.css'
+import ErrorComponent from "../components/ErrorComponent"
 
 const Register = () => {
 
     const [email, setEmail] = useState("")
     const [name, setName] = useState("")
     const [password, setPassword] = useState("")
+    const [repeatPassword, setRepeatPassword] = useState("")
     const [logo, setLogo] = useState("")
     const [isFetching, setIsFetching] = useState(false)
     const [error, setError] = useState(null)
@@ -27,10 +29,6 @@ const Register = () => {
         setLogo(file)
     }
 
-    const resetError = () => {
-        setError(null)
-    }
-
     useEffect(() => {
         if (clientCreated) {
             dispatch(setClientLogged(clientCreated))
@@ -39,8 +37,35 @@ const Register = () => {
         }
     }, [clientCreated, dispatch, navigate])
 
+    useEffect(() => {
+        if (error) {
+          const timer = setTimeout(() => {
+            setError(null);
+          }, 5000);
+          return () => {
+            clearTimeout(timer);
+          };
+        }
+      }, [error]);
+
     const handleOnSubmit = async (event) => {
         event.preventDefault()
+        // Validate email
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(email)) {
+            setError('El correo electrónico no es válido.');
+            return;
+        }
+        // Validate password length
+        if (password.length < 6) {
+            setError('El password debe contener al menos 6 caracteres.');
+            return;
+        }
+        // Validate password
+        if (password !== repeatPassword) {
+            setError('Las dos contraseñas deben coincidir.');
+            return;
+        }
         const formData = new FormData()
         formData.append('name', name)
         formData.append('email', email)
@@ -91,6 +116,14 @@ const Register = () => {
                     label="Tu contraseña"
                     name="password"
                 />
+                <FormInput 
+                    type="password"
+                    required
+                    value={repeatPassword}
+                    onChange={ e => setRepeatPassword(e.target.value)}
+                    label="Repite tu contraseña"
+                    name="repeatPassword"
+                />
                 <PhotoSelector onFileSelected={handleFileSelected}
                 />
                 <div className="register-access">
@@ -103,11 +136,8 @@ const Register = () => {
                     <a className="register-login-a" href='/login' style={{ marginLeft: '20px' }}>Inicia sesión</a>
                 </p>
                 { error && 
-                    <div className="loginPage-errorContainer">
-                        <div 
-                            className="loginPage-error" 
-                            onClick={resetError}
-                        >{ error.message }, { error.error }</div>
+                    <div>
+                        <ErrorComponent errorText={error} />
                     </div>
                 }
             </form>

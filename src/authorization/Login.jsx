@@ -44,7 +44,7 @@ const Login = () => {
       dispatch(setClientLogged(clientData.results[0]));
       // Change the origin to reload the client navBar
       dispatch(setOrigin("client"));
-      navigate("/myClubsList");
+      navigate("/client");
     } catch (error) {
       let errorToShow = "";
       if (error.message === "Unauthorized") {

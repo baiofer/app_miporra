@@ -6,8 +6,6 @@ import './ErrorComponent.css'
 
 const ErrorComponent = ({errorText}) => {
 
-    console.log(errorText)
-
     const [error, setError] = useState(errorText)
 
     useEffect(() => {

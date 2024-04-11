@@ -1,0 +1,15 @@
+.login-page-message {
+    width: 100%;
+    border-style: solid;
+    border-color: var(--primary-green-light);
+    border-width: 2px;
+    border-radius: 10px;
+    height: 100%;
+}
+
+.login-message {
+    display: flex;
+    padding: 13px;    
+    align-items: center;
+    color: var(--primary-green-light);
+}

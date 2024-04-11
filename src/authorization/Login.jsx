@@ -64,7 +64,7 @@ const Login = () => {
   const recovePassword = async () => {
     try {
       if (email !== "") {
-        const link = "http://localhost:5173/resetPassword";
+        const link = "http://localhost:3173/resetPassword";
         const result = await recovePass(email, link);
         if (result === "Email enviado") {
           setMessage(
@@ -119,12 +119,10 @@ const Login = () => {
             Regístrate
           </a>
         </p>
-
+    
         {error && (
           <div>
-            <div className="login-page-error" onClick={resetError}>
-              <div className="login-error">{error}</div>
-            </div>
+            <ErrorComponent errorText={error}/>
           </div>
         )}
         {message && (

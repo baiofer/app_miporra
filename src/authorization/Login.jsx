@@ -10,6 +10,7 @@ import { setAuthorizationHeader } from "../api/config/client.js";
 import "./Login.css";
 import { recovePass } from "./service.js";
 import ErrorComponent from "../components/ErrorComponent.jsx";
+import MessageComponent from "../components/MessageComponent.jsx";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -122,14 +123,12 @@ const Login = () => {
     
         {error && (
           <div>
-            <ErrorComponent errorText={error}/>
+            <ErrorComponent errorText={error} />
           </div>
         )}
         {message && (
           <div>
-            <div className="login-page-message" onClick={resetMessage}>
-              <div className="login-message">{message}</div>
-            </div>
+            <MessageComponent messageText={message} />
           </div>
         )}
       </div>

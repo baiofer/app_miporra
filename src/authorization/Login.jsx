@@ -33,14 +33,6 @@ const Login = () => {
     }
   }, [error, message]);
 
-  const resetError = () => {
-    setError(null);
-  };
-
-  const resetMessage = () => {
-    setMessage(null);
-  };
-
   const handleOnClick = async () => {
     try {
       const token = await login({ email, password });

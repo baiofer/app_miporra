@@ -1,0 +1,29 @@
+.register-container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1100px;
+    align-items: center;
+    flex-direction: column;
+}
+
+@media (width > 500px) {
+    .register-container {
+        width: 100% auto;
+        max-width: 500px;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+.register-access {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.register-login {
+    margin-top: 20px;
+}
+.register-login-a {
+    margin-left: 15px;
+}

@@ -21,6 +21,10 @@ button {
   box-shadow: 0 0 2px 1px rgb(red, green, blue, alpha);
 }
 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 :root {
   --primary-green-main: #006b5a;
   --primary-green-light: #acd034;

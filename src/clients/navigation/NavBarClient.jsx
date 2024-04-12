@@ -1,39 +1,25 @@
-import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import logo from '../../images/LOGO.png'
+import perfil from '../../images/perfil.svg'
 import './NavBarClient.css'
+import ValidationButton from "../../components/ValidationButton";
 
 function NavbarClient() {
-
-  const clientLogged = useSelector(state => state.origin.clientLogged)
-  const logoPath = clientLogged.logo
   
   return (
     <div className="navBar">
       <NavLink to="/myClubsList" className="navLink">
-        {
-          logoPath !== '' ?
-            <img className="logo" src={logoPath} alt="Logo del cliente" />
-          :
-            <img className="logo" src={logo} alt="Logo del cliente" />
-        }
-         
+        <img className="logo" src={logo} alt="Logo del sitio" />
       </NavLink>
       <ul className="navBar-items">
-        <NavLink to="/myClubsList" className="navLink">
-          Mis Porras
-        </NavLink>
-        <NavLink to="/myLotteriesList" className="navLink">
-          Mis Rifas
-        </NavLink>
         <NavLink to="/validationsList" className="navLink">
-          Validaciones
+          <ValidationButton />
         </NavLink>
         <NavLink to="/profile" className="navLink">
-          Mi Perfil
+          <img className="navBar-profile" src={perfil} alt="Logo del cliente" />
         </NavLink>
         <NavLink to="/logout" className="navLink">
-          LOGOUT
+          <p className="navBar-exit">Salir</p>
         </NavLink>
       </ul>
     </div>

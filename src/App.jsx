@@ -10,6 +10,7 @@ import LotteryPage from "./Usuarios/pages/Lottery/Lottery";
 
 import Login from "./authorization/Login";
 import Register from "./authorization/Register";
+import Client from './clients/client/Client'
 import MyClubsList from "./clients/myClubs/MyClubsList";
 import MyClubDetail from "./clients/myClubs/MyClubDetail";
 import MyLotteriesList from "./clients/myLotteries/MyLotteriesList";
@@ -23,9 +24,8 @@ import { Clubs } from "./Usuarios/pages/Clubs/Clubs";
 import { MakeBet } from "./Usuarios/pages/MakeBet/MakeBet";
 import Profile from "./clients/profile/Profile";
 import ResetPassword from "./authorization/ResetPassword";
-import { ActiveBets } from "./Usuarios/pages/ActiveBets/ActiveBets";
-import { MakeLotteryBet } from "./Usuarios/pages/MakeLotteryBet/MakeLotteryBet";
-import { ClientDetail } from "./Usuarios/pages/Clients/ClientDetail";
+import { ActiveBets } from './Usuarios/pages/ActiveBets/ActiveBets'
+import { MakeLotteryBet } from './Usuarios/pages/MakeLotteryBet/MakeLotteryBet'
 
 function App() {
   return (
@@ -44,6 +44,11 @@ function App() {
             <Route path="register" element={<Register />} />
             <Route path="resetPassword" element={<ResetPassword />} />
             <Route path="logout" element={<Logout />} />
+            <Route path="client" element={<Client />} />
+            <Route path="createClub" element={<CreateClub />} />
+            <Route path="createLottery" element={<CreateLottery />} />
+            <Route path="closeClub" element={<CloseClub />} />
+            <Route path="closeLottery" element={<CloseLottery />} />
             <Route path="myClubsList" element={<MyClubsList />} />
             <Route path="myClubDetail" element={<MyClubDetail />} />
             <Route path="myLotteriesList" element={<MyLotteriesList />} />

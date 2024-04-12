@@ -1,5 +1,8 @@
 .photoSelector-container {
-    width: 500px;
+    /*width: 500px;*/
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1100px;
     height:250px;
     border-style: solid;
     border-width: 1px;
@@ -9,24 +12,35 @@
     margin-bottom: 10px;
 }
 
+.register-container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1100px;
+    align-items: center;
+    flex-direction: column;
+}
+
 .photoSelector-containerSelector {
-    margin-left: 20px;
+    /*margin-left: 20px;*/
     margin-top: 20px;
 }
 
 .photoSelector-inputContainer {
     display: flex;
-    width: 420px;
+    /*width: 420px;*/
+    width: 80%;
+    margin: 0 auto;
     height: 20px;
     font-size: 1rem;
     position: relative;
     overflow: hidden;
-    padding: 6px 12px;
+    padding: 10px;
+    /*padding: 6px 12px;*/
     border: 1px solid #ccc;
     border-radius: 4px;
     cursor: pointer;
     align-items: center;
-    padding-left: 20px;
+    /*padding-left: 20px;*/
     color: rgb(19, 195, 174);
 }
 

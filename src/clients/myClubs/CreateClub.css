@@ -1,0 +1,79 @@
+.createClub {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+.createClub-container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 800px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.createClub-title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.createClub-date-time {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.cxreateClub-date {
+    margin: 5px;
+}
+
+.createClub-match-title {
+    display: flex;
+    justify-content: center;
+}
+
+.createClub-match {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: row;
+}
+
+.createClub-select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: var(--primary-green-main);
+    background-color: var(--secondary-light);
+    border-color: var(--primary-green-main);
+    font-weight: 600;
+}
+
+.createClub-badge {
+    width: 100%;
+    margin: 0 auto;
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.createClub-team {
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    margin: 0 auto;
+    flex-direction: column;
+}
+
+.createClub-access {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}

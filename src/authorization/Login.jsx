@@ -10,6 +10,7 @@ import { setAuthorizationHeader } from "../api/config/client.js";
 import "./Login.css";
 import { recovePass } from "./service.js";
 import ErrorComponent from "../components/ErrorComponent.jsx";
+import MessageComponent from "../components/MessageComponent.jsx";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -32,14 +33,6 @@ const Login = () => {
     }
   }, [error, message]);
 
-  const resetError = () => {
-    setError(null);
-  };
-
-  const resetMessage = () => {
-    setMessage(null);
-  };
-
   const handleOnClick = async () => {
     try {
       const token = await login({ email, password });
@@ -51,7 +44,7 @@ const Login = () => {
       dispatch(setClientLogged(clientData.results[0]));
       // Change the origin to reload the client navBar
       dispatch(setOrigin("client"));
-      navigate("/myClubsList");
+      navigate("/client");
     } catch (error) {
       let errorToShow = "";
       if (error.message === "Unauthorized") {
@@ -64,7 +57,7 @@ const Login = () => {
   const recovePassword = async () => {
     try {
       if (email !== "") {
-        const link = "http://localhost:5173/resetPassword";
+        const link = "http://localhost:3173/resetPassword";
         const result = await recovePass(email, link);
         if (result === "Email enviado") {
           setMessage(
@@ -119,19 +112,15 @@ const Login = () => {
             Regístrate
           </a>
         </p>
-
+    
         {error && (
           <div>
-            <div className="login-page-error" onClick={resetError}>
-              <div className="login-error">{error}</div>
-            </div>
+            <ErrorComponent errorText={error} />
           </div>
         )}
         {message && (
           <div>
-            <div className="login-page-message" onClick={resetMessage}>
-              <div className="login-message">{message}</div>
-            </div>
+            <MessageComponent messageText={message} />
           </div>
         )}
       </div>

@@ -33,7 +33,7 @@ const Register = () => {
         if (clientCreated) {
             dispatch(setClientLogged(clientCreated))
             dispatch(setOrigin('client'))
-            navigate('/myClubsList')
+            navigate('/client')
         }
     }, [clientCreated, dispatch, navigate])
 
@@ -83,7 +83,7 @@ const Register = () => {
             setClientCreated(clientData.results)
         } catch (error) {
             setIsFetching(false)
-            setError(error)
+            setError(error.message)
         }
     }
 

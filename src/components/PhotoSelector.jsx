@@ -39,7 +39,7 @@ function PhotoSelector({ onFileSelected, previousImage }) {
         
             {
                 selectedImage && (
-                    <div className='photoselector-imageContainer'>
+                    <div className='photoSelector-imageContainer'>
                         <img 
                             className='photoSelector-image'
                             src={selectedImage ? selectedImage : logoImage} 

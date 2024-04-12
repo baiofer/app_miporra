@@ -23,8 +23,9 @@ import { Clubs } from "./Usuarios/pages/Clubs/Clubs";
 import { MakeBet } from "./Usuarios/pages/MakeBet/MakeBet";
 import Profile from "./clients/profile/Profile";
 import ResetPassword from "./authorization/ResetPassword";
-import { ActiveBets } from './Usuarios/pages/ActiveBets/ActiveBets'
-import { MakeLotteryBet } from './Usuarios/pages/MakeLotteryBet/MakeLotteryBet'
+import { ActiveBets } from "./Usuarios/pages/ActiveBets/ActiveBets";
+import { MakeLotteryBet } from "./Usuarios/pages/MakeLotteryBet/MakeLotteryBet";
+import { ClientDetail } from "./Usuarios/pages/Clients/ClientDetail";
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
             <Route path="make-bet" element={<MakeBet />} />
             <Route path="active-bets" element={<ActiveBets />} />
             <Route path="make-lottery-bet/:id" element={<MakeLotteryBet />} />
+            <Route path="client-detail/:id" element={<ClientDetail />} />
           </Route>
         </Routes>
       </BrowserRouter>

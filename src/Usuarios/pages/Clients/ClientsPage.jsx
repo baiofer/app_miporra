@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { client } from "../../../api/config/client";
+import { useNavigate } from "react-router-dom";
 
 export const ClientsPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [clubs, setClubs] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchClients = async () => {
@@ -21,6 +23,10 @@ export const ClientsPage = () => {
     fetchClients();
   }, []);
 
+  const handleClientDetail = (id) => {
+    navigate(`/client-detail/${id}`);
+  };
+
   return (
     <main className="clients-container center-items">
       <h1>Bares</h1>
@@ -29,7 +35,11 @@ export const ClientsPage = () => {
       ) : (
         <section className="clients-section center-items">
           {clubs.map((client) => (
-            <div className="client-card center-items" key={client.id}>
+            <button
+              className="client-card center-items"
+              key={client.id}
+              onClick={() => handleClientDetail(client.id)}
+            >
               <img
                 className="client-logo"
                 src={client.logo}
@@ -40,7 +50,7 @@ export const ClientsPage = () => {
                 }}
               />
               <div className="client-name">{client.name}</div>
-            </div>
+            </button>
           ))}
         </section>
       )}

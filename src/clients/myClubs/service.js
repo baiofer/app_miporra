@@ -7,9 +7,10 @@ export const getClubs = async () => {
 }
 
 // Create a club
-export const createClub = async () => {
+export const createClub = async (club) => {
     const url = "/newClub"
-    return clientJWT.post(url)
+    console.log(club)
+    return clientJWT.post(url, club)
 }
 
 // Update a club

@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { setClientLogged, setOrigin } from "../../redux/reducers/authReducer"
 import { useNavigate } from "react-router-dom"
 import './Profile.css'
+import ErrorComponent from "../../components/ErrorComponent"
 
 const Profile = () => {
 
@@ -23,10 +24,6 @@ const Profile = () => {
 
     const handleFileSelected = (file) => {
         setLogo(file)
-    }
-
-    const resetError = () => {
-        setError(null)
     }
 
     useEffect(() => {
@@ -47,17 +44,19 @@ const Profile = () => {
             setIsFetching(true)
             const clientData = await updateClient(formData)
             setIsFetching(false)
+            console.log(clientData)
             setClientUpdated(clientData.results)
         } catch (error) {
             setIsFetching(false)
+            console.log(error)
             setError(error)
         }
     }
 
     
     return (
-        <div>
-            <h2>Confírmanos tus datos</h2>
+        <div className="profile-container">
+            <h2 className="profile-title">Confírmanos tus datos</h2>
             <form onSubmit={handleOnSubmit}>
                 <FormInput 
                     type="text"
@@ -74,15 +73,11 @@ const Profile = () => {
                 <Button variant="primary-cta">
                     {isFetching ? "Modificando tus datos ..." : "Modifica tus datos"}
                 </Button>
-                { error && 
-                    <div className="loginPage-errorContainer">
-                        <div 
-                            className="loginPage-error" 
-                            onClick={resetError}
-                        >{ error.message }, { error.error }</div>
-                    </div>
-                }
+                
             </form>
+            { error && 
+                <ErrorComponent errorText={error} />
+            }
         </div>
     )
 }

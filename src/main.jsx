@@ -8,11 +8,14 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { ClubContextProvider } from "./context/ClubContext.jsx";
+import { BadgesContextProvider } from "./context/BadgesContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ClubContextProvider>
-      <App />
-    </ClubContextProvider>
+    <BadgesContextProvider>
+      <ClubContextProvider>
+        <App />
+      </ClubContextProvider>
+    </BadgesContextProvider>
   </React.StrictMode>
 );

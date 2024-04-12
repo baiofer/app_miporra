@@ -181,6 +181,8 @@ C => Info
 D => Bares
 */
 
+/*HOMEPAGE*/
+
 .homepage-container {
   display: grid;
   grid-template-areas:
@@ -232,6 +234,8 @@ D => Bares
   justify-content: center;
 }
 
+/*CLUBS*/
+
 .clubs {
   display: flex;
   flex-wrap: wrap;
@@ -260,6 +264,8 @@ D => Bares
   flex-direction: column;
   gap: 2rem;
 }
+
+/*BETS*/
 
 .bet-container {
   max-width: 90%;
@@ -313,6 +319,8 @@ D => Bares
   flex-direction: column;
 }
 
+/*ACTIVE BETS*/
+
 .active-bets-container {
   display: flex;
   max-width: 90%;
@@ -350,6 +358,8 @@ D => Bares
   gap: 2rem;
 }
 
+/*LOTTERY*/
+
 .lottery-container {
   display: flex;
   flex-direction: column;
@@ -374,6 +384,8 @@ D => Bares
   background-color: transparent;
 }
 
+/*TODO COMPONENT LOGO CIRCULO*/
+
 .circle-logo {
   display: flex;
   padding: 0.5rem;
@@ -390,6 +402,40 @@ D => Bares
 
 .lottery-description {
   min-width: 315px;
+}
+
+/*CLIENTS*/
+
+.clients-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.clients-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.client-card {
+  display: flex;
+  border: 3px solid var(--primary-green-main);
+  border-radius: 18px;
+  padding: 2rem;
+  gap: 2rem;
+  min-width: 420px;
+  justify-content: space-evenly;
+  background-color: transparent;
+}
+
+.client-logo {
+  width: 100px;
+}
+
+.client-name {
+  font-size: 2rem;
 }
 
 @media (width > 768px) {

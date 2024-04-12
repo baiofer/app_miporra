@@ -26,10 +26,6 @@ import Profile from "./clients/profile/Profile";
 import ResetPassword from "./authorization/ResetPassword";
 import { ActiveBets } from './Usuarios/pages/ActiveBets/ActiveBets'
 import { MakeLotteryBet } from './Usuarios/pages/MakeLotteryBet/MakeLotteryBet'
-import CreateClub from "./clients/myClubs/CreateClub";
-import CreateLottery from "./clients/myLotteries/CreateLottery";
-import CloseClub from "./clients/myClubs/CloseClub";
-import CloseLottery from "./clients/myLotteries/CloseLottery";
 
 function App() {
   return (
@@ -63,6 +59,7 @@ function App() {
             <Route path="make-bet" element={<MakeBet />} />
             <Route path="active-bets" element={<ActiveBets />} />
             <Route path="make-lottery-bet/:id" element={<MakeLotteryBet />} />
+            <Route path="client-detail/:id" element={<ClientDetail />} />
           </Route>
         </Routes>
       </BrowserRouter>

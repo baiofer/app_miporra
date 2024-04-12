@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { client } from "../../../api/config/client";
 
 export const ClientDetail = () => {
@@ -30,4 +30,57 @@ export const ClientDetail = () => {
     };
     fetchClientClubs();
   }, []);
+
+  return (
+    <div>
+      <h1>Apuestas activas en este Bar</h1>
+      {isLoading ? (
+        <p>Cargando...</p>
+      ) : (
+        <ul style={{ listStyle: "none" }}>
+          {clientClubs?.map((bet) => (
+            <>
+              <li key={bet.id} style={{ marginTop: "1rem" }}>
+                <strong>{bet.client.name}</strong>
+              </li>
+
+              <li>
+                <Link
+                  to={`/make-bet/${bet?.clubs?.id}`}
+                  style={{
+                    display: "flex",
+                    gap: "2rem",
+                    flexDirection: "column",
+                  }}
+                >
+                  <div>
+                    {/* {new Date(bet.club.match1Date).toLocaleDateString()}{" "} */}
+                    {bet?.club?.match1Date} {bet?.club?.match1Hour}
+                  </div>
+                  <div style={{ display: "flex", gap: "2rem" }}>
+                    <div>{bet?.club?.match1HomeTeam}</div>
+                    <div>{bet?.club?.match1AwayTeam}</div>
+                    <div>{bet?.match1HomeTeamResult}</div>
+                    <div>-</div>
+                    <div>{bet?.match1AwayTeamResult}</div>
+                  </div>
+                  <div>
+                    {/* {new Date(bet.club.match1Date).toLocaleDateString()}{" "} */}
+                    {bet?.club?.match2Date} {bet?.club?.match2hour}
+                  </div>
+                  <div style={{ display: "flex", gap: "2rem" }}>
+                    <div>{bet?.club?.match2HomeTeam}</div>
+                    <div>{bet?.club?.match2AwayTeam}</div>
+                    <div>{bet?.match2HomeTeamResult}</div>
+                    <div>-</div>
+                    <div>{bet?.match2AwayTeamResult}</div>
+                  </div>
+                </Link>
+              </li>
+            </>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
 };

@@ -6,9 +6,9 @@ const BadgesContextProvider = ({ children }) => {
   const [isLoadingBadges, setIsLoadingBadges] = useState(false);
 
   const getBadge = (teamName) => {
-    const team = currentBadges.filter((team) => team.name === teamName);
-    console.log(team[0]);
-    return team[0]?.badge;
+    const team = currentBadges?.filter((team) => team.name === teamName);
+
+    return team?.[0]?.badge;
   };
 
   return (

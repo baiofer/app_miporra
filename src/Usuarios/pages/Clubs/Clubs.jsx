@@ -19,7 +19,6 @@ export const Clubs = () => {
         const { data } = await client.get("/clubs");
         setIsLoading(false);
         setClubs(data.results);
-        console.log(data);
       } catch (error) {
         console.log(error);
         setIsLoading(false);

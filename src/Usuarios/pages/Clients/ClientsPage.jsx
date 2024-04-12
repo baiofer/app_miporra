@@ -22,21 +22,29 @@ export const ClientsPage = () => {
   }, []);
 
   return (
-    <div>
+    <main className="clients-container center-items">
       <h1>Bares</h1>
       {isLoading ? (
         <p>Cargando...</p>
       ) : (
-        <ul>
-          {clubs.map((bet) => (
-            <li key={bet.id}>
-              <strong>BAR {bet.name}</strong> - Fecha: {bet.createdAt} @ BAR{" "}
-              {bet.email}
-            </li>
+        <section className="clients-section center-items">
+          {clubs.map((client) => (
+            <div className="client-card center-items" key={client.id}>
+              <img
+                className="client-logo"
+                src={client.logo}
+                alt="client-logo"
+                onError={(e) => {
+                  e.target.onerror = null; // para evitar bucles infinitos
+                  e.target.src = "placeholder-img.png";
+                }}
+              />
+              <div className="client-name">{client.name}</div>
+            </div>
           ))}
-        </ul>
+        </section>
       )}
-    </div>
+    </main>
   );
 };
 

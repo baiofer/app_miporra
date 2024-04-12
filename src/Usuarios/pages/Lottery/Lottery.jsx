@@ -14,7 +14,6 @@ export const LotteryPage = () => {
         const { data } = await client.get("/lotteries");
         setIsLoading(false);
         setLottery(data.results);
-        console.log(data);
       } catch (error) {
         console.log(error);
         setIsLoading(false);

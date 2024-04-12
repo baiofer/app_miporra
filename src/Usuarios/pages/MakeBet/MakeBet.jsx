@@ -33,7 +33,6 @@ export const MakeBet = () => {
   };
 
   useEffect(() => {
-    console.log(currentClub);
     if (!currentClub) navigate("/clubs");
   }, []);
 

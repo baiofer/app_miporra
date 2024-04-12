@@ -19,7 +19,6 @@ const AppLayout = () => {
         const { data } = await client.get("/badges");
         setCurrentBadges(data.results);
 
-        console.log(data);
         setIsLoadingBadges(false);
       } catch (error) {
         setIsLoadingBadges(false);

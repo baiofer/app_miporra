@@ -7,21 +7,27 @@ export const getClubs = async () => {
 }
 
 // Create a club
-export const createClub = () => {
+export const createClub = async () => {
     const url = "/newClub"
     return clientJWT.post(url)
 }
 
 // Update a club
-export const updateClub = (client, id) => {
+export const updateClub = async (client, id) => {
     const url = ('/updateClub', id)
     return clientJWT.put(url, client)
 }
 
 // Delete a club
-export const deleteClub = (client, id) => {
+export const deleteClub = async (client, id) => {
     const url = ('/deleteClub', id)
     return clientJWT.delete(url, client)
+}
+
+// Get teams badges
+export const getTeams = async () => {
+    const url = ('/badges')
+    return clientJWT.get(url)
 }
 
 

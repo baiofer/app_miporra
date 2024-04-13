@@ -384,6 +384,19 @@ D => Bares
   background-color: transparent;
 }
 
+.make-lottery-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.lottery-bet {
+  border: 1px solid var(--primary-green-main);
+  border-radius: 18px;
+  background-color: var(--primary-green-lighter);
+  padding: 2rem;
+}
+
 /*TODO COMPONENT LOGO CIRCULO*/
 
 .circle-logo {

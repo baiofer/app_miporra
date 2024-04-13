@@ -397,6 +397,17 @@ D => Bares
   padding: 2rem;
 }
 
+.make-lottery-card {
+  display: flex;
+  flex-wrap: wrap;
+  width: 560px;
+  gap: 0.5rem;
+}
+
+.lottery-button {
+  width: 45px;
+}
+
 /*TODO COMPONENT LOGO CIRCULO*/
 
 .circle-logo {

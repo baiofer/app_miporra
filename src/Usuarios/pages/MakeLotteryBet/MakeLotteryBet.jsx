@@ -39,15 +39,16 @@ export const MakeLotteryBet = () => {
   return (
     <main className="make-lottery-container center-items">
       <h1>Apostar Rifas</h1>
-      <div className="make-lottery-card">
+      <div className="make-lottery-card center-items">
         {lotteryArray.map((number) => (
-          <button
+          <Button
+            variant="primary-cta lottery-button"
             key={number}
             disabled={selectedNumbers.includes(+number)}
             onClick={() => handleSelectNumber(number)}
           >
             {number}
-          </button>
+          </Button>
         ))}
       </div>
       {selectedNumber && (
@@ -68,6 +69,7 @@ export const MakeLotteryBet = () => {
                 label="Tu mail"
               />
               <p>Número seleccionado: {selectedNumber}</p>
+              <p>Precio de la apuesta: {lottery[0].betPrice}€</p>
             </div>
 
             <div className="submit-bet center-items">

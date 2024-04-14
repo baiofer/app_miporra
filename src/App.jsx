@@ -31,7 +31,7 @@ import CreateLottery from "./clients/myLotteries/CreateLottery";
 import CloseClub from "./clients/myClubs/CloseClub";
 import CloseLottery from "./clients/myLotteries/CloseLottery";
 import { ClientDetail } from "./Usuarios/pages/Clients/ClientDetail";
-import GenerateQR from "./clients/myClubs/GenerateQR";
+import GenerateQR from "./components/GenerateQR";
 import MiporraApp from "./clients/MiporraApp";
 
 

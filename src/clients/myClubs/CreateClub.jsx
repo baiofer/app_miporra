@@ -40,7 +40,7 @@ const CreateClub = () => {
             clearTimeout(timer);
           };
         }
-      }, [error]);
+    }, [error]);
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -58,18 +58,23 @@ const CreateClub = () => {
             accumulatedJackpot: jackpot,
             limitDateForBets: clubDate,
             limitHourForBets: clubTime,
-            state: 'inProgress',
+            state: 'in progress',
             numberOfWinners: 0
         }
         try {
+            console.log(clubToCreate)
             const clubCreated = await createClub(clubToCreate)
-            console.log('Porra creada: ', clubCreated)
-            navigate('/MyClubsList')
+            console.log('Porra creada: ', clubCreated.results.id)
+            const clubId = clubCreated.results.id
+            const url = `https://mip0rra.es/make-club-bet/${clubId}`
+            navigate('/generateQR', { state: { url, type:'club'}}) 
         } catch (error) {
             console.log('Error: ', error)
             setError(error.message)
         }
     }
+
+
 
     const handleTeam1 = (event) => {
         setSelectedTeam1(event.target.value)

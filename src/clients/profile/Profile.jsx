@@ -2,19 +2,20 @@ import { useEffect, useState } from "react"
 import FormInput from "../../components/FormInput"
 import Button from "../../components/Button"
 import PhotoSelector from "../../components/PhotoSelector"
-import { updateClient } from "./service"
+import { deleteClient, updateClient } from "./service"
 import { useDispatch, useSelector } from "react-redux"
 import { setClientLogged, setOrigin } from "../../redux/reducers/authReducer"
 import { useNavigate } from "react-router-dom"
 import './Profile.css'
 import ErrorComponent from "../../components/ErrorComponent"
+import { removeAuthorizationHeader } from "../../api/config/client"
 
 const Profile = () => {
 
     const clientLogged = useSelector (state => state.origin.clientLogged)
 
     const [name, setName] = useState(clientLogged.name)
-    const [logo, setLogo] = useState(clientLogged.logo)
+    const [logo, setLogo] = useState(null)
     const [isFetching, setIsFetching] = useState(false)
     const [error, setError] = useState(null)
     const [clientUpdated, setClientUpdated] = useState(null)
@@ -44,7 +45,6 @@ const Profile = () => {
             setIsFetching(true)
             const clientData = await updateClient(formData)
             setIsFetching(false)
-            console.log(clientData)
             setClientUpdated(clientData.results)
         } catch (error) {
             setIsFetching(false)
@@ -53,7 +53,27 @@ const Profile = () => {
         }
     }
 
-    
+    const deleteCookie = (name) => {
+        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    };
+
+    const handleDelete = async () => {
+        // Delete client
+        await deleteClient(clientLogged.id)
+        console.log('cliente borrado')
+        // Delete token
+        deleteCookie('token')
+        console.log('cookie borrado')
+        // Delete Authoritation in Axios
+        removeAuthorizationHeader()
+        console.log('axios borrado')
+        // Delete redux
+        dispatch(setOrigin('user'))
+        dispatch(setClientLogged({}))
+        console.log('redux borrado')
+        navigate('/miporra-app')
+    }
+
     return (
         <div className="profile-container">
             <h2 className="profile-title">Confírmanos tus datos</h2>
@@ -70,10 +90,14 @@ const Profile = () => {
                     onFileSelected={handleFileSelected}
                     previousImage={clientLogged.logo}
                 />
-                <Button variant="primary-cta">
-                    {isFetching ? "Modificando tus datos ..." : "Modifica tus datos"}
-                </Button>
-                
+                <div className="profile-selections">
+                    <Button variant="primary-cta">
+                        {isFetching ? "Modificando tus datos ..." : "Modifica tus datos"}
+                    </Button>
+                    <Button variant="primary-cta" type='button' onClick={handleDelete}>
+                        Elimíname de la red de bares
+                    </Button>
+                </div>
             </form>
             { error && 
                 <ErrorComponent errorText={error} />

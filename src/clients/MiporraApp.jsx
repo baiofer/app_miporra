@@ -25,18 +25,34 @@ const MiporraApp = () => {
         return JSON.parse(jsonPayload);
     };
 
-    const decodedToken = parseJwt(getCookie('token'));
-    const isTokenExpired = decodedToken.exp < Date.now() / 1000
+    const token = getCookie('token');
+    let decodedToken = null
+    let isTokenExpired = null
+
+    console.log('token: ', token)
+
+    if (token) {
+        decodedToken = parseJwt(token);
+        isTokenExpired = decodedToken.exp < Date.now() / 1000
+    } else {
+        navigate('/porras')
+    }
+    
 
     useEffect(() => {
-        if (isTokenExpired) {
-            dispatch(setOrigin('user'))
-            dispatch(setClientLogged({}))
-            navigate('./porras')
+        if (token) {
+            if (isTokenExpired) {
+                dispatch(setOrigin('user'))
+                dispatch(setClientLogged({}))
+                navigate('./porras')
+            } else {
+                handleClient()
+                navigate('/client')
+            }
         } else {
-            handleClient()
-            navigate('/client')
+            navigate('/porras')
         }
+        
     }, [])
     
     const handleClient = async () => {

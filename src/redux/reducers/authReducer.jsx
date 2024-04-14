@@ -1,4 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
 
 const initialState = {
   origin: 'user',
@@ -20,4 +23,11 @@ const appSlice = createSlice({
 
 export const { setOrigin, setClientLogged } = appSlice.actions;
 
-export default appSlice.reducer;
+const persistConfig = {
+  key: 'auth',
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, appSlice.reducer);
+
+export default persistedReducer;

@@ -37,7 +37,9 @@ const Client = () => {
     
     return(
         <div className="client-container">
-            <img className='client-logo' src={clientLogo} alt="Logo del cliente" />
+            <div className='client-container-img'>
+                <img className='client-logo' src={clientLogo} alt="Logo del cliente" />
+            </div>
             <div className='client-total-container'>
                 <div className='client-club-container'>
                     <div className='client-club-container-back'>

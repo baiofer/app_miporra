@@ -1,0 +1,18 @@
+.generateQR-container {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1100px;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.generateQR-text {
+    margin-top: 80px;
+    color: var(--primary-green-main);
+}
+
+.generateQR-button {
+    margin-top: 30px;
+}

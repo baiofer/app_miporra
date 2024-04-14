@@ -1,0 +1,20 @@
+.profile-container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1100px;
+    align-items: center;
+    flex-direction: column;
+}
+
+@media (width > 500px) {
+    .profile-container {
+        width: 100% auto;
+        max-width: 500px;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+.profile-title {
+    color: var(--primary-green-main);
+}

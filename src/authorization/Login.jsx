@@ -57,7 +57,7 @@ const Login = () => {
   const recovePassword = async () => {
     try {
       if (email !== "") {
-        const link = "http://localhost:3173/resetPassword";
+        const link = "https://miporra.es/resetPassword";
         const result = await recovePass(email, link);
         if (result === "Email enviado") {
           setMessage(

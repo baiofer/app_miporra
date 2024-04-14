@@ -6,6 +6,11 @@
     flex-direction: column;
 }
 
+.client-container-img {
+    display: flex;
+    align-items: center;
+}
+
 .client-logo {
     width: 100%;
     margin: 0 auto;

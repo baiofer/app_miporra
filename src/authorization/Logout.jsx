@@ -9,13 +9,12 @@ const Logout = () => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    
-    dispatch(setOrigin('user'))
+
     useEffect(() => {
         dispatch(setOrigin('user'));
         dispatch(setClientLogged({}))
-        navigate('/porras')
         removeAuthorizationHeader()
+        navigate('/porras')
     }, [dispatch, navigate]);
 
     return (

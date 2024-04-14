@@ -44,13 +44,12 @@ const Client = () => {
                 <div className='client-club-container'>
                     <div className='client-club-container-back'>
                         <div className='client-club'>
-                            <p className='container-title'>CREAR</p>
-                            <p className='container-title'>APUESTA</p>
+                            <p className='container-title'>PORRAS</p>
                         </div>
                         <img className='client-add' src={add} alt='Añadir porra' onClick={handleClubClick}/>                        
                         <div className='client-club' onClick={handleCloseClub}>
                             <p className='container-title'>CERRAR</p>
-                            <p className='container-title'>APUESTA</p>
+                            <p className='container-title'>PORRA</p>
                         </div>
                     </div>
                     <div className='client-button'>
@@ -62,7 +61,6 @@ const Client = () => {
                 <div className='client-lottery-container'>
                     <div className='client-lottery-container-back'>
                         <div className='client-lottery'>
-                            <p className='container-title'>CREAR</p>
                             <p className='container-title'>RIFA</p>
                         </div>
                         <img className='client-add' src={add} alt='Añadir rifa' onClick={handleLotteryClick}/>

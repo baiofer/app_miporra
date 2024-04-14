@@ -1,34 +1,41 @@
 button.primary-cta {
-    background-color: var(--primary-green-main);
-    color: var(--primary-green-light);
-    border-radius: 16px;
-    height: 36px;
-    font-size: 16px;
-  }
-  
-  button.secondary-cta {
-    background-color: var(--primary-green-light);
-    color: var(--primary-green-main);
-    border-radius: 16px;
-    /*border-color: #006b5a;*/
-    height: 36px;
-    font-size: 16px;
-  }
-  
-  button.tertiary-cta {
-    background-color: var(--secondary-light);
-    color: var(--primary-green-main);
-    border-radius: 16px;
-    /*border-color: #006b5a;*/
-    height: 36px;
-    font-size: 16px;
-  }
-  
-  button:hover {
-    opacity: 0.6;
-  }
-  
-  button:active {
-    transform: scale(0.98);
-    box-shadow: none;
-  }
+  background-color: var(--primary-green-main);
+  color: var(--primary-green-light);
+  border-radius: 16px;
+  height: 36px;
+  font-size: 16px;
+}
+
+button.secondary-cta {
+  background-color: var(--primary-green-light);
+  color: var(--primary-green-main);
+  border-radius: 16px;
+  /*border-color: #006b5a;*/
+  height: 36px;
+  font-size: 16px;
+}
+
+button.tertiary-cta {
+  background-color: var(--secondary-light);
+  color: var(--primary-green-main);
+  border-radius: 16px;
+  /*border-color: #006b5a;*/
+  height: 36px;
+  font-size: 16px;
+}
+
+button:hover {
+  opacity: 0.6;
+}
+
+button:active {
+  transform: scale(0.98);
+  box-shadow: none;
+}
+
+button:disabled {
+  background-color: var(--secondary-light);
+  cursor: none;
+  color: var(--primary-green-main);
+  border-color: var(--primary-green-main);
+}

@@ -26,7 +26,7 @@ export const MakeBet = () => {
       const { data } = await client.post("/newClubBet", { ...betData });
       console.log("La apuesta ha sido subida", data);
       setIsLoading(false);
-      navigate("/clubs");
+      navigate("/active-bets");
     } catch (error) {
       console.log(error);
     }

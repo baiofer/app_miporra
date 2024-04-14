@@ -29,8 +29,6 @@ const MiporraApp = () => {
     let decodedToken = null
     let isTokenExpired = null
 
-    console.log('token: ', token)
-
     if (token) {
         decodedToken = parseJwt(token);
         isTokenExpired = decodedToken.exp < Date.now() / 1000

@@ -62,11 +62,9 @@ const CreateClub = () => {
             numberOfWinners: 0
         }
         try {
-            console.log(clubToCreate)
             const clubCreated = await createClub(clubToCreate)
-            console.log('Porra creada: ', clubCreated.results.id)
             const clubId = clubCreated.results.id
-            const url = `https://mip0rra.es/make-club-bet/${clubId}`
+            const url = `https://miporra.es/make-club-bet?id=${clubId}`
             navigate('/generateQR', { state: { url, type:'club'}}) 
         } catch (error) {
             console.log('Error: ', error)

@@ -1,5 +1,5 @@
-import Button from "../../components/Button"
-import CreateQRCode from "../../components/QRCodes"
+import Button from "./Button"
+import QRCode from 'qrcode.react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import './GenerateQR.css'
 
@@ -9,6 +9,8 @@ const GenerateQR = () => {
     const location = useLocation()
     const url = location.state.url
     const type = location.state.type
+
+    console.log(url)
 
     const navigate = useNavigate()
 
@@ -20,11 +22,11 @@ const GenerateQR = () => {
         }
     }
 
-    const texto = `Imprima este código QR antes de ""Continuar", para acceder directamente a la pantalla de hacer una apuesta para una ${type === 'club' ? 'porra' : 'rifa'}.`
+    const texto = `Imprima este código QR antes de "Continuar", para acceder directamente a la pantalla de hacer una apuesta para una ${type === 'club' ? 'porra' : 'rifa'}.`
 
     return(
         <div className="generateQR-container">
-            <CreateQRCode url={url} />
+            <QRCode value={ url } size='200'/>
             <p className="generateQR-text">{ texto }</p>
             <div className="generateQR-button"> 
                 <Button variant='primary-cta' onClick={handleContinue}>Continuar</Button>

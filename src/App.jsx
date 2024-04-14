@@ -18,8 +18,7 @@ import MyLotteryDetail from "./clients/myLotteries/MyLotteryDetail";
 import ValidationsList from "./clients/validations/ValidationsList";
 import Logout from "./authorization/Logout";
 import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
-import { store, persistor } from "./redux/store";
+import { store } from "./redux/store";
 import { Homepage } from "./Usuarios/pages/Homepage/Homepage";
 import { Clubs } from "./Usuarios/pages/Clubs/Clubs";
 import { MakeBet } from "./Usuarios/pages/MakeBet/MakeBet";
@@ -39,43 +38,41 @@ import MiporraApp from "./clients/MiporraApp";
 function App() {
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter>
-          <Routes>
-            <Route element={<AppLayout />}>
-              <Route index element={<Navigate replace to="miporra-app" />} />
-              <Route path="miporra-app" element={<MiporraApp />} />
-              <Route path="porras" element={<PorrasPage />} />
-              <Route path="club-bets" element={<ClubBets />} />
-              <Route path="clubs" element={<Clubs />} />
-              <Route path="clients" element={<ClientsPage />} />
-              <Route path="next-bets" element={<NextBets />} />
-              <Route path="lottery-bets" element={<LotteryPage />} />
-              <Route path="login" element={<Login />} />
-              <Route path="register" element={<Register />} />
-              <Route path="resetPassword" element={<ResetPassword />} />
-              <Route path="logout" element={<Logout />} />
-              <Route path="client" element={<Client />} />
-              <Route path="createClub" element={<CreateClub />} />
-              <Route path="createLottery" element={<CreateLottery />} />
-              <Route path="generateQR" element={<GenerateQR />} />
-              <Route path="closeClub" element={<CloseClub />} />
-              <Route path="closeLottery" element={<CloseLottery />} />
-              <Route path="myClubsList" element={<MyClubsList />} />
-              <Route path="myClubDetail" element={<MyClubDetail />} />
-              <Route path="myLotteriesList" element={<MyLotteriesList />} />
-              <Route path="myLotteryDetail" element={<MyLotteryDetail />} />
-              <Route path="validationsList" element={<ValidationsList />} />
-              <Route path="profile" element={<Profile />} />
-              <Route path="homepage" element={<Homepage />} />
-              <Route path="make-bet" element={<MakeBet />} />
-              <Route path="active-bets" element={<ActiveBets />} />
-              <Route path="make-lottery-bet/:id" element={<MakeLotteryBet />} />
-              <Route path="client-detail/:id" element={<ClientDetail />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </PersistGate>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route index element={<Navigate replace to="miporra-app" />} />
+            <Route path="miporra-app" element={<MiporraApp />} />
+            <Route path="porras" element={<PorrasPage />} />
+            <Route path="club-bets" element={<ClubBets />} />
+            <Route path="clubs" element={<Clubs />} />
+            <Route path="clients" element={<ClientsPage />} />
+            <Route path="next-bets" element={<NextBets />} />
+            <Route path="lottery-bets" element={<LotteryPage />} />
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+            <Route path="resetPassword" element={<ResetPassword />} />
+            <Route path="logout" element={<Logout />} />
+            <Route path="client" element={<Client />} />
+            <Route path="createClub" element={<CreateClub />} />
+            <Route path="createLottery" element={<CreateLottery />} />
+            <Route path="generateQR" element={<GenerateQR />} />
+            <Route path="closeClub" element={<CloseClub />} />
+            <Route path="closeLottery" element={<CloseLottery />} />
+            <Route path="myClubsList" element={<MyClubsList />} />
+            <Route path="myClubDetail" element={<MyClubDetail />} />
+            <Route path="myLotteriesList" element={<MyLotteriesList />} />
+            <Route path="myLotteryDetail" element={<MyLotteryDetail />} />
+            <Route path="validationsList" element={<ValidationsList />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="homepage" element={<Homepage />} />
+            <Route path="make-bet" element={<MakeBet />} />
+            <Route path="active-bets" element={<ActiveBets />} />
+            <Route path="make-lottery-bet/:id" element={<MakeLotteryBet />} />
+            <Route path="client-detail/:id" element={<ClientDetail />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </Provider>
   );
 }

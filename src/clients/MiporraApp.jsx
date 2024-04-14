@@ -1,11 +1,11 @@
 import { useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { setClientLogged, setOrigin } from '../redux/reducers/authReducer'
 import { useEffect } from 'react'
+import { getClient } from '../authorization/service'
+import { setAuthorizationHeader } from '../api/config/client'
 
 const MiporraApp = () => {
-
-    const clientLogged = useSelector (state => state.origin.clientLogged)
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -34,16 +34,17 @@ const MiporraApp = () => {
             dispatch(setClientLogged({}))
             navigate('./porras')
         } else {
-            if (clientLogged.id !== decodedToken.id) {
-                dispatch(setOrigin('user'))
-                dispatch(setClientLogged(null))
-                navigate('/porras')
-            } else {
-                navigate('/client')
-            }
+            handleClient()
+            navigate('/client')
         }
     }, [])
     
+    const handleClient = async () => {
+        await setAuthorizationHeader(getCookie('token'));
+        const client = await getClient()
+        dispatch(setOrigin('client'))
+        dispatch(setClientLogged(client.results[0]))
+    }
 
     return(
         null

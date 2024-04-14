@@ -67,7 +67,13 @@ const ValidationsList = () => {
 
     return (
         <div className='validationsList-container'>
-            <h2 className='validationsList-title'>Apuestas pendientes de validar</h2>
+            
+            {
+                !validations ? 
+                    <h2 className='validationsList-title'>Apuestas pendientes de validar</h2> 
+                : 
+                    <h2 className='validationsList-title'>No hay validaciones pendientes</h2>
+            }
             {
                 validations?.map((bet) => (
                     <div className='validationsList-validation' key={bet.id}>

@@ -4,7 +4,7 @@ const CreateQRCode = (url) => {
 
     return (
         <div>
-            <QRCode value={ url } size='200'/>
+            <QRCode value={ url.url } size='200'/>
         </div>
     )
 }

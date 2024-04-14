@@ -12,9 +12,6 @@ const GenerateQR = () => {
 
     const navigate = useNavigate()
 
-    const width = '400px'
-    const height = '400px'
-
     const handleContinue = () => {
         if (type === 'club') {
             navigate('/myClubsList')
@@ -27,7 +24,7 @@ const GenerateQR = () => {
 
     return(
         <div className="generateQR-container">
-            <CreateQRCode url={url} width={width} heigth={height} />
+            <CreateQRCode url={url} />
             <p className="generateQR-text">{ texto }</p>
             <div className="generateQR-button"> 
                 <Button variant='primary-cta' onClick={handleContinue}>Continuar</Button>

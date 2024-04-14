@@ -1,5 +1,5 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import originReducer from './authReducer';
+import { originReducer } from './authReducer';
 
 const rootReducer = combineReducers({
     origin: originReducer,

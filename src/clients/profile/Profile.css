@@ -18,3 +18,8 @@
 .profile-title {
     color: var(--primary-green-main);
 }
+
+.profile-selections {
+    display: flex;
+    justify-content: space-between;
+}

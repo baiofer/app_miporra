@@ -8,7 +8,7 @@ function NavbarClient() {
   
   return (
     <div className="navBar">
-      <NavLink to="/myClubsList" className="navLink">
+      <NavLink to="/client" className="navLink">
         <img className="logo" src={logo} alt="Logo del sitio" />
       </NavLink>
       <ul className="navBar-items">

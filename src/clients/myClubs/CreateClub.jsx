@@ -6,6 +6,7 @@ import Button from '../../components/Button'
 import { useBadgesContext } from '../../context/BadgesContext'
 import { useNavigate } from 'react-router-dom'
 import ErrorComponent from '../../components/ErrorComponent'
+import { useSelector } from 'react-redux'
 
 const CreateClub = () => {
 
@@ -30,6 +31,7 @@ const CreateClub = () => {
     const [error, setError] = useState(null)
 
     const { currentBadges } = useBadgesContext()
+    const clientLogged = useSelector((state) => state.origin.clientLogged);
 
     useEffect(() => {
         if (error) {
@@ -59,14 +61,13 @@ const CreateClub = () => {
             limitDateForBets: clubDate,
             limitHourForBets: clubTime,
             state: 'in progress',
-            numberOfWinners: 0
+            numberOfWinners: 0,
+            clientId: clientLogged.id
         }
         try {
-            console.log(clubToCreate)
             const clubCreated = await createClub(clubToCreate)
-            console.log('Porra creada: ', clubCreated.results.id)
             const clubId = clubCreated.results.id
-            const url = `https://mip0rra.es/make-club-bet/${clubId}`
+            const url = `https://miporra.es/make-club-bet?id=${clubId}`
             navigate('/generateQR', { state: { url, type:'club'}}) 
         } catch (error) {
             console.log('Error: ', error)

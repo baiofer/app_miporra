@@ -20,6 +20,7 @@
     font-size: 20px;
     font-weight: bold;
     margin: 0;
+    color: var(--primary-green-main);
 }
 
 .createClub-date-time {

@@ -1,0 +1,57 @@
+
+.validationsList-container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 800px;
+    min-width: 400px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.validationsList-title {
+    display: flex;
+    justify-content: center;
+    color: var(--primary-green-main);
+}
+
+.validationsList-validation {
+    display: flex;
+    align-items: flex-start;
+    border-width: 2px;
+    border-color: var(--primary-green-main);
+    border-radius: 10px;
+    border-style: solid;
+    margin-bottom: 5px;
+}
+
+.validationsList-icon {
+    width: 60px;
+    height: 60px;
+}
+
+.validationsList-number {
+    display: flex;
+    width: 150px;
+    height: 60px;
+    padding-left: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.validationsList-name {
+    display: flex;
+    width: 400px;
+    height: 60px;
+    padding-left: 10px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.validationsList-icons-container {
+    display: flex;
+    height: 60px;
+    align-items: center;
+    justify-content: flex-start;
+}

@@ -1,0 +1,88 @@
+.lottery-container {
+    display: flex;
+    width: 600px;
+    margin: 0 auto;
+    border-width: 3px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.lottery-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.lottery-divisor {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    border-bottom-width: 2px;
+    border-bottom-color: var(--primary-green-main);
+    border-bottom-style: solid;
+    margin-top: 10px;
+}
+
+.lottery-betZone {
+    margin: 10px;
+}
+
+.lottery-imgContainer {
+    width: 200px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.lottery-input-result {
+    width: 40px;
+    height: 30px;
+    border-radius: 4px;
+    color: var(--primary-green-main);
+    background-color: var(--secondary-light);
+    border-color: var(--primary-green-main);
+    font-weight: 600;
+    font-size: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.lottery-finished {
+    font-weight: 600;
+    font-size: 30px;
+    color: var(--primary-green-main);
+}
+
+.lottery-price-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.lottery-howToWin-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.lottery-end-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.lottery-end-line-label {
+    font-size: 13px;
+    color: var(--primary-green-main);
+    margin-left: 10px;
+}
+
+.lottery-end-line-value {
+    font-size: 13px;
+    color: var(--primary-green-light);
+    margin-left: 5px;
+}

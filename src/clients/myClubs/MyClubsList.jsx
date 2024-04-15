@@ -1,9 +1,9 @@
 import './MyClubsList.css'
 import { getClubs } from "./service"
 import { useEffect, useState } from "react"
-import Club from "../../components/ClubCard"
 import { Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
+import ClubCard from '../../components/ClubCard'
 
 const MyClubsList = () => {
 
@@ -51,7 +51,7 @@ const MyClubsList = () => {
                         clubs.map( club => {
                             return(
                                 <Button key={club.id} onClick={() => handleClick(club)}>
-                                    <Club club={ club } />
+                                    <ClubCard club={ club } />
                                 </Button>
                             )
                         })

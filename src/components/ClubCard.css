@@ -1,17 +1,97 @@
-.clubContainer {
+.club-container {
+    display: flex;
+    width: 600px;
+    margin: 0 auto;
     border-width: 3px;
     border-style: solid;
     border-color: black;
     border-radius: 10px;
     margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
 }
 
-.betZone {
+.club-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.club-divisor {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    border-bottom-width: 2px;
+    border-bottom-color: var(--primary-green-main);
+    border-bottom-style: solid;
+    margin-top: 10px;
+}
+
+.club-betZone {
     margin: 10px;
 }
 
-.imgContainer {
+.club-imgContainer {
     width: 200px;
     height: 100px;
     object-fit: contain;
+}
+
+.club-date {
+    padding: 10px;
+    margin-top: -15px;
+    margin-right: 20px;
+}
+
+.club-date-text {
+    margin: 0;
+    padding: 0;
+    color: var(--primary-green-main);
+}
+
+.club-input-result {
+    width: 40px;
+    height: 30px;
+    border-radius: 4px;
+    color: var(--primary-green-main);
+    background-color: var(--secondary-light);
+    border-color: var(--primary-green-main);
+    font-weight: 600;
+    font-size: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.club-badge {
+    padding-top: 20px;
+}
+
+.club-separator {
+    height: 60px;
+}
+
+.club-match {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    justify-content: space-between;
+}
+
+.club-end-line {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    justify-content: space-around;
+}
+
+.club-end-line-label {
+    font-size: 13px;
+    color: var(--primary-green-main);
+    margin-left: 10px;
+}
+
+.club-end-line-value {
+    font-size: 13px;
+    color: var(--primary-green-light);
+    margin-left: 5px;
 }

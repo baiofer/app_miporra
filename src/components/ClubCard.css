@@ -62,6 +62,15 @@
     margin-left: 10px;
 }
 
+.club-finished {
+    font-weight: 600;
+    font-size: 30px;
+    color: var(--primary-green-main);
+    margin-top: -10px;
+    margin-right: 20px;
+    margin-left: -40px;
+}
+
 .club-badge {
     padding-top: 20px;
 }

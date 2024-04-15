@@ -36,15 +36,16 @@ const LotteryCard = ({ lottery, type="" }) => {
                     <img src={ logo } alt='Logo del bar' className='lottery-imgContainer'/>    
                 </div>
                 <div className='lottery-divisor' />
-                    <input className='lottery-input-result' 
-                        type="number"
-                        name="result"
-                        value={result}
-                        onChange={e => setResult(e.target.value)}
-                        label="Resultado"
-                        style={{ display: type === "result" ? "visible" : "none"}}
-                    />
-                    <p className='lottery-finished'>{lottery.result}</p>
+                {console.log(type, lottery.state)}
+                <input className='lottery-input-result' 
+                    type="number"
+                    name="result"
+                    value={result}
+                    onChange={e => setResult(e.target.value)}
+                    label="Resultado"
+                    style={{ display: type === "result" && lottery.state === "in progress" ? "visible" : "none"}}
+                />
+                <p className='lottery-finished'>{lottery.result}</p>
             
                 
                 <div className='lottery-price-line'>

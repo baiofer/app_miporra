@@ -5,6 +5,13 @@ import BadgeElement from './BadgeElement'
 import separator from '../images/separador.svg'
 import { useState } from 'react'
 
+{/* 
+    type puede tener tres estados
+    type="" o sin type: card sin resultados
+    type="results": Card con input para introducir resultados
+    type="finished": Card con los resultados fijos.
+*/}
+
 const ClubCard = ({ club, type="" }) => {
 
     const clientLogged = useSelector (state => state.origin.clientLogged)
@@ -16,7 +23,6 @@ const ClubCard = ({ club, type="" }) => {
     const [result2Away, setResult2Away] = useState(0)
 
     const borderColor = club.state === 'in progress' ? 'green' : 'red'
-    console.log(club)
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -49,8 +55,9 @@ const ClubCard = ({ club, type="" }) => {
                         value={result1Home}
                         onChange={e => setResult1Home(e.target.value)}
                         label="Resultado"
-                        style={{ visibility: type === "result" ? "visible" : "hidden"}}
+                        style={{ visibility: type === "result" && club.state === "in progress" ? "visible" : "hidden"}}
                     />
+                    <p className='club-finished'>{club.result1Home}</p>
                     <BadgeElement name={club.match1HomeTeam} className="club-badge"/>
                     <img src={separator} alt="separador" className='club-separator' />
                     <BadgeElement name={club.match1AwayTeam} />
@@ -60,8 +67,9 @@ const ClubCard = ({ club, type="" }) => {
                         value={result1Away}
                         onChange={e => setResult1Away(e.target.value)}
                         label="Resultado"
-                        style={{ visibility: type === "result" ? "visible" : "hidden"}}
+                        style={{ visibility: type === "result" && club.state === "in progress" ? "visible" : "hidden"}}
                     />
+                    <p className='club-finished'>{club.result1Away}</p>
                 </div>
                 {/* PARTIDO 2 */}
                 <div className='club-match'>
@@ -75,8 +83,9 @@ const ClubCard = ({ club, type="" }) => {
                         value={result2Home}
                         onChange={e => setResult2Home(e.target.value)}
                         label="Resultado"
-                        style={{ visibility: type === "result" ? "visible" : "hidden"}}
+                        style={{ visibility: type === "result" && club.state === "in progress" ? "visible" : "hidden"}}
                     />
+                    <p className='club-finished'>{club.result2Home}</p>
                     <BadgeElement name={club.match2HomeTeam} className="club-badge"/>
                     <img src={separator} alt="separador" className='club-separator' />
                     <BadgeElement name={club.match2AwayTeam} />
@@ -86,8 +95,9 @@ const ClubCard = ({ club, type="" }) => {
                         value={result2Away}
                         onChange={e => setResult2Away(e.target.value)}
                         label="Resultado"
-                        style={{ visibility: type === "result" ? "visible" : "hidden"}}
+                        style={{ visibility: type === "result" && club.state === "in progress" ? "visible" : "hidden"}}
                     />
+                    <p className='club-finished'>{club.result2Away}</p>
                 </div>
                 <div className='club-end-line'>
                     <p className='club-end-line-label'>Estado: </p>

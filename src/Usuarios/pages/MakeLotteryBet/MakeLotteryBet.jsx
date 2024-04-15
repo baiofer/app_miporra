@@ -42,7 +42,11 @@ export const MakeLotteryBet = () => {
       <div className="make-lottery-card center-items">
         {lotteryArray.map((number) => (
           <Button
-            variant="primary-cta lottery-button"
+            variant={`lottery-button ${
+              number === selectedNumbergit
+                ? "lottery-number-selected"
+                : "primary-cta"
+            }`}
             key={number}
             disabled={selectedNumbers.includes(+number)}
             onClick={() => handleSelectNumber(number)}

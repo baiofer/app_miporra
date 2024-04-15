@@ -39,3 +39,12 @@ button:disabled {
   color: var(--primary-green-main);
   border-color: var(--primary-green-main);
 }
+
+.lottery-number-selected {
+  background-color: var(--primary-green-lighter);
+  color: var(--primary-green-main);
+  border-radius: 16px;
+  /*border-color: #006b5a;*/
+  height: 36px;
+  font-size: 16px;
+}

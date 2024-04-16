@@ -34,6 +34,12 @@ const Client = () => {
     const handleLotteryList = () => {
         navigate('/myLotteriesList')
     }
+
+    const isEmpty = (obj) => {
+        return Object.keys(obj).length === 0;
+    };
+
+    if (isEmpty(clientLogged)) navigate('/porras')
     
     return(
         <div className="client-container">

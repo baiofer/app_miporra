@@ -29,4 +29,9 @@ export const deleteLottery = async (lottery, id) => {
     return clientJWT.delete(url, lottery)
 }
 
+// Get lottery bets
+export const getLotteryBets = async (lotteryId) => {
+    const url = `/lotteryBetsJwt?LotteryId=${lotteryId}`
+    return clientJWT.get(url)
+}
 

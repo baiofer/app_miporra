@@ -9,7 +9,7 @@ import { useState } from 'react'
     type="results": Card con input para introducir resultados
 */}
 
-const LotteryCard = ({ lottery, type="" }) => {
+const LotteryCard = ({ lottery, type="", onChange }) => {
 
     const clientLogged = useSelector (state => state.origin.clientLogged)
     const logo = clientLogged.logo
@@ -23,6 +23,11 @@ const LotteryCard = ({ lottery, type="" }) => {
         const year = date.getFullYear();
         return `${day}-${month}-${year}`;
     };
+
+    const handleChange = (res) => {
+        setResult(res)
+        onChange(res)   
+    }
 
     const borderColor = lottery.state === 'in progress' ? 'green' : 'red'
     return (
@@ -40,7 +45,7 @@ const LotteryCard = ({ lottery, type="" }) => {
                     type="number"
                     name="result"
                     value={result}
-                    onChange={e => setResult(e.target.value)}
+                    onChange={e => handleChange(e.target.value)}
                     label="Resultado"
                     style={{ display: type === "result" && lottery.state === "in progress" ? "visible" : "none"}}
                 />

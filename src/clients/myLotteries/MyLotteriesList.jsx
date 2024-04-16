@@ -3,6 +3,7 @@ import { getLotteries } from "./service"
 import { useEffect, useState } from "react"
 import { Button } from '@mui/material'
 import LotteryCard from '../../components/LotteryCard'
+import ErrorComponent from '../../components/ErrorComponent'
 
 const MyLotteriesList = () => {
 
@@ -15,7 +16,8 @@ const MyLotteriesList = () => {
             try {
                 setIsFetching(true)
                 const lotteriesList = await getLotteries()
-                const sortedLotteries = lotteriesList.results.sort((a, b) => new Date(b.dateOfLottery) - new Date(a.dateOfLottery));
+                console.log(lotteriesList.results)
+                const sortedLotteries = lotteriesList.results.sort((a, b) => new Date(b.dateLimitOfBets) - new Date(a.dateLimitOfBets));
                 setLotteries(sortedLotteries)
                 setIsFetching(false)
             } catch (error) {
@@ -27,9 +29,16 @@ const MyLotteriesList = () => {
         fetchLotteries()
     }, [])
 
-    const resetError = () => {
-        setError(null)        
-    }
+    useEffect(() => {
+        if (error) {
+          const timer = setTimeout(() => {
+            setError(null);
+          }, 5000);
+          return () => {
+            clearTimeout(timer);
+          };
+        }
+    }, [error]);
 
     if (isFetching) return (
         <div>Loading ...</div>
@@ -51,7 +60,11 @@ const MyLotteriesList = () => {
                         :
                         <p>No hay ninguna rifa creada</p>
                 }
-                { error && <div onClick={resetError}>{ error.message }</div>}
+                {error && (
+                    <div>
+                        <ErrorComponent errorText={error} />
+                    </div>
+                )}
             </div>
 
         </div>

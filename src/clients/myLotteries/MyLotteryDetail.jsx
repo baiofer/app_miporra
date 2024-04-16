@@ -1,26 +1,28 @@
-import { Scanner } from '@yudiel/react-qr-scanner'
+import { useLocation } from "react-router-dom"
+import Button from '../../components/Button'
+import './MyLotteryDetail.css'
+import LotteryCard from "../../components/LotteryCard"
 
 
 const MyLotteryDetail = () => {
 
+    const location = useLocation()
+    const lottery = location.state.lottery
 
-    const handleResult = (text, result) => {
-        console.log('Text: ', text)
-        console.log('Result: ', result)
+    console.log(lottery)
+
+    const handleClick = () => {
+
     }
-
-    const handleError = (error) => {
-        console.log(error.message)
-    }
-
-    return (
-        <div>
-            <p>Página Detalle de una rifa</p>
-            <h2>Página para escanear un código QR</h2>
-            <Scanner
-                onResult={(text, result) => handleResult(text, result)}
-                onError={error => handleError(error)}
-            />
+    
+    return(
+        <div className="myClubDetail-container">
+            <Button className="myClubDetail-card">
+                <LotteryCard lottery={ lottery } type="result" />
+            </Button>
+            <div className="myClubDetail-button">
+                <Button variant="primary-cta" onClick={handleClick}>{"Cierra la porra"}</Button>
+            </div>
         </div>
     )
 }

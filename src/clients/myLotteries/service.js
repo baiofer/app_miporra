@@ -6,6 +6,11 @@ export const getLotteries = async () => {
     return clientJWT.get(url)
 }
 
+export const getInProgressLotteries = async () => {
+    const url = '/lotteriesJwt?state=in progress'
+    return clientJWT.get(url)
+}
+
 // Create a lottery
 export const createLottery = (lottery) => {
     const url = "/newLottery"

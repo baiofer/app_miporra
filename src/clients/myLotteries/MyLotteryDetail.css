@@ -1,0 +1,14 @@
+.myClubDetail-container {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.myClubDetail-card {
+    background-color: white;
+}
+
+.myClubDetail-button {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}

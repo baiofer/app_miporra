@@ -16,8 +16,6 @@ const LotteryCard = ({ lottery, type="" }) => {
 
     const [result, setResult] = useState(0)
 
-    console.log(type)
-
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         const day = date.getDate().toString().padStart(2, '0');

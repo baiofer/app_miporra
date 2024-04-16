@@ -3,12 +3,16 @@ import { useParams } from "react-router-dom";
 import { client } from "../../../api/config/client";
 import FormInput from "../../../components/FormInput";
 import Button from "../../../components/Button";
+import { v4 as uuidV4 } from "uuid";
 
 export const MakeLotteryBet = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [lottery, setLottery] = useState(null);
   const [selectedNumbers, setSelectedNumbers] = useState([]);
   const [selectedNumber, setSelectedNumber] = useState(null);
+  const [createdLotteryId, setCreatedLotteryId] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(null);
 
   const params = useParams();
   const lotteryArray = Array.from({ length: 100 }, (_, index) => index);
@@ -34,6 +38,45 @@ export const MakeLotteryBet = () => {
 
   const handleSelectNumber = (number) => {
     setSelectedNumber(number);
+    setError(null);
+    setCreatedLotteryId(null);
+  };
+
+  const handleSubmitLotteryBet = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const lotteryData = Object.fromEntries(formData);
+    lotteryData.betDate = new Date().toLocaleDateString();
+    lotteryData.selectedNumber = selectedNumber;
+    lotteryData.betPrice = lottery[0].betPrice;
+    lotteryData.lotteryId = params.id;
+    console.log(lotteryData);
+    const lotteryId = uuidV4();
+    const finalData = {
+      number: lotteryId,
+      clientId: lottery[0].lottery.clientId,
+      type: "lottery",
+      bet: { ...lotteryData },
+    };
+    try {
+      setIsSubmitting(true);
+
+      const { data } = await client.post("/newValidation", finalData);
+
+      if (data.results.response) {
+        return setError(
+          `El número ${selectedNumber} ya ha sido seleccionado. Por favor, recarga la página para actualizar los números cogidos`
+        );
+      }
+      await client.post("/newLotteryBet", lotteryData);
+
+      setCreatedLotteryId(lotteryId);
+
+      setIsSubmitting(false);
+    } catch (error) {
+      console.log(error);
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -42,7 +85,11 @@ export const MakeLotteryBet = () => {
       <div className="make-lottery-card center-items">
         {lotteryArray.map((number) => (
           <Button
-            variant="primary-cta lottery-button"
+            variant={`lottery-button ${
+              number === selectedNumber
+                ? "lottery-number-selected"
+                : "primary-cta"
+            }`}
             key={number}
             disabled={selectedNumbers.includes(+number)}
             onClick={() => handleSelectNumber(number)}
@@ -51,9 +98,13 @@ export const MakeLotteryBet = () => {
           </Button>
         ))}
       </div>
-      {selectedNumber && (
+      {selectedNumber && !createdLotteryId ? (
         <div>
-          <form method="POST" className="lottery-bet">
+          <form
+            method="POST"
+            className="lottery-bet"
+            onSubmit={handleSubmitLotteryBet}
+          >
             <h2>HAZ TU APUESTA</h2>
             <div className="lottery-user-data">
               <FormInput
@@ -69,16 +120,23 @@ export const MakeLotteryBet = () => {
                 label="Tu mail"
               />
               <p>Número seleccionado: {selectedNumber}</p>
-              <p>Precio de la apuesta: {lottery[0].betPrice}€</p>
+              <p>Precio de la apuesta: {lottery?.[0].betPrice}€</p>
             </div>
-
+            {error && <p className="lottery-error">{error}</p>}
             <div className="submit-bet center-items">
               <Button type="submit" variant="primary-cta">
-                {isLoading ? "Haciendo apuesta..." : "Apostar"}
+                {isSubmitting ? "Haciendo apuesta..." : "Apostar"}
               </Button>
             </div>
           </form>
         </div>
+      ) : (
+        createdLotteryId && (
+          <div className={`${createdLotteryId} ? "lottery-bet" : ""`}>
+            <h2>Este es tu código de identificación de la apuesta:</h2>
+            <p>{createdLotteryId}</p>
+          </div>
+        )
       )}
     </main>
   );

@@ -408,6 +408,10 @@ D => Bares
   width: 45px;
 }
 
+.lottery-error {
+  color: red;
+}
+
 /*TODO COMPONENT LOGO CIRCULO*/
 
 .circle-logo {

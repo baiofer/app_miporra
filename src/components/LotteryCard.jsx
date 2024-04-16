@@ -16,6 +16,8 @@ const LotteryCard = ({ lottery, type="" }) => {
 
     const [result, setResult] = useState(0)
 
+    console.log(type)
+
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         const day = date.getDate().toString().padStart(2, '0');
@@ -36,7 +38,6 @@ const LotteryCard = ({ lottery, type="" }) => {
                     <img src={ logo } alt='Logo del bar' className='lottery-imgContainer'/>    
                 </div>
                 <div className='lottery-divisor' />
-                {console.log(type, lottery.state)}
                 <input className='lottery-input-result' 
                     type="number"
                     name="result"

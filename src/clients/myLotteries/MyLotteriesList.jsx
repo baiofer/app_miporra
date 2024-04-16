@@ -2,8 +2,7 @@ import './MyLotteriesList.css'
 import { getLotteries } from "./service"
 import { useEffect, useState } from "react"
 import { Button } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
-import Lottery from '../../components/LotteryCard'
+import LotteryCard from '../../components/LotteryCard'
 
 const MyLotteriesList = () => {
 
@@ -11,14 +10,13 @@ const MyLotteriesList = () => {
     const [error, setError] = useState(null)
     const [lotteries, setLotteries] = useState([])
 
-    const navigate = useNavigate()
-
     useEffect(() => {
         const fetchLotteries = async () => {
             try {
                 setIsFetching(true)
                 const lotteriesList = await getLotteries()
-                setLotteries(lotteriesList.results)
+                const sortedLotteries = lotteriesList.results.sort((a, b) => new Date(b.dateOfLottery) - new Date(a.dateOfLottery));
+                setLotteries(sortedLotteries)
                 setIsFetching(false)
             } catch (error) {
                 setIsFetching(false)
@@ -33,11 +31,6 @@ const MyLotteriesList = () => {
         setError(null)        
     }
 
-    const handleClick = (lottery) => {
-        console.log(lottery)
-        navigate('/myLotteryDetail', {state: { lottery } })
-    }
-
     if (isFetching) return (
         <div>Loading ...</div>
     )
@@ -50,8 +43,8 @@ const MyLotteriesList = () => {
                     lotteries ?
                         lotteries.map( lottery => {
                             return(
-                                <Button key={lottery.id} onClick={() => handleClick(lottery)}>
-                                    <Lottery lottery={ lottery } />
+                                <Button key={lottery.id}>
+                                    <LotteryCard key={lottery.id} lottery={ lottery } />
                                 </Button>
                             )
                         })

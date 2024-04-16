@@ -2,7 +2,6 @@ import './MyClubsList.css'
 import { getClubs } from "./service"
 import { useEffect, useState } from "react"
 import { Button } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
 import ClubCard from '../../components/ClubCard'
 
 const MyClubsList = () => {
@@ -11,14 +10,13 @@ const MyClubsList = () => {
     const [error, setError] = useState(null)
     const [clubs, setClubs] = useState([])
 
-    const navigate = useNavigate()
-
     useEffect(() => {
         const fetchClubs = async () => {
             try {
                 setIsFetching(true)
                 const clubsList = await getClubs()
-                setClubs(clubsList.results)
+                const sortedClubs = clubsList.results.sort((a, b) => new Date(b.limitDateForBets) - new Date(a.limitDateForBets));
+                setClubs(sortedClubs)
                 setIsFetching(false)
             } catch (error) {
                 setIsFetching(false)
@@ -33,11 +31,6 @@ const MyClubsList = () => {
         setError(null)        
     }
 
-    const handleClick = (club) => {
-        console.log(club)
-        navigate('/myClubDetail', {state: { club } })
-    }
-
     if (isFetching) return (
         <div>Loading ...</div>
     )
@@ -50,7 +43,7 @@ const MyClubsList = () => {
                     clubs ?
                         clubs.map( club => {
                             return(
-                                <Button key={club.id} onClick={() => handleClick(club)}>
+                                <Button key={club.id}>
                                     <ClubCard club={ club } />
                                 </Button>
                             )

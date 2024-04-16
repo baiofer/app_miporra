@@ -8,7 +8,7 @@ import { useState } from 'react'
 {/* 
     type puede tener tres estados
     type="" o sin type: card sin resultados
-    type="results": Card con input para introducir resultados
+    type="result": Card con input para introducir resultados
     type="finished": Card con los resultados fijos.
 */}
 

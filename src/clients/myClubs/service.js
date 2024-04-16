@@ -6,6 +6,11 @@ export const getClubs = async () => {
     return clientJWT.get(url)
 }
 
+export const getInProgressClubs = async () => {
+    const url = '/clubsJwt?state=in progress'
+    return clientJWT.get(url)
+}
+
 // Create a club
 export const createClub = (club) => {
     const url = "/newClub"

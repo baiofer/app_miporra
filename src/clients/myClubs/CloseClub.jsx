@@ -3,6 +3,7 @@ import { getInProgressClubs } from "./service"
 import ClubCard from "../../components/ClubCard"
 import { Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
+import ErrorComponent from "../../components/ErrorComponent"
 
 const CloseClub = () => {
 
@@ -29,12 +30,19 @@ const CloseClub = () => {
         fetchClubs()
     }, [])
 
+    useEffect(() => {
+        if (error) {
+          const timer = setTimeout(() => {
+            setError(null);
+          }, 5000);
+          return () => {
+            clearTimeout(timer);
+          };
+        }
+    }, [error]);
+
     const handleClick = (club) => {
         navigate('/myClubDetail', {state: { club } })
-    }
-
-    const resetError = () => {
-        setError(null)        
     }
 
     // Al seleccionar una porra, voy al detail a cerrarla
@@ -58,7 +66,11 @@ const CloseClub = () => {
                         :
                         <p>No hay ninguna porra creada</p>
                 }
-                { error && <div onClick={resetError}>{ error.message }</div>}
+                {error && (
+                    <div>
+                        <ErrorComponent errorText={error} />
+                    </div>
+                )}
             </div>
 
         </div>

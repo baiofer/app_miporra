@@ -3,6 +3,7 @@ import { getClubs } from "./service"
 import { useEffect, useState } from "react"
 import { Button } from '@mui/material'
 import ClubCard from '../../components/ClubCard'
+import ErrorComponent from '../../components/ErrorComponent'
 
 const MyClubsList = () => {
 
@@ -27,9 +28,16 @@ const MyClubsList = () => {
         fetchClubs()
     }, [])
 
-    const resetError = () => {
-        setError(null)        
-    }
+    useEffect(() => {
+        if (error) {
+          const timer = setTimeout(() => {
+            setError(null);
+          }, 5000);
+          return () => {
+            clearTimeout(timer);
+          };
+        }
+    }, [error]);
 
     if (isFetching) return (
         <div>Loading ...</div>
@@ -51,7 +59,11 @@ const MyClubsList = () => {
                         :
                         <p>No hay ninguna porra creada</p>
                 }
-                { error && <div onClick={resetError}>{ error.message }</div>}
+                {error && (
+                    <div>
+                        <ErrorComponent errorText={error} />
+                    </div>
+                )}
             </div>
 
         </div>

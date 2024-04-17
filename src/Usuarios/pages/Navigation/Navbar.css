@@ -23,6 +23,7 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 18px;
+    background-color: white;
   }
   
   .logo {
@@ -38,3 +39,42 @@
     border-color: var(--primary-green-light);
     border-radius: 25px;
   }
+
+  .navBar-menu {
+    width: 35px;
+    height: 35px;
+    margin-right: 20px;
+    color: green;
+  }
+
+  .menu-navLink {
+    text-decoration: none;
+    color: var(--primary-green-light);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 15px;
+}
+ 
+.menu-item {
+  background-color: var(--primary-green-main);
+  color: var(--primary-green-light);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 25px;
+}
+
+.menu-container {
+    position: fixed;
+    top: 50px;
+    right: 250px;
+    width: 200px;
+    height: 160px;
+    background-color: var(--primary-green-main);
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+}
+

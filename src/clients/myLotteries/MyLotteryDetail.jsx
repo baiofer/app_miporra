@@ -64,9 +64,9 @@ const MyLotteryDetail = () => {
         const updated = await updateLottery(lotteryToUpdate,lottery.id)
         setLotteryUpdated(updated)
         if (winners.length === 0) {
-            setMessage('NINGUN ACERTANTE EN ESTA RIFA.')
+            setMessage('Rifa cerrada. NINGUN ACERTANTE EN ESTA RIFA.')
         } else {
-            setMessage(`El ganador de la rifa ha sido ${winners[0].userEmail}`)
+            setMessage(`Rifa cerrada. El ganador de la rifa ha sido ${winners[0].userEmail}`)
         }
     }
 

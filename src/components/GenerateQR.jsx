@@ -10,8 +10,6 @@ const GenerateQR = () => {
     const url = location.state.url
     const type = location.state.type
 
-    console.log(url)
-
     const navigate = useNavigate()
 
     const handleContinue = () => {
@@ -33,7 +31,6 @@ const GenerateQR = () => {
             </div>
         </div>
     )
-
 }
 
 export default GenerateQR

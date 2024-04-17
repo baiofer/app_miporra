@@ -1,9 +1,9 @@
 import './MyClubsList.css'
 import { getClubs } from "./service"
 import { useEffect, useState } from "react"
-import Club from "../../components/ClubCard"
 import { Button } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
+import ClubCard from '../../components/ClubCard'
+import ErrorComponent from '../../components/ErrorComponent'
 
 const MyClubsList = () => {
 
@@ -11,14 +11,13 @@ const MyClubsList = () => {
     const [error, setError] = useState(null)
     const [clubs, setClubs] = useState([])
 
-    const navigate = useNavigate()
-
     useEffect(() => {
         const fetchClubs = async () => {
             try {
                 setIsFetching(true)
                 const clubsList = await getClubs()
-                setClubs(clubsList.results)
+                const sortedClubs = clubsList.results.sort((a, b) => new Date(b.limitDateForBets) - new Date(a.limitDateForBets));
+                setClubs(sortedClubs)
                 setIsFetching(false)
             } catch (error) {
                 setIsFetching(false)
@@ -29,14 +28,16 @@ const MyClubsList = () => {
         fetchClubs()
     }, [])
 
-    const resetError = () => {
-        setError(null)        
-    }
-
-    const handleClick = (club) => {
-        console.log(club)
-        navigate('/myClubDetail', {state: { club } })
-    }
+    useEffect(() => {
+        if (error) {
+          const timer = setTimeout(() => {
+            setError(null);
+          }, 5000);
+          return () => {
+            clearTimeout(timer);
+          };
+        }
+    }, [error]);
 
     if (isFetching) return (
         <div>Loading ...</div>
@@ -50,15 +51,19 @@ const MyClubsList = () => {
                     clubs ?
                         clubs.map( club => {
                             return(
-                                <Button key={club.id} onClick={() => handleClick(club)}>
-                                    <Club club={ club } />
+                                <Button key={club.id}>
+                                    <ClubCard club={ club } />
                                 </Button>
                             )
                         })
                         :
                         <p>No hay ninguna porra creada</p>
                 }
-                { error && <div onClick={resetError}>{ error.message }</div>}
+                {error && (
+                    <div>
+                        <ErrorComponent errorText={error} />
+                    </div>
+                )}
             </div>
 
         </div>

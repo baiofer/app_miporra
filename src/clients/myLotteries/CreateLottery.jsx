@@ -46,7 +46,9 @@ const CreateLottery = () => {
             howToWin: howToWin,
             clientId: clientLogged.id, 
             state: 'in progress',
-            numberOfWinners: 0
+            numberOfWinners: 0,
+            selectedNumber: -1,
+            result:-1
         }
         try {
             const lotteryCreated = await createLottery(lotteryToCreate)
@@ -54,7 +56,7 @@ const CreateLottery = () => {
             const url = `https://miporra.es/make-lottery-bet?id=${lotteryId}`
             navigate('/generateQR', { state: { url, type:'lottery'}}) 
         } catch (error) {
-            console.log('Error: ', error)
+            console.log('Error creating lottery: ', error)
             setError(error.message)
         }
     }
@@ -112,14 +114,16 @@ const CreateLottery = () => {
                 <label className="createLottery-label">Premio</label>
                 <textarea 
                     className="createLottery-textArea"
-                    rows="2"
+                    rows="1"
+                    cols="50"
                     value={lotteryPrize} 
                     onChange={e => setLotteryPrize(e.target.value)} 
                 />
                 <label className="createLottery-label">Como se gana</label>
                 <textarea 
                     className="createLottery-textArea"
-                    rows="2"
+                    rows="1"
+                    cols="50"
                     value={howToWin} 
                     onChange={e => setHowToWin(e.target.value)} 
                 />

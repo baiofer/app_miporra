@@ -2,8 +2,8 @@ import './MyLotteriesList.css'
 import { getLotteries } from "./service"
 import { useEffect, useState } from "react"
 import { Button } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
-import Lottery from '../../components/LotteryCard'
+import LotteryCard from '../../components/LotteryCard'
+import ErrorComponent from '../../components/ErrorComponent'
 
 const MyLotteriesList = () => {
 
@@ -11,14 +11,14 @@ const MyLotteriesList = () => {
     const [error, setError] = useState(null)
     const [lotteries, setLotteries] = useState([])
 
-    const navigate = useNavigate()
-
     useEffect(() => {
         const fetchLotteries = async () => {
             try {
                 setIsFetching(true)
                 const lotteriesList = await getLotteries()
-                setLotteries(lotteriesList.results)
+                console.log(lotteriesList.results)
+                const sortedLotteries = lotteriesList.results.sort((a, b) => new Date(b.dateLimitOfBets) - new Date(a.dateLimitOfBets));
+                setLotteries(sortedLotteries)
                 setIsFetching(false)
             } catch (error) {
                 setIsFetching(false)
@@ -29,14 +29,16 @@ const MyLotteriesList = () => {
         fetchLotteries()
     }, [])
 
-    const resetError = () => {
-        setError(null)        
-    }
-
-    const handleClick = (lottery) => {
-        console.log(lottery)
-        navigate('/myLotteryDetail', {state: { lottery } })
-    }
+    useEffect(() => {
+        if (error) {
+          const timer = setTimeout(() => {
+            setError(null);
+          }, 5000);
+          return () => {
+            clearTimeout(timer);
+          };
+        }
+    }, [error]);
 
     if (isFetching) return (
         <div>Loading ...</div>
@@ -50,15 +52,19 @@ const MyLotteriesList = () => {
                     lotteries ?
                         lotteries.map( lottery => {
                             return(
-                                <Button key={lottery.id} onClick={() => handleClick(lottery)}>
-                                    <Lottery lottery={ lottery } />
+                                <Button key={lottery.id}>
+                                    <LotteryCard key={lottery.id} lottery={ lottery } />
                                 </Button>
                             )
                         })
                         :
                         <p>No hay ninguna rifa creada</p>
                 }
-                { error && <div onClick={resetError}>{ error.message }</div>}
+                {error && (
+                    <div>
+                        <ErrorComponent errorText={error} />
+                    </div>
+                )}
             </div>
 
         </div>

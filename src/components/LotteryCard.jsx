@@ -46,6 +46,7 @@ const LotteryCard = ({ lottery, type="", onChange }) => {
                     name="result"
                     value={result}
                     onChange={e => handleChange(e.target.value)}
+                    min="0"
                     label="Resultado"
                     style={{ display: type === "result" && lottery.state === "in progress" ? "visible" : "none"}}
                 />

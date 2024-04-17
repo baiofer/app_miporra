@@ -19,14 +19,14 @@ export const createLottery = (lottery) => {
 
 // Update a lottery
 export const updateLottery = async (lottery, id) => {
-    const url = ('/updateLottery', id)
+    const url = ('/updateLottery/' + id)
     return clientJWT.put(url, lottery)
 }
 
 // Delete a lottery
-export const deleteLottery = async (lottery, id) => {
-    const url = ('/deleteLottery', id)
-    return clientJWT.delete(url, lottery)
+export const deleteLottery = async (id) => {
+    const url = ('/deleteLottery/' + id)
+    return clientJWT.delete(url)
 }
 
 // Get lottery bets

@@ -18,7 +18,8 @@ const MyLotteryDetail = () => {
     const [isFetching, setIsFetching] = useState(false)
     const [error, setError] = useState(null)
     const [message, setMessage] = useState(null)
-    const [loteryBets, setLotteryBets] = useState([])
+    const [lotteryBets, setLotteryBets] = useState([])
+    const [lotteryUpdated, setLotteryUpdated] = useState(null)
 
     const navigate = useNavigate()
 
@@ -49,16 +50,22 @@ const MyLotteryDetail = () => {
     };
 
     const handleClick = async () => {
-        const winners = filterBySelectedNumber(loteryBets, result)
+        if (lotteryUpdated) navigate('/client')
+        const winners = filterBySelectedNumber(lotteryBets, result)
+        // Close the lottery
+        const now = new Date()
+        const closedAt = now.toLocaleString('es-ES')
+        const lotteryToUpdate = {
+            state: "finished",
+            result: result,
+            closedAt: closedAt,
+            winner: winners[0]
+        }
+        const updated = await updateLottery(lotteryToUpdate,lottery.id)
+        setLotteryUpdated(updated)
         if (winners.length === 0) {
-            setMessage('NINGUN ACERTANTE EN ESTA RIFA.  (pulsa aqui para salir)')
+            setMessage('NINGUN ACERTANTE EN ESTA RIFA.')
         } else {
-            // Close the lottery
-            console.log(winners[0])
-            const lotteryToUpdate = {
-
-            }
-            await updateLottery(lotteryToUpdate, winners[0].id)
             setMessage(`El ganador de la rifa ha sido ${winners[0].userEmail}`)
         }
     }
@@ -82,7 +89,7 @@ const MyLotteryDetail = () => {
                 <LotteryCard lottery={ lottery } type="result" onChange={onChange}/>
             </Button>
             <div className="myClubDetail-button">
-                <Button variant="primary-cta" onClick={handleClick}>{"Cierra la porra"}</Button>
+                <Button variant="primary-cta" onClick={handleClick}>{lotteryUpdated ? "Salir" : "Cierra la porra"}</Button>
             </div>
             <div className="myClubDetail-error" onClick={handleExit}>
                 {error && (

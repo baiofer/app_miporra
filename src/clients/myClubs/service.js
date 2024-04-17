@@ -19,14 +19,14 @@ export const createClub = (club) => {
 
 // Update a club
 export const updateClub = async (client, id) => {
-    const url = ('/updateClub', id)
+    const url = ('/updateClub/' + id)
     return clientJWT.put(url, client)
 }
 
 // Delete a club
-export const deleteClub = async (client, id) => {
-    const url = ('/deleteClub', id)
-    return clientJWT.delete(url, client)
+export const deleteClub = async (id) => {
+    const url = ('/deleteClub/' + id)
+    return clientJWT.delete(url)
 }
 
 // Get teams badges

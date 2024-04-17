@@ -1,19 +1,19 @@
-.myClubDetail-container {
+.myLotteryDetail-container {
     width: 600px;
     margin: 0 auto;
 }
 
-.myClubDetail-card {
+.myLotteryDetail-card {
     background-color: white;
 }
 
-.myClubDetail-button {
+.myLotteryDetail-button {
     display: flex;
     width: 100%;
     justify-content: center;
     margin-top: 20px;
 }
 
-.myClubDetail-error {
+.myLotteryDetail-error {
     margin-top: 20px;
 }

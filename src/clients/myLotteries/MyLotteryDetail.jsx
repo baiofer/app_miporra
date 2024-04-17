@@ -23,7 +23,7 @@ const MyLotteryDetail = () => {
 
     const navigate = useNavigate()
 
-    // Coger todas las apuestas de la rifa
+    // Get all bets of the Lottery
     useEffect(() => {
         const fetchLotteries = async () => {
             try {
@@ -84,14 +84,14 @@ const MyLotteryDetail = () => {
     )
     
     return(
-        <div className="myClubDetail-container">
-            <Button className="myClubDetail-card">
+        <div className="myLotteryDetail-container">
+            <Button className="myLotteryDetail-card">
                 <LotteryCard lottery={ lottery } type="result" onChange={onChange}/>
             </Button>
-            <div className="myClubDetail-button">
-                <Button variant="primary-cta" onClick={handleClick}>{lotteryUpdated ? "Salir" : "Cierra la porra"}</Button>
+            <div className="myLotteryDetail-button">
+                <Button variant="primary-cta" onClick={handleClick}>{lotteryUpdated ? "Salir" : "Cierra la rifa"}</Button>
             </div>
-            <div className="myClubDetail-error" onClick={handleExit}>
+            <div className="myLotteryDetail-error" onClick={handleExit}>
                 {error && (
                     <div>
                         <ErrorComponent errorText={error.message} />

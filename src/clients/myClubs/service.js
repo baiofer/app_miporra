@@ -35,4 +35,15 @@ export const getTeams = async () => {
     return clientJWT.get(url)
 }
 
+// Get all club bets
+export const getClubBets = async () => {
+    const url = ('/clubBetsJwt')
+    return clientJWT.get(url)
+}
+
+// Get bets from a club
+export const getBetsFromClub = async (clubId) => {
+    const url = (`/clubBetsJwt?id=${clubId}`)
+    return clientJWT.get(url)
+}
 

@@ -12,7 +12,7 @@ import { useState } from 'react'
     type="finished": Card con los resultados fijos.
 */}
 
-const ClubCard = ({ club, type="" }) => {
+const ClubCard = ({ club, type="", onChange }) => {
 
     const clientLogged = useSelector (state => state.origin.clientLogged)
     const logo = clientLogged.logo
@@ -32,6 +32,29 @@ const ClubCard = ({ club, type="" }) => {
         return `${day}-${month}-${year}`;
     };
 
+    const handleChange = (res, num) => {
+        switch (num) {
+            case 1:
+                setResult1Home(res)
+                onChange(res, result1Away, result2Home, result2Away)
+                break
+            case 2:
+                setResult1Away(res)
+                onChange(result1Home, res, result2Home, result2Away)
+                break
+            case 3:
+                setResult2Home(res)
+                onChange(result1Home, result1Away, res, result2Away)
+                break
+            case 4:
+                setResult2Away(res)
+                onChange(result1Home, result1Away, result2Home, res)
+                break
+        }
+    }
+
+    const price = parseInt(club.accumulatedPrize) + parseInt(club.accumulatedJackpot)
+    
     return (
         <div className='club-container' style={{ borderColor: borderColor}}>
             <div className='club-betZone'>
@@ -53,11 +76,12 @@ const ClubCard = ({ club, type="" }) => {
                         type="number"
                         name="result"
                         value={result1Home}
-                        onChange={e => setResult1Home(e.target.value)}
+                        onChange={e => handleChange(e.target.value, 1)}
+                        min="0"
                         label="Resultado"
                         style={{ visibility: type === "result" && club.state === "in progress" ? "visible" : "hidden"}}
                     />
-                    <p className='club-finished'>{club.result1Home}</p>
+                    <p className='club-finished'>{club.match1HomeTeamResult}</p>
                     <BadgeElement name={club.match1HomeTeam} className="club-badge"/>
                     <img src={separator} alt="separador" className='club-separator' />
                     <BadgeElement name={club.match1AwayTeam} />
@@ -65,11 +89,12 @@ const ClubCard = ({ club, type="" }) => {
                         type="number"
                         name="result"
                         value={result1Away}
-                        onChange={e => setResult1Away(e.target.value)}
+                        onChange={e => handleChange(e.target.value, 2)}
+                        min="0"
                         label="Resultado"
                         style={{ visibility: type === "result" && club.state === "in progress" ? "visible" : "hidden"}}
                     />
-                    <p className='club-finished'>{club.result1Away}</p>
+                    <p className='club-finished'>{club.match1AwayTeamResult}</p>
                 </div>
                 {/* PARTIDO 2 */}
                 <div className='club-match'>
@@ -81,11 +106,12 @@ const ClubCard = ({ club, type="" }) => {
                         type="number"
                         name="result"
                         value={result2Home}
-                        onChange={e => setResult2Home(e.target.value)}
+                        onChange={e => handleChange(e.target.value, 3)}
+                        min="0"
                         label="Resultado"
                         style={{ visibility: type === "result" && club.state === "in progress" ? "visible" : "hidden"}}
                     />
-                    <p className='club-finished'>{club.result2Home}</p>
+                    <p className='club-finished'>{club.match2HomeTeamResult}</p>
                     <BadgeElement name={club.match2HomeTeam} className="club-badge"/>
                     <img src={separator} alt="separador" className='club-separator' />
                     <BadgeElement name={club.match2AwayTeam} />
@@ -93,27 +119,40 @@ const ClubCard = ({ club, type="" }) => {
                         type="number"
                         name="result"
                         value={result2Away}
-                        onChange={e => setResult2Away(e.target.value)}
+                        onChange={e => handleChange(e.target.value, 4)}
+                        min="0"
                         label="Resultado"
                         style={{ visibility: type === "result" && club.state === "in progress" ? "visible" : "hidden"}}
                     />
-                    <p className='club-finished'>{club.result2Away}</p>
+                    <p className='club-finished'>{club.match2AwayTeamResult}</p>
                 </div>
-                <div className='club-end-line'>
-                    <p className='club-end-line-label'>Estado: </p>
-                    <p className='club-end-line-value'>{club.state === "in progress" ? "Activa" : "Cerrada"}</p>
-                    <p className='club-end-line-label'>Apuesta: </p> 
-                    <p className='club-end-line-value'>{club.betPrice}€</p>
-                    {
-                        club.jackpot ? 
-                            <div>
-                                <p className='club-end-line-label'>Bote: </p>
-                                <p className='club-end-line-value'>{club.jackpot}€</p>
-                            </div> 
-                        : null
-                    }
-                    
-                </div>
+                {
+                    club.state === "in progress" ?
+                        <div className='club-end-line'>
+                            <p className='club-end-line-label'>Estado: </p>
+                            <p className='club-end-line-value'>{club.state === "in progress" ? "Activa" : "Cerrada"}</p>
+                            <p className='club-end-line-label'>Apuesta: </p> 
+                            <p className='club-end-line-value'>{club.betPrice}€</p>
+                            {
+                                club.jackpot ? 
+                                    <div>
+                                        <p className='club-end-line-label'>Bote: </p>
+                                        <p className='club-end-line-value'>{club.jackpot}€</p>
+                                    </div> 
+                                : null
+                            }
+                        </div>
+                    :
+                        <div className='club-end-line'>
+                            <p className='club-end-line-label'>Estado: </p>
+                            <p className='club-end-line-value'>{club.state === "in progress" ? "Activa" : "Cerrada"}</p>
+                            <p className='club-end-line-label'>Premio: </p> 
+                            <p className='club-end-line-value'>{price}€</p>
+                            <p className='club-end-line-label'>Ganadores: </p> 
+                            <p className='club-end-line-value'>{club.winners.length}</p>
+                        </div>
+                }
+                
                 
             </div>
         </div>

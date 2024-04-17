@@ -42,12 +42,14 @@ const MiporraApp = () => {
             if (isTokenExpired) {
                 dispatch(setOrigin('user'))
                 dispatch(setClientLogged({}))
+                console.log('Token expired')
                 navigate('./porras')
             } else {
                 handleClient()
                 navigate('/client')
             }
         } else {
+            console.log('There is not a token.')
             navigate('/porras')
         }
         
@@ -56,6 +58,7 @@ const MiporraApp = () => {
     const handleClient = async () => {
         await setAuthorizationHeader(getCookie('token'));
         const client = await getClient()
+        console.log('There is a token. Client: ', client.results[0])
         dispatch(setOrigin('client'))
         dispatch(setClientLogged(client.results[0]))
     }

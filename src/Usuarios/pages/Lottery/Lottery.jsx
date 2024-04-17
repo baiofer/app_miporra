@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { client } from "/src/api/config/client.js";
 import { useNavigate } from "react-router-dom";
+import QRCode from "qrcode.react";
 
 export const LotteryPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -42,6 +43,12 @@ export const LotteryPage = () => {
               <div className="circle-logo center-items">R</div>
               <img src={bet.client.logo} className="lottery-client" />
               <div className="lottery-description">{bet.lotteryPrize}</div>
+              <div className="generateQR-container">
+                <QRCode
+                  value={`https://miporra.es/make-lottery-bet/${bet.id}`}
+                  size="200"
+                />
+              </div>
             </button>
           ))}
         </section>
@@ -51,7 +58,3 @@ export const LotteryPage = () => {
 };
 
 export default LotteryPage;
-
-// Página de rifas, resultado de todas las rifas activas
-// TODO: Fichas de rifas con info de la fecha, el bar que pertenece, fecha sorteo, etc
-// TODO: Página detalle rifa? Hacer apuesta en rifa?

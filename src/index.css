@@ -432,6 +432,16 @@ D => Bares
   min-width: 315px;
 }
 
+.generateQR-container {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1100px;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
 /*CLIENTS*/
 
 .clients-container {

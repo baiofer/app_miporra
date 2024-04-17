@@ -53,7 +53,7 @@ const CreateLottery = () => {
         try {
             const lotteryCreated = await createLottery(lotteryToCreate)
             const lotteryId = lotteryCreated.results.id
-            const url = `https://miporra.es/make-lottery-bet?id=${lotteryId}`
+            const url = `https://miporra.es/make-lottery-bet/${lotteryId}`
             navigate('/generateQR', { state: { url, type:'lottery'}}) 
         } catch (error) {
             console.log('Error creating lottery: ', error)

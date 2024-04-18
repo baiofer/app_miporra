@@ -9,7 +9,7 @@ export const ActiveBets = () => {
     const fetchActiveBets = async () => {
       try {
         setIsLoading(true);
-        const { data } = await client.get("/clubBets");
+        const { data } = await client.get(`clubBets?clubId={clubId}`);
         setIsLoading(false);
         setActiveBets(data.results);
       } catch (error) {

@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
 import { client } from "../../../api/config/client";
+import { useLocation } from "react-router-dom";
 
 export const ActiveBets = () => {
   const [activeBets, setActiveBets] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  const location = useLocation()
+    const currentClub = location.state.currentClub
+
   useEffect(() => {
     const fetchActiveBets = async () => {
       try {
         setIsLoading(true);
-        const { data } = await client.get(`clubBets?clubId={clubId}`);
+        const { data } = await client.get(`/clubBets?clubId=${currentClub.id}`);
         setIsLoading(false);
         setActiveBets(data.results);
       } catch (error) {

@@ -2,7 +2,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import AppLayout from "./Usuarios/pages/Layout/AppLayout";
 import PorrasPage from "./Usuarios/pages/Porras/PorrasPage";
-import Button from "./components/Button";
 import { ClubBets } from "./Usuarios/pages/ClubBets/ClubBets";
 import { ClientsPage } from "./Usuarios/pages/Clients/ClientsPage";
 import NextBets from "./Usuarios/pages/NextBets/NextBets";
@@ -33,6 +32,7 @@ import CloseLottery from "./clients/myLotteries/CloseLottery";
 import { ClientDetail } from "./Usuarios/pages/Clients/ClientDetail";
 import GenerateQR from "./components/GenerateQR";
 import MiporraApp from "./clients/MiporraApp";
+import ClubBetsList from "./clients/myClubs/ClubBetsList";
 
 
 function App() {
@@ -63,6 +63,7 @@ function App() {
             <Route path="myClubDetail" element={<MyClubDetail />} />
             <Route path="myLotteriesList" element={<MyLotteriesList />} />
             <Route path="myLotteryDetail" element={<MyLotteryDetail />} />
+            <Route path="clubBetsList" element={<ClubBetsList />} />
             <Route path="validationsList" element={<ValidationsList />} />
             <Route path="profile" element={<Profile />} />
             <Route path="homepage" element={<Homepage />} />

@@ -48,6 +48,10 @@ const MyClubsList = () => {
         <div>Loading ...</div>
     )
 
+    const handleList = (club) => {
+        navigate('/clubBetsList', { state: { club } })
+    }
+
     return (
         <div>
             <button className='back-image-button' onClick={ () => navigate('/client')}>
@@ -64,7 +68,7 @@ const MyClubsList = () => {
                     clubs ?
                         clubs.map( club => {
                             return(
-                                <Button key={club.id}>
+                                <Button key={club.id} onClick={() => handleList(club)}>
                                     <ClubCard club={ club } />
                                 </Button>
                             )

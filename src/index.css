@@ -252,6 +252,7 @@ D => Bares
   border: 1px solid var(--primary-green-light);
   border-radius: 18px;
   padding: 1rem;
+  background-color: transparent;
 }
 
 .club-logo {
@@ -263,6 +264,12 @@ D => Bares
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.client-active-bets {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 /*BETS*/

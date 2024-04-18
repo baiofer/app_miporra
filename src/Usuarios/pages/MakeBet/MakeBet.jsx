@@ -6,6 +6,7 @@ import { client } from "../../../api/config/client";
 import { Link, useNavigate } from "react-router-dom";
 import { useBadgesContext } from "../../../context/BadgesContext";
 import { v4 as uuidV4 } from "uuid";
+import { generateRandomCode } from "../../../utils/generateRnmNumber";
 
 export const MakeBet = () => {
   const { currentClub } = useClubContext();
@@ -21,7 +22,7 @@ export const MakeBet = () => {
     betData.betDate = new Date().toLocaleDateString();
     betData.betPrice = String(currentClub.betPrice);
     betData.clubId = currentClub.id;
-    const betId = uuidV4();
+    const betId = generateRandomCode();
     console.log(betData);
 
     const finalData = {

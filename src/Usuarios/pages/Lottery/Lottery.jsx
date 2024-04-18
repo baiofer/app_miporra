@@ -28,29 +28,32 @@ export const LotteryPage = () => {
   };
 
   return (
-    <main className="lottery-container center-items">
+    <main className="new-lottery-container center-items">
       <h1>Escoge tu rifa</h1>
       {isLoading ? (
         <p>Cargando...</p>
       ) : (
         <section className="lotteries center-items">
-          {lotteries?.map((bet) => (
-            <button
-              key={bet.id}
-              className="lottery-card center-items"
-              onClick={() => handleMakeLotteryBet(bet.id)}
-            >
-              <div className="circle-logo center-items">R</div>
-              <img src={bet.client.logo} className="lottery-client" />
-              <div className="lottery-description">{bet.lotteryPrize}</div>
-              <div className="generateQR-container">
-                <QRCode
-                  value={`https://miporra.es/make-lottery-bet/${bet.id}`}
-                  size="200"
-                />
-              </div>
-            </button>
-          ))}
+          {lotteries?.map(
+            (bet) =>
+              bet?.state === "in progress" && (
+                <button
+                  key={bet.id}
+                  className="lottery-card center-items"
+                  onClick={() => handleMakeLotteryBet(bet.id)}
+                >
+                  <div className="circle-logo center-items">R</div>
+                  <img src={bet.client.logo} className="lottery-client" />
+                  <div className="lottery-description">{bet.lotteryPrize}</div>
+                  <div className="generateQR-container">
+                    <QRCode
+                      value={`https://miporra.es/make-lottery-bet/${bet.id}`}
+                      size="200"
+                    />
+                  </div>
+                </button>
+              )
+          )}
         </section>
       )}
     </main>

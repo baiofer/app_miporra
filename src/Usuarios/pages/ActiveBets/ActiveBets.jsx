@@ -9,7 +9,7 @@ export const ActiveBets = () => {
     const fetchActiveBets = async () => {
       try {
         setIsLoading(true);
-        const { data } = await client.get("/clubBets");
+        const { data } = await client.get(`clubBets?clubId={clubId}`);
         setIsLoading(false);
         setActiveBets(data.results);
       } catch (error) {
@@ -25,7 +25,7 @@ export const ActiveBets = () => {
       <section className="active-bets">
         <h1 className="active-bets-title">Apuestas Activas</h1>
         {isLoading && <p>Cargando apuestas activas</p>}
-        {activeBets.map((bet) => (
+        {activeBets?.map((bet) => (
           <div key={bet.id} className="active-bet-card center-items">
             <div>
               <p>{bet.userName}</p>

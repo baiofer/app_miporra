@@ -193,7 +193,25 @@ C => Info
 D => Bares
 */
 
+/*PORRAS PAGE*/
+
+.porras-page-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 90vh;
+}
+
+.porras-page-box {
+  flex-basis: calc(50% - 20px);
+  margin-bottom: 20px;
+}
+
 /*HOMEPAGE*/
+.porras-page-box {
+  flex: 1;
+  margin-bottom: 10px;
+}
 
 .homepage-container {
   display: grid;
@@ -264,6 +282,7 @@ D => Bares
   border: 1px solid var(--primary-green-light);
   border-radius: 18px;
   padding: 1rem;
+  background-color: transparent;
 }
 
 .club-logo {
@@ -275,6 +294,12 @@ D => Bares
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.client-active-bets {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 /*BETS*/
@@ -372,7 +397,7 @@ D => Bares
 
 /*LOTTERY*/
 
-.lottery-container {
+.new-lottery-container {
   display: flex;
   flex-direction: column;
   max-width: 90%;
@@ -486,6 +511,12 @@ D => Bares
 
 .client-name {
   font-size: 2rem;
+}
+
+@media (width < 640px) {
+  .make-lottery-card {
+    width: 100%;
+  }
 }
 
 @media (width > 768px) {

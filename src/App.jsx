@@ -66,7 +66,6 @@ function App() {
             <Route path="myLotteriesList" element={<MyLotteriesList />} />
             <Route path="myLotteryDetail" element={<MyLotteryDetail />} />
             <Route path="clubBetsList" element={<ClubBetsList />} />
-            <Route path="lotteryBetsList" element={<LotteryBetsList />} />
             <Route path="validationsList" element={<ValidationsList />} />
             <Route path="profile" element={<Profile />} />
             <Route path="homepage" element={<Homepage />} />

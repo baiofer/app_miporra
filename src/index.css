@@ -367,7 +367,7 @@ D => Bares
 
 /*LOTTERY*/
 
-.lottery-container {
+.new-lottery-container {
   display: flex;
   flex-direction: column;
   max-width: 90%;

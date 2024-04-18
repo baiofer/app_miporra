@@ -4,6 +4,7 @@ import { client } from "../../../api/config/client";
 import FormInput from "../../../components/FormInput";
 import Button from "../../../components/Button";
 import { v4 as uuidV4 } from "uuid";
+import { generateRandomCode } from "../../../utils/generateRnmNumber";
 
 export const MakeLotteryBet = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -51,7 +52,7 @@ export const MakeLotteryBet = () => {
     lotteryData.betPrice = lottery[0].betPrice;
     lotteryData.lotteryId = params.id;
     console.log(lotteryData);
-    const lotteryId = uuidV4();
+    const lotteryId = generateRandomCode();
     const finalData = {
       number: lotteryId,
       clientId: lottery[0].lottery.clientId,

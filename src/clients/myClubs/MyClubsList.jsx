@@ -4,8 +4,13 @@ import { useEffect, useState } from "react"
 import { Button } from '@mui/material'
 import ClubCard from '../../components/ClubCard'
 import ErrorComponent from '../../components/ErrorComponent'
+import adelante from '../../images/adelante.svg'
+import { useNavigate } from 'react-router-dom'
+
 
 const MyClubsList = () => {
+
+    const navigate = useNavigate()
 
     const [isFetching, setIsFetching] = useState(false)
     const [error, setError] = useState(null)
@@ -45,7 +50,15 @@ const MyClubsList = () => {
 
     return (
         <div>
-            <h2>Mis porras</h2>
+            <button className='back-image-button' onClick={ () => navigate('/client')}>
+                <img className="back-image" src={adelante} alt="Atras" />
+            </button>
+            {
+                clubs.length === 0 ?
+                    <h2 className='myClubList-title'>No tiene ninguna porra creada</h2>
+                :
+                    <h2 className='myClubList-title'>Mis porras</h2>
+            }
             <div>
                 {
                     clubs ?

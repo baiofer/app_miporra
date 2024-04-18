@@ -4,6 +4,8 @@ import { Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import LotteryCard from "../../components/LotteryCard"
 import ErrorComponent from "../../components/ErrorComponent"
+import adelante from '../../images/adelante.svg'
+import './CloseLottery.css'
 
 const CloseLottery = () => {
 
@@ -52,7 +54,15 @@ const CloseLottery = () => {
 
     return (
         <div>
-            <h2>Mis rifas</h2>
+            <button className='back-image-button' onClick={ () => navigate('/client')}>
+                <img className="back-image" src={adelante} alt="Atras" />
+            </button>
+            {
+                lotteries.length === 0 ?
+                    <h2 className='closeLottery-title'>No tiene ninguna rifa creada</h2>
+                :
+                    <h2 className='closeLottery-title'>Mis rifas</h2>
+            }
             <div>
                 {
                     lotteries ?

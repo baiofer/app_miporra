@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react"
 import { getBetsFromClub } from "./service"
-import { useParams } from "react-router-dom"
 
 const ClubBetsList = ({ clubId }) => {
 

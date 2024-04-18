@@ -4,7 +4,7 @@ import Button from '../../components/Button'
 import './MyClubDetail.css'
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { getClubBets, updateClub } from "./service"
+import { getBetsFromClub, updateClub } from "./service"
 import ErrorComponent from "../../components/ErrorComponent"
 import MessageComponent from "../../components/MessageComponent"
 
@@ -31,7 +31,8 @@ const MyClubDetail = () => {
         const fetchClubs = async () => {
             try {
                 setIsFetching(true)
-                const clubBetsList = await getClubBets(club.id)
+                const clubBetsList = await getBetsFromClub(club.id)
+                console.log(clubBetsList)
                 if (clubBetsList && clubBetsList.results) {
                     const sortedClubs = clubBetsList.results.sort((a, b) => new Date(b.betDate) - new Date(a.betDate));
                     setClubBets(sortedClubs)
@@ -48,10 +49,27 @@ const MyClubDetail = () => {
         fetchClubs()
     }, [])
 
-    const filterByResults = (bets, number1, number2, number3, number4) => {
-        return bets.filter(bet => bet.match1HomeTeamResult === parseInt(number1) && bet.match1AwayTeamResult === parseInt(number2) && bet.match2HomeTeamResult === parseInt(number3) && bet.match2AwayTeamResult === parseInt(number4))
-    };
+    useEffect(() => {
+        if (error || message) {
+          const timer = setTimeout(() => {
+            setError(null);
+            setMessage(null)
+          }, 5000);
+          return () => {
+            clearTimeout(timer);
+          };
+        }
+    }, [error]);
 
+    const filterByResults = (bets, number1, number2, number3, number4) => {
+        let winners = []
+        bets.forEach( bet => {
+            if (parseInt(bet.match1HomeTeamResult) === parseInt(number1) && parseInt(bet.match1AwayTeamResult) === parseInt(number2) && parseInt(bet.match2HomeTeamResult) === parseInt(number3) && parseInt(bet.match2AwayTeamResult) === parseInt(number4)) {
+                winners.push(bet)
+            }
+        })
+        return winners
+    };
 
     const handleClick = async (event) => {
         event.preventDefault()
@@ -77,7 +95,7 @@ const MyClubDetail = () => {
         if (winners.length === 0) {
             setMessage('Porra cerrada. NINGUN ACERTANTE EN ESTA PORRA.')
         } else {
-            const art = winners.length === 1 ? "El ganador de la rifa ha sido" : "Los ganadores de la rifa han sido"
+            const art = winners.length === 1 ? "El ganador de la porra ha sido" : "Los ganadores de la porra han sido"
             const theWinners = winners.map(winner => winner.userEmail).join(', ');
             setMessage(`Porra cerrada. ${art} ${theWinners}.`)
         }

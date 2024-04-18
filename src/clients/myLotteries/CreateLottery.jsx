@@ -6,6 +6,7 @@ import './CreateLottery.css'
 import { useSelector } from 'react-redux'
 import { createLottery } from "./service"
 import { useNavigate } from 'react-router-dom'
+import adelante from "../../images/adelante.svg"
 
 const CreateLottery = () => {
 
@@ -63,79 +64,84 @@ const CreateLottery = () => {
 
 
     return (
-        <div className="createLottery-container">
-            <p className='createLottery-title'>CREAR RIFA</p>
-            <form onSubmit={handleSubmit}>
-                <FormInput 
-                    className='createLottery-date'
-                    type="date"
-                    required
-                    value={lotteryDate}
-                    onChange={ e => setLotteryDate(e.target.value)}
-                    label="Fecha del sorteo"
-                    name="lotteryDate"
-                />
-                <FormInput 
-                    className='createLottery-date'
-                    type="number"
-                    required
-                    value={firstNumber}
-                    onChange={ e => setFirstNumber(e.target.value)}
-                    label="Primer número de la rifa"
-                    name="firstNumber"
-                />
-                <FormInput 
-                    className='createLottery-date'
-                    type="number"
-                    required
-                    value={totalNumbers}
-                    onChange={ e => setTotalNumbers(e.target.value)}
-                    label="Cantidad de números"
-                    name="totalNumbers"
-                />
-                <FormInput 
-                    className='createLottery-date'
-                    type="date"
-                    required
-                    value={dateLimit}
-                    onChange={ e => setDateLimit(e.target.value)}
-                    label="Fecha límite de apuestas"
-                    name="dateLimit"
-                />
-                <FormInput 
-                    className='createLottery-date'
-                    type="number"
-                    required
-                    value={betPrice}
-                    onChange={ e => setBetPrice(e.target.value)}
-                    label="Precio apuesta"
-                    name="betPrice"
-                />
-                <label className="createLottery-label">Premio</label>
-                <textarea 
-                    className="createLottery-textArea"
-                    rows="1"
-                    cols="50"
-                    value={lotteryPrize} 
-                    onChange={e => setLotteryPrize(e.target.value)} 
-                />
-                <label className="createLottery-label">Como se gana</label>
-                <textarea 
-                    className="createLottery-textArea"
-                    rows="1"
-                    cols="50"
-                    value={howToWin} 
-                    onChange={e => setHowToWin(e.target.value)} 
-                />
-                <div className="createLottery-access">
-                    <Button variant="primary-cta">
-                        {"Crea la rifa"}
-                    </Button>
-                </div>
-            </form>
-            { error && 
-                <ErrorComponent errorText={error} />
-            }
+        <div>
+            <button className='back-image-button' onClick={ () => navigate('/client')}>
+                <img className="back-image" src={adelante} alt="Atras" />
+            </button>
+            <div className="createLottery-container">
+                <p className='createLottery-title'>CREAR RIFA</p>
+                <form onSubmit={handleSubmit}>
+                    <FormInput 
+                        className='createLottery-date'
+                        type="date"
+                        required
+                        value={lotteryDate}
+                        onChange={ e => setLotteryDate(e.target.value)}
+                        label="Fecha del sorteo"
+                        name="lotteryDate"
+                    />
+                    <FormInput 
+                        className='createLottery-date'
+                        type="number"
+                        required
+                        value={firstNumber}
+                        onChange={ e => setFirstNumber(e.target.value)}
+                        label="Primer número de la rifa"
+                        name="firstNumber"
+                    />
+                    <FormInput 
+                        className='createLottery-date'
+                        type="number"
+                        required
+                        value={totalNumbers}
+                        onChange={ e => setTotalNumbers(e.target.value)}
+                        label="Cantidad de números"
+                        name="totalNumbers"
+                    />
+                    <FormInput 
+                        className='createLottery-date'
+                        type="date"
+                        required
+                        value={dateLimit}
+                        onChange={ e => setDateLimit(e.target.value)}
+                        label="Fecha límite de apuestas"
+                        name="dateLimit"
+                    />
+                    <FormInput 
+                        className='createLottery-date'
+                        type="number"
+                        required
+                        value={betPrice}
+                        onChange={ e => setBetPrice(e.target.value)}
+                        label="Precio apuesta"
+                        name="betPrice"
+                    />
+                    <label className="createLottery-label">Premio</label>
+                    <textarea 
+                        className="createLottery-textArea"
+                        rows="1"
+                        cols="50"
+                        value={lotteryPrize} 
+                        onChange={e => setLotteryPrize(e.target.value)} 
+                    />
+                    <label className="createLottery-label">Como se gana</label>
+                    <textarea 
+                        className="createLottery-textArea"
+                        rows="1"
+                        cols="50"
+                        value={howToWin} 
+                        onChange={e => setHowToWin(e.target.value)} 
+                    />
+                    <div className="createLottery-access">
+                        <Button variant="primary-cta">
+                            {"Crea la rifa"}
+                        </Button>
+                    </div>
+                </form>
+                { error && 
+                    <ErrorComponent errorText={error} />
+                }
+            </div>
         </div>
     )
 }

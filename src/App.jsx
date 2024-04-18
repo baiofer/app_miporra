@@ -2,7 +2,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import AppLayout from "./Usuarios/pages/Layout/AppLayout";
 import PorrasPage from "./Usuarios/pages/Porras/PorrasPage";
-import Button from "./components/Button";
 import { ClubBets } from "./Usuarios/pages/ClubBets/ClubBets";
 import { ClientsPage } from "./Usuarios/pages/Clients/ClientsPage";
 import NextBets from "./Usuarios/pages/NextBets/NextBets";
@@ -34,7 +33,6 @@ import { ClientDetail } from "./Usuarios/pages/Clients/ClientDetail";
 import GenerateQR from "./components/GenerateQR";
 import MiporraApp from "./clients/MiporraApp";
 import ClubBetsList from "./clients/myClubs/ClubBetsList";
-import LotteryBetsList from "./clients/myLotteries/LotteryBetsList";
 
 
 function App() {

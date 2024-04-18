@@ -33,6 +33,8 @@ import CloseLottery from "./clients/myLotteries/CloseLottery";
 import { ClientDetail } from "./Usuarios/pages/Clients/ClientDetail";
 import GenerateQR from "./components/GenerateQR";
 import MiporraApp from "./clients/MiporraApp";
+import ClubBetsList from "./clients/myClubs/ClubBetsList";
+import LotteryBetsList from "./clients/myLotteries/LotteryBetsList";
 
 
 function App() {
@@ -63,6 +65,8 @@ function App() {
             <Route path="myClubDetail" element={<MyClubDetail />} />
             <Route path="myLotteriesList" element={<MyLotteriesList />} />
             <Route path="myLotteryDetail" element={<MyLotteryDetail />} />
+            <Route path="clubBetsList" element={<ClubBetsList />} />
+            <Route path="lotteryBetsList" element={<LotteryBetsList />} />
             <Route path="validationsList" element={<ValidationsList />} />
             <Route path="profile" element={<Profile />} />
             <Route path="homepage" element={<Homepage />} />

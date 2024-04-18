@@ -1,0 +1,81 @@
+.clubBetsList-container {
+    width: 500px;
+    background-color: var(--primary-green-main);
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.clubBetsList-line {
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clubBetsList-match {
+    display: flex;
+    flex-direction: column;
+}
+
+.clubBetsList-title {
+    display: flex;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--primary-green-light);
+    justify-content: center;
+}
+
+.clubBetsList-title-club {
+    display: flex;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--primary-green-light);
+    margin-top: -10px;
+    justify-content: center;
+}
+
+.clubBetsList-divisor {
+    border-style: solid;
+    border-color: var(--primary-green-light);
+    border-width: 1px;
+}
+
+.clubBetsList-line {
+    font-size: 15px;
+    color: var(--primary-green-light);
+}
+
+.clubBetsList-result {
+    display: flex;
+    align-items: center;
+}
+
+.clubBetsList-name {
+    display: flex;
+    align-items: flex-start;
+}
+
+.clubBetsList-price {
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--primary-green-light);
+}
+
+.clubBetsList-price-jackpot {
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--primary-green-light);
+    margin-top: -20px;
+}
+
+.clubBetsList-total {
+    margin-left: 10px;
+}

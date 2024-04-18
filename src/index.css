@@ -483,6 +483,12 @@ D => Bares
   font-size: 2rem;
 }
 
+@media (width < 640px) {
+  .make-lottery-card {
+    width: 100%;
+  }
+}
+
 @media (width > 768px) {
   .homepage-container {
     display: grid;

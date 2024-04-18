@@ -52,11 +52,13 @@ const Client = () => {
                         <div className='client-club'>
                             <p className='container-title'>PORRAS</p>
                         </div>
-                        <img className='client-add' src={add} alt='Añadir porra' onClick={handleClubClick}/>                        
-                        <div className='client-club' onClick={handleCloseClub}>
-                            <p className='container-title'>CERRAR</p>
+                        <button  className="client-button-add-club" onClick={handleClubClick}>
+                            <img className='client-add' src={add} alt='Añadir porra' onClick={handleClubClick}/>
+                        </button>                     
+                        <button className='client-club' onClick={handleCloseClub}>
+                            <p className='container-title container-title-margin'>CERRAR</p>
                             <p className='container-title'>PORRA</p>
-                        </div>
+                        </button>
                     </div>
                     <div className='client-button'>
                         <Button variant="primary-cta" onClick={handleClubList}>
@@ -67,13 +69,15 @@ const Client = () => {
                 <div className='client-lottery-container'>
                     <div className='client-lottery-container-back'>
                         <div className='client-lottery'>
-                            <p className='container-title'>RIFA</p>
+                            <p className='container-title'>RIFAS</p>
                         </div>
-                        <img className='client-add' src={add} alt='Añadir rifa' onClick={handleLotteryClick}/>
-                        <div className='client-lottery' onClick={handleCloseLottery}>
-                            <p className='container-title'>CERRAR</p>
+                        <button  className="client-button-add-lottery" onClick={handleLotteryClick}>
+                            <img className='client-add' src={add} alt='Añadir rifa'/>
+                        </button>
+                        <button className='client-lottery' onClick={handleCloseLottery}>
+                            <p className='container-title container-title-margin'>CERRAR</p>
                             <p className='container-title'>RIFA</p>
-                        </div>
+                        </button>
                     </div>
                     <div className='client-button' >
                         <Button  variant="secondary-cta" onClick={handleLotteryList}>

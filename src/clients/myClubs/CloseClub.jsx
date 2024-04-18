@@ -4,6 +4,8 @@ import ClubCard from "../../components/ClubCard"
 import { Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import ErrorComponent from "../../components/ErrorComponent"
+import adelante from '../../images/adelante.svg'
+import './CloseClub.css'
 
 const CloseClub = () => {
 
@@ -52,7 +54,15 @@ const CloseClub = () => {
 
     return (
         <div>
-            <h2>Mis porras</h2>
+            <button className='back-image-button' onClick={ () => navigate('/client')}>
+                <img className="back-image" src={adelante} alt="Atras" />
+            </button>
+            {
+                clubs.length === 0 ?
+                    <h2 className='closeClub-title'>No tiene ninguna porra creada</h2>
+                :
+                    <h2 className='closeClub-title'>Mis porras</h2>
+            }
             <div>
                 {
                     clubs ?

@@ -1,53 +1,50 @@
 .navBar {
     height: 100px;
     display: flex;
-    /*background-color: var(--primary-green-light);*/
     align-items: center;
-    justify-content: space-between;
     color: white;
     padding: 20px;
-  }
+}
   
-  .navBar-items {
+.navBar-items {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
     list-style: none;
-    /*color: var(--primary-green-main);*/
-  }
+}
   
-  .navLink {
+.navLink {
     text-decoration: none;
     color: var(--primary-green-main);
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 18px;
     background-color: white;
-  }
+}
   
-  .logo {
+.logo {
     width: 200px;
     height: 100px;
     object-fit: contain;
-  }
+}
 
-  .navLoginContainer {
+.navLoginContainer {
     display: inline;
     padding: 10px;
     border-style: solid;
     border-color: var(--primary-green-light);
     border-radius: 25px;
-  }
+}
 
-  .navBar-menu {
+.navBar-menu {
     width: 35px;
     height: 35px;
     margin-right: 20px;
     color: green;
-  }
+}
 
-  .menu-navLink {
+.menu-navLink {
     text-decoration: none;
     color: var(--primary-green-light);
     font-family: Arial, Helvetica, sans-serif;

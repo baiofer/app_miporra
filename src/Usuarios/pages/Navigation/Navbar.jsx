@@ -36,7 +36,7 @@ function Navbar() {
       <NavLink to="/homepage" className="navLink">
         <img className="logo" src={logo} alt="Logo" />
       </NavLink>
-      <ul className="navBar-items">
+      <div>
         <button className="navLink" onClick={handleMenu} >
           <img src={menu} alt="Icono de menú" className="navBar-menu" />
         </button>
@@ -54,13 +54,13 @@ function Navbar() {
               </button>
             </div>
           )
-        }  
+        }
         <NavLink to="/login" className="navLink">
           <span className="navLoginContainer">
             Soy un bar
           </span>
         </NavLink>
-      </ul>
+      </div>
     </div>
   );
 }

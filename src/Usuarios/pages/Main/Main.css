@@ -1,0 +1,41 @@
+.main-container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1100px;
+    align-items: center;
+    flex-direction: column;
+    display: grid;
+    grid-template-areas:
+      "a b b"
+      "a c d";
+    gap: 2rem;
+}
+
+.main-club-button {
+    padding: 0;
+    background-color: white;
+}
+
+.main-club {
+    width: 100%;
+    grid-area: a;
+    border-radius: 20px;
+}
+
+.main-lottery {
+    width: 100%;
+    grid-area: b;
+    border-radius: 20px;
+}
+
+.main-home {
+    width: 100%;
+    grid-area: c;
+    border-radius: 20px;
+}
+
+.main-client {
+    width: 100%;
+    grid-area: d;
+    border-radius: 20px;
+}

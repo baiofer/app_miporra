@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import AppLayout from "./Usuarios/pages/Layout/AppLayout";
-import PorrasPage from "./Usuarios/pages/Porras/PorrasPage";
 import { ClubBets } from "./Usuarios/pages/ClubBets/ClubBets";
 import { ClientsPage } from "./Usuarios/pages/Clients/ClientsPage";
 import NextBets from "./Usuarios/pages/NextBets/NextBets";
@@ -33,6 +32,7 @@ import { ClientDetail } from "./Usuarios/pages/Clients/ClientDetail";
 import GenerateQR from "./components/GenerateQR";
 import MiporraApp from "./clients/MiporraApp";
 import ClubBetsList from "./clients/myClubs/ClubBetsList";
+import Main from "./Usuarios/pages/Main/Main";
 
 
 function App() {
@@ -43,7 +43,7 @@ function App() {
           <Route element={<AppLayout />}>
             <Route index element={<Navigate replace to="miporra-app" />} />
             <Route path="miporra-app" element={<MiporraApp />} />
-            <Route path="porras" element={<PorrasPage />} />
+            <Route path="porras" element={<Main />} />
             <Route path="club-bets" element={<ClubBets />} />
             <Route path="clubs" element={<Clubs />} />
             <Route path="clients" element={<ClientsPage />} />

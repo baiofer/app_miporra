@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2030.12 788.72">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-2 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-3, .cls-4 {
+        fill: none;
+      }
+
+      .cls-3, .cls-5, .cls-6 {
+        stroke-width: 0px;
+      }
+
+      .cls-7 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-8 {
+        letter-spacing: -.08em;
+      }
+
+      .cls-9 {
+        fill: #fff;
+        font-family: PPRightGrotesk-WideBlack, 'PP Right Grotesk';
+        font-size: 150px;
+        font-weight: 800;
+      }
+
+      .cls-9, .cls-10 {
+        isolation: isolate;
+      }
+
+      .cls-11 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-12 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-4 {
+        stroke: #707070;
+      }
+
+      .cls-5 {
+        fill: #abcf33;
+      }
+
+      .cls-6 {
+        fill: #006b5a;
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-3" x="1687.31" y="227.96" width="402.94" height="402.94"/>
+    </clipPath>
+  </defs>
+  <g id="Rectángulo_56" data-name="Rectángulo 56">
+    <path class="cls-6" d="m3.29-24.52h2028.93c20.58,0,37.27,16.59,37.27,37.05v780.1c0,20.46-16.68,37.05-37.27,37.05H3.29c-20.58,0-37.27-16.59-37.27-37.05V12.52C-33.98-7.94-17.3-24.52,3.29-24.52Z"/>
+    <path class="cls-4" d="m3.29-24.01h2028.93c20.3,0,36.75,16.36,36.75,36.53v780.1c0,20.18-16.45,36.53-36.75,36.53H3.29c-20.3,0-36.75-16.36-36.75-36.53V12.52C-33.46-7.65-17.01-24.01,3.29-24.01Z"/>
+  </g>
+  <g id="RIFAS-2" class="cls-10">
+    <text class="cls-9" transform="translate(244.81 440.57)"><tspan class="cls-2" x="0" y="0">A</tspan><tspan class="cls-7" x="109.57" y="0">P</tspan><tspan class="cls-2" x="212.04" y="0">O</tspan><tspan class="cls-12" x="326.96" y="0">S</tspan><tspan class="cls-8" x="431.55" y="0">T</tspan><tspan class="cls-2" x="515.86" y="0">A</tspan><tspan class="cls-11" x="625.43" y="0">R</tspan></text>
+  </g>
+  <g id="Componente_5_1" data-name="Componente 5 1">
+    <path id="Trazado_126" data-name="Trazado 126" class="cls-5" d="m1812.31,421.36l-8.55,79.54,73,32.71,53.66-59.32-39.84-69.37-78.28,16.45Z"/>
+    <g id="Grupo_105" data-name="Grupo 105">
+      <g class="cls-1">
+        <g id="Grupo_104" data-name="Grupo 104">
+          <path id="Trazado_127" data-name="Trazado 127" class="cls-5" d="m2088.7,405.52c-13.57-107.27-111.52-183.23-218.79-169.67-107.27,13.57-183.23,111.52-169.67,218.79,13.57,107.27,111.52,183.23,218.79,169.67,98.09-12.41,171.54-96.01,171.21-194.88-.04-7.99-.56-15.98-1.55-23.91m-75.25-9.17l-33.74,72.53,55.68,51.83c-15.79,25.41-37.87,46.31-64.12,60.67l-.05-.28-79.4-9.67-14.1,30.32c-42.14-2.6-81.85-20.58-111.6-50.54l10.61-23.82-53.46-48.13c-8.72-28.71-9.71-59.22-2.88-88.43l42.78,6.78,36.32-71.27-25.71-25.71c31.58-28.37,72.54-44.06,115-44.05,1.64,0,3.22.2,4.85.25l-21.07,26.39,44.02,66.79,77.12-21.24,1.61-35.28c34.22,26.81,57.06,65.54,63.95,108.46l-45.81-5.58Z"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

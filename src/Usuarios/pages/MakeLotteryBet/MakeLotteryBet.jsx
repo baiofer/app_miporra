@@ -51,7 +51,7 @@ export const MakeLotteryBet = () => {
     lotteryData.selectedNumber = selectedNumber;
     lotteryData.betPrice = lottery && lottery[0] ? lottery[0].betPrice : undefined;
     lotteryData.lotteryId = params.id;
-    console.log(lotteryData);
+    console.log(lotteryData)
     const lotteryId = generateRandomCode();
     const finalData = {
       number: lotteryId,

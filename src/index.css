@@ -180,18 +180,7 @@ body {
   font-style: italic;
 }
 
-/* .homepage-container {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  gap: 4rem;
-} */
 
-/* => A : Apuestas
-B => Rifas
-C => Info
-D => Bares
-*/
 
 /*PORRAS PAGE*/
 
@@ -211,44 +200,6 @@ D => Bares
 .porras-page-box {
   flex: 1;
   margin-bottom: 10px;
-}
-
-.homepage-container {
-  display: grid;
-  grid-template-areas:
-    "b b a a"
-    "c c a a"
-    "d d d d";
-  gap: 2rem;
-}
-/* .homepage-bets,
-.homepage-lottery,
-.homepage-clients,
-.homepage-info {
-  height: 25%;
-  width: 100%; */
-/* } */
-
-.homepage-bets {
-  background-color: red;
-  grid-area: a;
-  height: 80vh;
-}
-
-.homepage-lottery {
-  background-color: purple;
-  grid-area: b;
-}
-
-.homepage-clients {
-  background-color: blue;
-  grid-area: d;
-  height: 100%;
-}
-
-.homepage-info {
-  background-color: yellow;
-  grid-area: c;
 }
 
 .item {

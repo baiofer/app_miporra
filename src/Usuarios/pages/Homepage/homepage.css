@@ -1,3 +1,79 @@
-.button-class {
-    margin-top: 10px;
+.homepage-container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1100px;
+    align-items: center;
+    flex-direction: column;
+    display: grid;
+    grid-template-areas:
+      "g g g g"
+      "a a a a"
+      "b b c c"
+      "d d e e"
+      "f f f f";
+    gap: 2rem;
 }
+
+.homepage-header {
+    width: 100%;
+    grid-area: a;
+    border-radius: 20px;
+}
+
+.homepage-title {
+    width: 100%;
+    grid-area: g;
+    font-size: 4vw;
+    font-weight: bold;
+    color: var(--primary-green-main);
+}
+
+.homepage-find {
+    width: 100%;
+    grid-area: f;
+    border-radius: 20px;
+    padding: 0;
+    background-color: white;
+}
+.homepage-find-img {
+    width: 100%;
+    grid-area: f;
+    border-radius: 20px;
+}
+
+.homepage-image1 {
+    width: 100%;
+    grid-area: b;
+    border-radius: 20px;
+}
+
+.homepage-image2 {
+    width: 100%;
+    grid-area: e;
+    border-radius: 20px;
+}
+
+.homepage-text1 {
+    width: 100%;
+    grid-area: c;
+    font-size: 3vw;
+}
+
+.homepage-text2 {
+    width: 100%;
+    grid-area: d;
+    font-size: 3vw;
+}
+
+.homepage-button {
+    padding: 0;
+    font-weight: normal;
+    border: none;
+    font-size: 3vw;
+    padding-block: 0;
+    padding-inline: 0;
+    background-color: white;
+    color: var(--primary-green-light);
+}
+
+  

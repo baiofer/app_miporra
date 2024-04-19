@@ -1,0 +1,25 @@
+.clubs-title {
+    color: var(--primary-green-light);
+    margin-top: 0;
+    margin-left: 10vw;
+
+}
+
+.clubs-image {
+    width: 50px;
+    height: 50px;
+    margin-left: -30px;
+    transform: rotate(180deg);
+}
+
+.clubs-presentation {
+    display: flex;
+    flex-wrap: wrap;
+  
+    gap: 3rem;
+}
+
+.clubs-center-items {
+    align-items: center;
+    justify-content: center;
+}

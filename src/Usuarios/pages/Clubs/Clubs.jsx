@@ -1,72 +1,94 @@
 import { useEffect, useState } from "react";
-import { client } from "/src/api/config/client";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import { useClubContext } from "../../../context/ClubContext";
-import { useBadgesContext } from "../../../context/BadgesContext";
+import { getClubs } from "./service";
+import apostar from '../../../images/Apostar.svg'
+import './Clubs.css'
+import adelante from '../../../images/adelante.svg'
+import ClubCard from "../../../components/ClubCard";
+import ErrorComponent from "../../../components/ErrorComponent";
 
 export const Clubs = () => {
+
   const [isLoading, setIsLoading] = useState(false);
   const [clubs, setClubs] = useState([]);
-  const { setCurrentClub } = useClubContext();
-  const navigate = useNavigate();
-  const { getBadge, isLoadingBadges } = useBadgesContext();
+  const [error, setError] = useState(null)
 
+  const { setCurrentClub } = useClubContext();
+
+  const navigate = useNavigate();
+  
   useEffect(() => {
     const fetchClubs = async () => {
       try {
         setIsLoading(true);
-        const { data } = await client.get("/clubs");
+        const clubsList = await getClubs();
+        const sortedClubs = clubsList.results.sort((a, b) => new Date(b.limitDateForBets) - new Date(a.limitDateForBets))
         setIsLoading(false);
-        setClubs(data.results);
+        setClubs(sortedClubs);
       } catch (error) {
         console.log(error);
+        setError(error)
         setIsLoading(false);
       }
     };
     fetchClubs();
   }, []);
 
+  useEffect(() => {
+    if (error) {
+      const timer = setTimeout(() => {
+        setError(null);
+      }, 5000);
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+}, [error]);
+console.log(clubs)
   const handleCreateClub = (club) => {
     setCurrentClub(club);
-    navigate("/make-bet");
+    navigate("/make-bet", { state: { club } });
   };
+
+  if (isLoading) return (
+    <div className="clubs-title">Buscando las apuestas disponibles ...</div>
+)
 
   return (
     <div>
-      <h1>Porras activas</h1>
-      {isLoading || isLoadingBadges ? (
-        <p>Cargando...</p>
-      ) : (
-        <div className="clubs center-items">
-          {clubs.map((club) => (
-            <button
-              className="club-card"
-              onClick={() => handleCreateClub(club)}
-              key={club.id}
-            >
-              <div className="club-logo center-items">
-                <span>A</span>
-                <span>{club.client.name}</span>
-              </div>
-              <div className="club-teams center-items">
-                <div className="club-match">
-                  <img src={getBadge(club.match1HomeTeam)} />/{" "}
-                  <img src={getBadge(club.match1AwayTeam)} />
-                </div>
-                <div className="club-match">
-                  <img src={getBadge(club.match2HomeTeam)} />/{" "}
-                  <img src={getBadge(club.match2AwayTeam)} />
-                </div>
-              </div>
-            </button>
-          ))}
-        </div>
-      )}
+      <img src={apostar} alt='header' />
+      <button className='back-image-button' onClick={ () => navigate('/porras')}>
+      <img className="clubs-image" src={adelante} alt="Atras" />
+      </button>
+        {
+          clubs.length === 0 ?
+            <h2 className='clubs-title'>No hay apuestas disponibles</h2>
+          :
+            <h2 className='clubs-title'>Escoge tu apuesta</h2>
+        }
+      <div className="clubs-presentation clubs-center-items">
+        {
+          clubs ?
+            clubs.map( club => {
+              return(
+                <Button key={club.id} onClick={() => handleCreateClub(club)}>
+                    <ClubCard club={ club } />
+                </Button>
+              )
+            })
+            :
+            <p>No hay apuestas disponibles</p>
+        }
+        {error && (
+            <div>
+                <ErrorComponent errorText={error} />
+            </div>
+        )}
+      </div>
     </div>
   );
 };
 export default Clubs;
 
-// Esta es la página de APUESTAS: dónde sale un listado de las apuestas en una porra concreta?
-// Todas las apuestas en activas en todas las porras?

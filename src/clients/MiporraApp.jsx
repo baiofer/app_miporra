@@ -43,7 +43,7 @@ const MiporraApp = () => {
                 dispatch(setOrigin('user'))
                 dispatch(setClientLogged({}))
                 console.log('Token expired')
-                navigate('./porras')
+                navigate('/porras')
             } else {
                 handleClient()
                 navigate('/client')

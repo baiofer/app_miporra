@@ -5,17 +5,21 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import './ClubBetsList.css'
 import adelante from '../../images/adelante.svg'
 import ErrorComponent from "../../components/ErrorComponent"
+import MessageComponent from "../../components/MessageComponent"
 
 const ClubBetsList = () => {
 
     const location = useLocation()
     const club = location.state.club
 
+    console.log(club)
+
     const navigate = useNavigate()
 
     const [isFetching, setIsFetching] = useState(false)
     const [bets, setBets] = useState([])
     const [error, setError] = useState(null)
+    const [message, setMessage] = useState(null)
 
     useEffect(() => {
         console.log('UseEffect')
@@ -23,8 +27,12 @@ const ClubBetsList = () => {
             try {
                 setIsFetching(true)
                 const clubsList = await getBetsFromClub(club.id)
-                const sortedClubs = clubsList.results.sort((a, b) => new Date(b.limitDateForBets) - new Date(a.limitDateForBets));
-                setBets(sortedClubs)
+                if (clubsList && clubsList.results) {
+                    const sortedClubs = clubsList.results.sort((a, b) => new Date(b.limitDateForBets) - new Date(a.limitDateForBets));
+                    setBets(sortedClubs)
+                } else {
+                    setMessage('No hay apuestas realizadas en esta rifa.');
+                }
                 setIsFetching(false)
             } catch (error) {
                 setIsFetching(false)
@@ -107,6 +115,11 @@ const ClubBetsList = () => {
                 {error && (
                     <div>
                         <ErrorComponent errorText={error} />
+                    </div>
+                )}
+                {message && (
+                    <div>
+                        <MessageComponent messageText={message} />
                     </div>
                 )}
             </div>

@@ -12,6 +12,8 @@
 }
 
 .badgeElement-name {
+    display: flex;
+    align-items: center;
     font-size: 10px;
     padding: 0;
     margin: 0;

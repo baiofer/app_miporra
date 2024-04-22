@@ -15,7 +15,14 @@ import { useState } from 'react'
 const ClubCard = ({ club, type="", onChange }) => {
 
     const clientLogged = useSelector (state => state.origin.clientLogged)
-    const logo = clientLogged.logo
+    let logo 
+    if (clientLogged.logo) {
+        logo = clientLogged.logo
+    } else {
+        logo = club.client.logo
+    }
+
+    console.log(club)
 
     const [result1Home, setResult1Home] = useState(0)
     const [result1Away, setResult1Away] = useState(0)

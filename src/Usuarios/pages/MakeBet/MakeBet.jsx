@@ -3,18 +3,32 @@ import Button from "../../../components/Button";
 import FormInput from "../../../components/FormInput";
 import { useClubContext } from "../../../context/ClubContext";
 import { client } from "../../../api/config/client";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useBadgesContext } from "../../../context/BadgesContext";
-import { v4 as uuidV4 } from "uuid";
 import { generateRandomCode } from "../../../utils/generateRnmNumber";
+import { validateBet } from "./service";
+import ErrorComponent from "../../../components/ErrorComponent";
+import adelante from '../../../images/adelante.svg'
+import apuesta from '../../../images/apuesta.svg'
+import apostar from '../../../images/Apostar.svg'
+import './MakeBet.css'
+import BadgeElement from "../../../components/BadgeElement";
+
 
 export const MakeBet = () => {
-  const { currentClub } = useClubContext();
-  const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
-  const { getBadge, isLoadingBadges } = useBadgesContext();
-  const [createdBetId, setCreatedBetId] = useState(null);
 
+  const location = useLocation()
+  const currentClub = location.state.club
+  
+  const [isLoading, setIsLoading] = useState(false);
+  const [createdBetId, setCreatedBetId] = useState(null);
+  const [error, setError] = useState(null)
+
+  //const { currentClub } = useClubContext();
+  const { getBadge } = useBadgesContext();
+
+  const navigate = useNavigate();
+  
   const handleMakeBet = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -34,9 +48,9 @@ export const MakeBet = () => {
 
     try {
       setIsLoading(true);
-      const { data } = await client.post("/newValidation", finalData);
-      await client.post("/newClubBet", { ...betData });
-      console.log("La apuesta ha sido subida", data);
+      const betValidated = await validateBet(finalData);
+      //await client.post("/newClubBet", { ...betData });
+      console.log("La apuesta ha sido subida", betValidated);
       setCreatedBetId(betId);
       setIsLoading(false);
     } catch (error) {
@@ -45,103 +59,130 @@ export const MakeBet = () => {
     }
   };
 
-  console.log(currentClub);
 
   useEffect(() => {
     if (!currentClub) navigate("/clubs");
   }, []);
-  console.log({ createdBetId });
+
+  const handleActiveBets = () => {
+    navigate('/clubBetsList', { state: { club: currentClub } })
+  }
+
   return (
-    <main className="bet-container">
-      <h1>APOSTAR</h1>
-      <div className="bet-card">
-        <p className="client-logo">{currentClub?.client.name}</p>
-        {!createdBetId ? (
-          <form method="POST" className="bet-teams" onSubmit={handleMakeBet}>
-            <div className="bet-user-data">
-              <FormInput
-                disabled={isLoading}
-                type="text"
-                name="userName"
-                label="Tu nombre"
-              />
-              <FormInput
-                disabled={isLoading}
-                type="email"
-                name="userEmail"
-                label="Tu mail"
-              />
-            </div>
-            <div className="teams-row">
-              <div className="bet-box">
-                <img src={getBadge(currentClub?.match1HomeTeam)} />
+    <div className="make-bet-first-container">
+      <img src={apostar} alt='header' />
+        <button className='back-image-button' onClick={ () => navigate('/porras')}>
+          <img className="clubs-image" src={adelante} alt="Atras" />
+        </button>
+      <main className="makeBet-container">
+        <h2 className="makeBet-title">Haz tu apuesta</h2>
+        <div className="makeBet-card">
+          <div className="makeBet-bet-header">
+            <img className="makeBet-logo" src={currentClub?.client.logo} />
+            <button className="makeBet-button" onClick={handleActiveBets}>
+              <img className="makeBet-logo-apuesta" src={apuesta} />
+            </button>
+          </div>
+          {!createdBetId ? (
+            <form method="POST" onSubmit={handleMakeBet}>
+              <div className="makeBet-user-data">
                 <FormInput
                   disabled={isLoading}
-                  type="number"
-                  name="match1HomeTeamResult"
-                  step={1}
-                  min={0}
-                  defaultValue={0}
+                  type="text"
+                  name="userName"
+                  label="Tu nombre"
                 />
-              </div>
-              /{" "}
-              <div className="bet-box">
-                <img src={getBadge(currentClub?.match1AwayTeam)} />
                 <FormInput
                   disabled={isLoading}
-                  type="number"
-                  name="match1AwayTeamResult"
-                  step={1}
-                  min={0}
-                  defaultValue={0}
+                  type="email"
+                  name="userEmail"
+                  label="Tu email"
                 />
               </div>
-            </div>
-            <div className="teams-row">
-              <div className="bet-box">
-                <img src={getBadge(currentClub?.match2HomeTeam)} />
-                <FormInput
-                  disabled={isLoading}
-                  type="number"
-                  name="match2HomeTeamResult"
-                  step={1}
-                  min={0}
-                  defaultValue={0}
-                />
+              <div className="makeBet-teams-row">
+                <div className="makeBet-bet-box">
+                  <div className="makeBet-badge">
+                    <BadgeElement name={currentClub?.match1HomeTeam} />
+                  </div>
+                  <FormInput
+                    disabled={isLoading}
+                    type="number"
+                    name="match1HomeTeamResult"
+                    step={1}
+                    min={0}
+                    defaultValue={0}
+                  />
+                </div>
+                /{" "}
+                <div className="bet-box">
+                  <div className="makeBet-badge">
+                    <BadgeElement name={currentClub?.match1AwayTeam} />
+                  </div>
+                  <FormInput
+                    disabled={isLoading}
+                    type="number"
+                    name="match1AwayTeamResult"
+                    step={1}
+                    min={0}
+                    defaultValue={0}
+                  />
+                </div>
               </div>
-              /{" "}
-              <div className="bet-box">
-                <img src={getBadge(currentClub?.match2AwayTeam)} />
-                <FormInput
-                  disabled={isLoading}
-                  type="number"
-                  name="match2AwayTeamResult"
-                  step={1}
-                  min={0}
-                  defaultValue={0}
-                />
+              <div className="teams-row">
+                <div className="bet-box">
+                  <div className="makeBet-badge">
+                    <BadgeElement name={currentClub?.match2HomeTeam} />
+                  </div>
+                  <FormInput
+                    disabled={isLoading}
+                    type="number"
+                    name="match2HomeTeamResult"
+                    step={1}
+                    min={0}
+                    defaultValue={0}
+                  />
+                </div>
+                /{" "}
+                <div className="bet-box">
+                  <div className="makeBet-badge">
+                    <BadgeElement name={currentClub?.match2AwayTeam} />
+                  </div>
+                  <FormInput
+                    disabled={isLoading}
+                    type="number"
+                    name="match2AwayTeamResult"
+                    step={1}
+                    min={0}
+                    defaultValue={0}
+                  />
+                </div>
               </div>
-            </div>
-            <div className="submit-bet center-items">
-              <Button type="submit" variant="primary-cta">
-                {isLoading ? "Haciendo apuesta..." : "Apostar"}
+              <div className="submit-bet center-items">
+                <Button type="submit" variant="primary-cta">
+                  {isLoading ? "Haciendo apuesta..." : "Apostar"}
+                </Button>
+              </div>
+            </form>
+          ) : (
+            <div className={`${createdBetId} ? "lottery-bet" : ""`}>
+              <h2>Este es tu código de identificación de la apuesta:</h2>
+              <p>{createdBetId}</p>
+              <Button
+                onClick={() => navigate("/active-bets", {state: { currentClub } })}
+                variant="primary-cta"
+              >
+                Ver apuestas activas
               </Button>
             </div>
-          </form>
-        ) : (
-          <div className={`${createdBetId} ? "lottery-bet" : ""`}>
-            <h2>Este es tu código de identificación de la apuesta:</h2>
-            <p>{createdBetId}</p>
-            <Button
-              onClick={() => navigate("/active-bets", {state: { currentClub } })}
-              variant="primary-cta"
-            >
-              Ver apuestas activas
-            </Button>
+          )}
+        </div>
+        {error && (
+          <div>
+            <ErrorComponent errorText={error} />
           </div>
         )}
-      </div>
-    </main>
+      </main>
+    </div>
   );
 };
 

@@ -1,0 +1,95 @@
+.make-bet-first-container {
+    max-width: 90%;
+    margin: 0 auto;
+}
+.makeBet-container {
+    max-width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.makeBet-title {
+    color: var(--primary-green-light);
+    margin-top: 0;
+}
+
+.makeBet-image {
+    width: 50px;
+    height: 50px;
+    margin-left: -30px;
+    transform: rotate(180deg);
+}
+.makeBet-bet-header {
+    display: flex;
+}
+
+.makeBet-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-light);
+    padding: 2rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    margin: 2rem;
+    border-radius: 18px;
+    max-width: 650px;
+}
+
+.makeBet-logo {
+    width: 90%;    
+    margin: 0 auto;
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.makeBet-button {
+  background-color: var(--secondary-light);
+}
+
+.makeBet-logo-apuesta {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.makeBet-badge {
+  width: 100%;
+  height: 50px;
+  margin: 0 auto;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+  
+.makeBet-user-data {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.makeBet-center-items {
+    align-items: center;
+    justify-content: center;
+}
+
+.makeBet-teams-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  .makeBet-bet-box {
+    align-self: center;
+  }
+  
+  .makeBet-submit-bet {
+    display: flex;
+    margin-top: 1rem;
+  }
+  
+  .club-bets {
+    display: flex;
+    flex-direction: column;
+  }

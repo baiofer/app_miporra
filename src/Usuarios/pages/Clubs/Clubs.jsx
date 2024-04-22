@@ -27,6 +27,7 @@ export const Clubs = () => {
         const sortedClubs = clubsList.results.sort((a, b) => new Date(b.limitDateForBets) - new Date(a.limitDateForBets))
         setIsLoading(false);
         setClubs(sortedClubs);
+        console.log(sortedClubs)
       } catch (error) {
         console.log(error);
         setError(error)
@@ -45,8 +46,7 @@ export const Clubs = () => {
         clearTimeout(timer);
       };
     }
-}, [error]);
-console.log(clubs)
+  }, [error]);
   const handleCreateClub = (club) => {
     setCurrentClub(club);
     navigate("/make-bet", { state: { club } });
@@ -54,20 +54,20 @@ console.log(clubs)
 
   if (isLoading) return (
     <div className="clubs-title">Buscando las apuestas disponibles ...</div>
-)
+  )
 
   return (
     <div>
       <img src={apostar} alt='header' />
       <button className='back-image-button' onClick={ () => navigate('/porras')}>
-      <img className="clubs-image" src={adelante} alt="Atras" />
+        <img className="clubs-image" src={adelante} alt="Atras" />
       </button>
-        {
-          clubs.length === 0 ?
-            <h2 className='clubs-title'>No hay apuestas disponibles</h2>
-          :
-            <h2 className='clubs-title'>Escoge tu apuesta</h2>
-        }
+      {
+        clubs.length === 0 ?
+          <h2 className='clubs-title'>No hay apuestas disponibles</h2>
+        :
+          <h2 className='clubs-title'>Escoge tu apuesta</h2>
+      }
       <div className="clubs-presentation clubs-center-items">
         {
           clubs ?

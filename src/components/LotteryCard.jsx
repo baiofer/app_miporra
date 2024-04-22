@@ -50,7 +50,12 @@ const LotteryCard = ({ lottery, type="", onChange }) => {
                     label="Resultado"
                     style={{ display: type === "result" && lottery.state === "in progress" ? "visible" : "none"}}
                 />
-                <p className='lottery-finished'>{lottery.result}</p>
+                {
+                    lottery.result !== -1 ?
+                        <p className='lottery-finished'>{lottery.result}</p>
+                    : null
+                }
+                
             
                 
                 <div className='lottery-price-line'>

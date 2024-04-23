@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { client } from "../../../api/config/client";
 import { useNavigate } from "react-router-dom";
+import encuentraBar from '../../../images/Encuentra.svg'
+import adelante from '../../../images/adelante.svg'
 
 export const ClientsPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -28,33 +30,38 @@ export const ClientsPage = () => {
   };
 
   return (
-    <main className="clients-container center-items">
-      <h1>Bares</h1>
-      {isLoading ? (
-        <p>Cargando...</p>
-      ) : (
-        <section className="clients-section center-items">
-          {clubs.map((client) => (
-            <button
-              className="client-card center-items"
-              key={client.id}
-              onClick={() => handleClientDetail(client.id)}
-            >
-              <img
-                className="client-logo"
-                src={client.logo}
-                alt="client-logo"
-                onError={(e) => {
-                  e.target.onerror = null; // para evitar bucles infinitos
-                  e.target.src = "placeholder-img.png";
-                }}
-              />
-              <div className="client-name">{client.name}</div>
-            </button>
-          ))}
-        </section>
-      )}
-    </main>
+    <div>
+      <img src={encuentraBar} alt='header' />
+      <button className='back-image-button' onClick={ () => navigate('/porras')}>
+        <img className="clubs-image" src={adelante} alt="Atras" />
+      </button>
+      <main className="clientsPage-container clientsPage-center-items">
+        {isLoading ? (
+          <p className="clientsPage-loading">Cargando...</p>
+        ) : (
+          <section className="clients-section center-items">
+            {clubs.map((client) => (
+              <button
+                className="client-card center-items"
+                key={client.id}
+                onClick={() => handleClientDetail(client.id)}
+              >
+                <img
+                  className="client-logo"
+                  src={client.logo}
+                  alt="client-logo"
+                  onError={(e) => {
+                    e.target.onerror = null; // para evitar bucles infinitos
+                    e.target.src = "placeholder-img.png";
+                  }}
+                />
+                <div className="client-name">{client.name}</div>
+              </button>
+            ))}
+          </section>
+        )}
+      </main>
+    </div>
   );
 };
 

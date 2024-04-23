@@ -1,0 +1,16 @@
+.clientsPage-loading {
+    font-size: 15px;
+    color: blue;
+}
+
+.clientsPage-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .clientsPage-center-items {
+    align-items: center;
+    justify-content: center;
+  }

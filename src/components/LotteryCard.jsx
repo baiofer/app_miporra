@@ -55,9 +55,6 @@ const LotteryCard = ({ lottery, type="", onChange }) => {
                         <p className='lottery-finished'>{lottery.result}</p>
                     : null
                 }
-                
-            
-                
                 <div className='lottery-price-line'>
                     <p className='lottery-end-line-label'>Premio:</p>
                     <p className='lottery-end-line-value'>{lottery.lotteryPrize}</p>

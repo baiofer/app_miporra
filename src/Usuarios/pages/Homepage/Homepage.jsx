@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import './Homepage.css'
-import apostar from '../../../images/Apostar.svg'
 import image1 from '../../../images/imagen1.jpeg'
 import image2 from '../../../images/imagen2.jpeg'
 import encuentra from '../../../images/Encuentra.svg'
+import apuestaHoy from '../../../images/Apuesta_hoy_y_consigue_el_éxito.svg'
 
 export const Homepage = () => {
 
@@ -15,7 +15,9 @@ export const Homepage = () => {
           NO TE PIERDAS LAS MEJORES APUESTAS EN TU BAR DE SIEMPRE
         </p>
       </div>
-      <img className="homepage-header" src={apostar} alt='Cabecera' />
+      <button className="homepage-button homepage-button-header" onClick={() => navigate('/porras')}>
+        <img className="homepage-header" src={apuestaHoy} alt='Cabecera' />
+      </button>
       <img className="homepage-image1" src={image1} alt='Foto 1' />
       <img className="homepage-image2" src={image2} alt='Foto 2' />
       <button className="homepage-find" onClick={() => navigate('/clients')}>

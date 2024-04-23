@@ -65,6 +65,10 @@
     font-size: 3vw;
 }
 
+.homepage-button-header {
+    grid-area: a;
+}
+
 .homepage-button {
     padding: 0;
     font-weight: normal;

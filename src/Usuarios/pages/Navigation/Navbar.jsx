@@ -8,60 +8,60 @@ import { useNavigate } from 'react-router-dom'
 
 function Navbar() {
 
-  const navigate = useNavigate()
+	const navigate = useNavigate()
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+	const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const handleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+	const handleMenu = () => {
+		setIsMenuOpen(!isMenuOpen)
+	}
 
-  const handleClubBets = ()=> {
-    setIsMenuOpen(false)
-    navigate("/clubs")
-  }
+	const handleClubBets = ()=> {
+		setIsMenuOpen(false)
+		navigate("/clubs")
+	}
 
-  const handleLotteryBets = ()=> {
-    setIsMenuOpen(false)
-    navigate("/lottery-bets")
-  }
+	const handleLotteryBets = ()=> {
+		setIsMenuOpen(false)
+		navigate("/lottery-bets")
+	}
 
-  const handleClients = ()=> {
-    setIsMenuOpen(false)
-    navigate("/clients")
-  }
+	const handleClients = ()=> {
+		setIsMenuOpen(false)
+		navigate("/clients")
+	}
 
-  return (
-    <div className="navBar">
-      <NavLink to="/homepage" className="navLink">
-        <img className="logo" src={logo} alt="Logo" />
-      </NavLink>
-      <div>
-        <button className="navLink" onClick={handleMenu} >
-          <img src={menu} alt="Icono de menú" className="navBar-menu" />
-        </button>
-        {
-          isMenuOpen && (
-            <div className="menu-container">
-              <button onClick={handleClubBets} className="menu-item">
-                Apostar
-              </button>
-              <button onClick={handleLotteryBets} className="menu-item">
-                Rifas
-              </button>
-              <button onClick={handleClients} className="menu-item">
-                Encuentra tu bar
-              </button>
-            </div>
-          )
-        }
-        <NavLink to="/login" className="navLink">
-          <span className="navLoginContainer">
-            Soy un bar
-          </span>
-        </NavLink>
-      </div>
-    </div>
+	return (
+	<div className="navBar-container">
+		<NavLink to="/homepage" className="navLink">
+			<img className="navBar-logo" src={logo} alt="Logo" />
+		</NavLink>
+		<div>
+			<button className="navBar-navLink" onClick={handleMenu} >
+				<img src={menu} alt="Icono de menú" className="navBar-menu" />
+			</button>
+			{
+				isMenuOpen && (
+				<div className="navBar-menu-container">
+					<button onClick={handleClubBets} className="mavBar-menu-item">
+						Apostar
+					</button>
+					<button onClick={handleLotteryBets} className="navBar-menu-item">
+						Rifas
+					</button>
+					<button onClick={handleClients} className="navBar-menu-item">
+						Encuentra tu bar
+					</button>
+				</div>
+				)
+			}
+			<NavLink to="/login" className="navBar-navLink">
+				<span className="navBar-navLoginContainer">
+					Soy un bar
+				</span>
+			</NavLink>
+		</div>
+	</div>
   );
 }
 export default Navbar;

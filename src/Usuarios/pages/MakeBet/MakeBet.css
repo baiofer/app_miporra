@@ -78,18 +78,14 @@
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-  }
+}
   
-  .makeBet-bet-box {
+.makeBet-bet-box {
     align-self: center;
-  }
+}
   
-  .makeBet-submit-bet {
+.makeBet-submit-bet {
     display: flex;
     margin-top: 1rem;
-  }
+}
   
-  .club-bets {
-    display: flex;
-    flex-direction: column;
-  }

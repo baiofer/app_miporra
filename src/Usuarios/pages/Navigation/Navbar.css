@@ -1,4 +1,4 @@
-.navBar {
+.navBar-container {
     height: 100px;
     display: flex;
     align-items: center;
@@ -14,7 +14,7 @@
     list-style: none;
 }
   
-.navLink {
+.navBar-navLink {
     text-decoration: none;
     color: var(--primary-green-main);
     font-family: Arial, Helvetica, sans-serif;
@@ -23,13 +23,13 @@
     background-color: white;
 }
   
-.logo {
+.navBar-logo {
     width: 200px;
     height: 100px;
     object-fit: contain;
 }
 
-.navLoginContainer {
+.navBar-navLoginContainer {
     display: inline;
     padding: 10px;
     border-style: solid;
@@ -43,7 +43,7 @@
     margin-right: 20px;
     color: green;
 }
-
+/*
 .menu-navLink {
     text-decoration: none;
     color: var(--primary-green-light);
@@ -52,8 +52,8 @@
     font-size: 18px;
     padding: 15px;
 }
- 
-.menu-item {
+ */
+.navBar-menu-item {
   background-color: var(--primary-green-main);
   color: var(--primary-green-light);
   font-family: Arial, Helvetica, sans-serif;
@@ -63,7 +63,7 @@
   border-radius: 25px;
 }
 
-.menu-container {
+.navBar-menu-container {
     position: fixed;
     top: 50px;
     right: 250px;

@@ -1,6 +1,6 @@
 .clientsPage-loading {
     font-size: 15px;
-    color: blue;
+    color: var(--primary-green-main);
 }
 
 .clientsPage-container {
@@ -8,9 +8,5 @@
     flex-direction: column;
     max-width: 90%;
     margin: 0 auto;
-  }
+}
 
-  .clientsPage-center-items {
-    align-items: center;
-    justify-content: center;
-  }

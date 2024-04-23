@@ -1,3 +1,12 @@
+.clientsPage-big-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.clientsPage-imageBar {
+    border-radius: 20px;
+}
+
 .clientsPage-loading {
     font-size: 15px;
     color: var(--primary-green-main);
@@ -10,3 +19,35 @@
     margin: 0 auto;
 }
 
+.clientsPage-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+  
+.clientsPage-card {
+    display: flex;
+    border: 3px solid var(--primary-green-main);
+    border-radius: 18px;
+    padding: 2rem;
+    gap: 2rem;
+    min-width: 420px;
+    justify-content: space-evenly;
+    background-color: transparent;
+}
+  
+.clientsPage-logo {
+    width: 100px;
+    object-fit: contain;
+    height: 150px;
+    width: 200px;
+}
+  
+  .clientsPage-name {
+    font-size: 2rem;
+  }
+
+  .clientsPage-center-items {
+    align-items: center;
+    justify-content: center;
+  }

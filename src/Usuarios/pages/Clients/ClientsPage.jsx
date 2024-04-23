@@ -3,6 +3,7 @@ import { client } from "../../../api/config/client";
 import { useNavigate } from "react-router-dom";
 import encuentraBar from '../../../images/Encuentra.svg'
 import adelante from '../../../images/adelante.svg'
+import './ClientsPage.css'
 
 export const ClientsPage = () => {
 
@@ -31,8 +32,8 @@ export const ClientsPage = () => {
 	};
 
 	return (
-		<div>
-			<img src={encuentraBar} alt='header' />
+		<div className="clientsPage-big-container">
+			<img src={encuentraBar} alt='header' className="clientsPage-imageBar"/>
 			<button className='back-image-button' onClick={ () => navigate('/porras')}>
 				<img className="clubs-image" src={adelante} alt="Atras" />
 			</button>
@@ -41,24 +42,24 @@ export const ClientsPage = () => {
 					isLoading ? (
 						<p className="clientsPage-loading">Cargando...</p>
 					) : (
-						<section className="clients-section center-items">
+						<section className="clientsPage-section clientsPage-center-items">
 							{
 								clubs.map((client) => (
 									<button
-										className="client-card center-items"
+										className="clientsPage-card center-items"
 										key={client.id}
 										onClick={() => handleClientDetail(client.id)}
 									>
 										<img
 											className="client-logo"
 											src={client.logo}
-											alt="client-logo"
+											alt="clientsPage-logo"
 											onError={(e) => {
 												e.target.onerror = null; // para evitar bucles infinitos
 												e.target.src = "placeholder-img.png";
 											}}
 										/>
-										<div className="client-name">{client.name}</div>
+										<div className="clientsPage-name">{client.name}</div>
 									</button>
 								))
 							}

@@ -58,8 +58,8 @@ export const Clubs = () => {
 	)
 
 	return (
-		<div>
-			<img src={apostar} alt='header' />
+		<div className="clubs-container">
+			<img src={apostar} alt='header' className="clubs-imageBets"/>
 			<button className='back-image-button' onClick={ () => navigate('/porras')}>
 				<img className="clubs-image" src={adelante} alt="Atras" />
 			</button>

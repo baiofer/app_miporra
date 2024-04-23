@@ -1,3 +1,11 @@
+.clubs-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.clubs-imageBets {
+    border-radius: 20px;
+}
 .clubs-title {
     color: var(--primary-green-light);
     margin-top: 0;

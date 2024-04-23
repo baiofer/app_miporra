@@ -33,7 +33,7 @@ function Navbar() {
 
 	return (
 	<div className="navBar-container">
-		<NavLink to="/homepage" className="navLink">
+		<NavLink to="/homepage">
 			<img className="navBar-logo" src={logo} alt="Logo" />
 		</NavLink>
 		<div>

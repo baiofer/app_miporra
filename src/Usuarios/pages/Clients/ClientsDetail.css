@@ -1,0 +1,39 @@
+.clientDetail-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.clientDetail-title {
+    display: flex;
+    justify-content: center;
+    color: var(--primary-green-main);
+}
+
+.clientDetail-message {
+    display: flex;
+    justify-content: center;
+    color: var(--primary-green-light);
+}
+
+.clientDetail-center-items {
+    align-items: center;
+    justify-content: center;
+}
+
+.clientDetail-active-bets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.clientDetail-lotteries {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.clientDetail-clubs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+  }

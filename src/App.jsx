@@ -33,6 +33,7 @@ import GenerateQR from "./components/GenerateQR";
 import MiporraApp from "./clients/MiporraApp";
 import ClubBetsList from "./clients/myClubs/ClubBetsList";
 import Main from "./Usuarios/pages/Main/Main";
+import ActiveBetsList from "./Usuarios/pages/MakeBet/ActiveBetsList";
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
             <Route path="porras" element={<Main />} />
             <Route path="club-bets" element={<ClubBets />} />
             <Route path="clubs" element={<Clubs />} />
+            <Route path="activeBetsList" element={<ActiveBetsList />} />
             <Route path="clients" element={<ClientsPage />} />
             <Route path="next-bets" element={<NextBets />} />
             <Route path="lottery-bets" element={<LotteryPage />} />

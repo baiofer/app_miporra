@@ -6,7 +6,9 @@ import { Button } from "@mui/material";
 import ClubCard from "../../../components/ClubCard";
 import LotteryCard from "../../../components/LotteryCard";
 import ErrorComponent from "../../../components/ErrorComponent";
-
+import './ClientsDetail.css'
+import adelante from '../../../images/adelante.svg'
+import apostar from '../../../images/Apostar.svg'
 
 
 export const ClientDetail = () => {
@@ -14,8 +16,8 @@ export const ClientDetail = () => {
 	const { setCurrentClub } = useClubContext();
 
 	const [isLoading, setIsLoading] = useState(false);
-	const [clientClubs, setClientClubs] = useState(null);
-	const [clientLotteries, setClientLotteries] = useState(null);
+	const [clientClubs, setClientClubs] = useState([]);
+	const [clientLotteries, setClientLotteries] = useState([]);
 	const [error, setError] = useState(null)
   
 	const navigate = useNavigate();
@@ -34,14 +36,13 @@ export const ClientDetail = () => {
 				setClientLotteries(lotteriesList.results);
 			} catch (error) {
 				setError(error)
-				console.log(error);
+				console.log('Error fetching: ', error);
 			}
 		};
 		fetchClientClubs();
 	}, []);
 
 	useEffect(() => {
-		console.log('Error: ', error)
 		if (error) {
 			const timer = setTimeout(() => {
 			setError(null);
@@ -61,50 +62,55 @@ export const ClientDetail = () => {
 		setCurrentClub(lottery);
 		navigate("/make-lottery-bet", { state: { lottery } });
 	};
-
 	
 	return (
-		<div>
+		<div className="clientDetail-container">
+			<img src={apostar} alt='header' className="clientsPage-imageBar"/>
+			<button className='back-image-button' onClick={ () => navigate(`/clients`)}>
+				<img className="clubs-image" src={adelante} alt="Atras" />
+			</button>
 			<h1 className="clientDetail-title">Apuestas activas en este Bar</h1>
 			{
 				isLoading ? (
 					<p>Cargando...</p>
 				) : (
-					<section className="client-active-bets center-items">
-						<div className="clubs center-items">
+					<section className="clientDetail-active-bets clientDetail-center-items">
+						<section className="clientDetail-clubs clientDetail-center-items">
 							{
-								clientClubs ?
+								clientClubs.length > 0 ?
 									clientClubs.map( club => {
-									return(
-										<Button key={club.id} onClick={() => handleCreateClub(club)}>
-											<ClubCard club={ club } />
-										</Button>
-									)})
+										return(
+											<Button key={club.id} onClick={() => handleCreateClub(club)}>
+												<ClubCard club={ club } />
+											</Button>
+										)
+									})
 								:
-									<p>No hay porras disponibles</p>
-							}
-						</div>
-						<section className="lotteries center-items">
-							{
-								clientLotteries ?
-									clientLotteries.map( lottery => {
-									return(
-										<Button key={lottery.id} onClick={() => handleCreateLottery(lottery)}>
-											<LotteryCard lottery={ lottery } />
-										</Button>
-									)})
-								:
-									<p>No hay rifas disponibles</p>
+								<h3 className="clientDetail-message">No hay porras disponibles</h3>
 							}
 						</section>
-						{error && (
-							<div>
-								<ErrorComponent errorText={error} />
-							</div>
-						)}
+						<section className="clientDetail-lotteries clientDetail-center-items">
+							{
+								clientLotteries.length > 0 ?
+									clientLotteries.map( lottery => {
+										return(
+											<Button key={lottery.id} onClick={() => handleCreateLottery(lottery)}>
+												<LotteryCard lottery={ lottery } />
+											</Button>
+										)
+									})
+								:
+									<h3 className="clientDetail-message">No hay rifas disponibles</h3>
+							}
+						</section>
 					</section>
 				)
 			}
+			{error && (
+				<div>
+					<ErrorComponent errorText={error} />
+				</div>
+			)}
 		</div>
 	);
 };

@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import Button from "../../../components/Button";
 import FormInput from "../../../components/FormInput";
-import { useClubContext } from "../../../context/ClubContext";
-import { client } from "../../../api/config/client";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useBadgesContext } from "../../../context/BadgesContext";
 import { generateRandomCode } from "../../../utils/generateRnmNumber";
 import { validateBet } from "./service";
 import ErrorComponent from "../../../components/ErrorComponent";
@@ -23,9 +20,6 @@ export const MakeBet = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [createdBetId, setCreatedBetId] = useState(null);
 	const [error, setError] = useState(null)
-
-	//const { currentClub } = useClubContext();
-	const { getBadge } = useBadgesContext();
 
 	const navigate = useNavigate();
 
@@ -58,19 +52,29 @@ export const MakeBet = () => {
 		}
 	};
 
+	useEffect(() => {
+        if (error) {
+          const timer = setTimeout(() => {
+            setError(null);
+          }, 5000);
+          return () => {
+            clearTimeout(timer);
+          };
+        }
+    }, [error]);
 
 	useEffect(() => {
 		if (!currentClub) navigate("/clubs");
 	}, []);
 
 	const handleActiveBets = () => {
-		navigate('/clubBetsList', { state: { club: currentClub } })
+		navigate('/activeBetsList', { state: { club: currentClub } })
 	}
 
 	return (
 		<div className="make-bet-first-container">
-			<img src={apostar} alt='header' />
-			<button className='back-image-button' onClick={ () => navigate('/porras')}>
+			<img src={apostar} alt='header' className="make-bet-header-bet"/>
+			<button className='back-image-button' onClick={ () => navigate('/clubs')}>
 				<img className="clubs-image" src={adelante} alt="Atras" />
 			</button>
 			<main className="makeBet-container">
@@ -88,12 +92,14 @@ export const MakeBet = () => {
 							<div className="makeBet-user-data">
 								<FormInput
 									disabled={isLoading}
+									required
 									type="text"
 									name="userName"
 									label="Tu nombre"
 								/>
 								<FormInput
 									disabled={isLoading}
+									required
 									type="email"
 									name="userEmail"
 									label="Tu email"
@@ -168,7 +174,7 @@ export const MakeBet = () => {
 							<h2>Este es tu código de identificación de la apuesta:</h2>
 							<p>{createdBetId}</p>
 							<Button
-								onClick={() => navigate("/active-bets", {state: { currentClub } })}
+								onClick={() => navigate('/activeBetsList', { state: { club: currentClub } })}
 								variant="primary-cta"
 							>
 								Ver apuestas activas

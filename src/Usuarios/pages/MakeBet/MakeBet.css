@@ -11,6 +11,10 @@
     justify-content: center;
 }
 
+.make-bet-header-bet {
+    border-radius: 20px;
+}
+
 .makeBet-title {
     color: var(--primary-green-light);
     margin-top: 0;

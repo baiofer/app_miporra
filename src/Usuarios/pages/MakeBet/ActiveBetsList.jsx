@@ -2,13 +2,13 @@
 import { useEffect, useState } from "react"
 import { getBetsFromClub } from "./service"
 import { useLocation, useNavigate } from 'react-router-dom'
-import './ClubBetsList.css'
-import adelante from '../../images/adelante.svg'
-import ErrorComponent from "../../components/ErrorComponent"
-import MessageComponent from "../../components/MessageComponent"
-import apostar from '../../images/Apostar.svg'
+import './ActiveBetsList.css'
+import adelante from '../../../images/adelante.svg'
+import ErrorComponent from "../../../components/ErrorComponent"
+import MessageComponent from "../../../components/MessageComponent"
+import apostar from '../../../images/Apostar.svg'
 
-const ClubBetsList = () => {
+const ActiveBetsList = () => {
 
     const location = useLocation()
     const club = location.state.club
@@ -25,6 +25,7 @@ const ClubBetsList = () => {
             try {
                 setIsFetching(true)
                 const clubsList = await getBetsFromClub(club.id)
+                console.log('clubList: ', clubsList)
                 if (clubsList && clubsList.results) {
                     const sortedClubs = clubsList.results.sort((a, b) => new Date(b.limitDateForBets) - new Date(a.limitDateForBets));
                     setBets(sortedClubs)
@@ -59,10 +60,10 @@ const ClubBetsList = () => {
     return(
         <div className="activeBetList-first-container">
             <img src={apostar} alt='header' className="activeBetList-header-bet"/>
-            <button className='back-image-button' onClick={ () => navigate('/myClubsList')}>
-                <img className="clubs-image" src={adelante} alt="Atras" />
-            </button>
-            <h2 className="activeBetList-title">Apuestas activas</h2>
+			<button className='back-image-button' onClick={ () => navigate("/make-bet", { state: { club } })}>
+				<img className="clubs-image" src={adelante} alt="Atras" />
+			</button>
+			<h2 className="activeBetList-title">Apuestas activas</h2>
             <div className="clubBetsList-container">
                 <div className="clubBetsList-line">
                     <div className="clubBetsList-">
@@ -127,4 +128,4 @@ const ClubBetsList = () => {
     )
 }
 
-export default ClubBetsList
+export default ActiveBetsList

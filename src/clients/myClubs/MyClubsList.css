@@ -1,3 +1,10 @@
-.myClubList-title {
-    color: var(--primary-green-main);
+.myClubList-first-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.myClubList-first-title {
+    display: flex;
+    justify-content: center;
+    color: var(--primary-green-light);
 }

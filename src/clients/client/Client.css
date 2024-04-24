@@ -12,7 +12,7 @@
     align-items: center;
     margin: 0 auto;
     height: 150px;
-    width: 200px;
+    width: 500px;
     align-items: center;
     flex-direction: column;
     margin-bottom: 20px;
@@ -21,7 +21,7 @@
 .client-logo {
     object-fit: contain;
     height: 150px;
-    width: 200px;
+    width: 250px;
 }
 
 .client-total-container {

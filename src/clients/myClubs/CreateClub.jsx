@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import ErrorComponent from '../../components/ErrorComponent'
 import { useSelector } from 'react-redux'
 import adelante from '../../images/adelante.svg'
+import bares from '../../images/Bares.svg'
 
 const CreateClub = () => {
 
@@ -100,9 +101,10 @@ const CreateClub = () => {
 
 
     return (
-        <div>
+        <div className='createClub-first-container'>
+            <img src={bares} alt='header' className="activeBetList-header-bet"/>
             <button className='back-image-button' onClick={ () => navigate('/client')}>
-                <img className="back-image" src={adelante} alt="Atras" />
+                <img className="clubs-image" src={adelante} alt="Atras" />
             </button>
             <div className='createClub' >
                 <div className="createClub-container">

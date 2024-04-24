@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import ErrorComponent from "../../components/ErrorComponent"
 import adelante from '../../images/adelante.svg'
 import './CloseClub.css'
+import bares from '../../images/Bares.svg'
 
 const CloseClub = () => {
 
@@ -53,9 +54,10 @@ const CloseClub = () => {
     )
 
     return (
-        <div>
+        <div className="closeClub-first-container">
+            <img src={bares} alt='header' className="activeBetList-header-bet"/>
             <button className='back-image-button' onClick={ () => navigate('/client')}>
-                <img className="back-image" src={adelante} alt="Atras" />
+                <img className="clubs-image" src={adelante} alt="Atras" />
             </button>
             {
                 clubs.length === 0 ?

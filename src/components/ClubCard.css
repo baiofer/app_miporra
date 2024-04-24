@@ -1,6 +1,7 @@
 .club-container {
     display: flex;
-    width: 600px;
+    width: 100%;
+    max-width: 550px;
     margin: 0 auto;
     border-width: 3px;
     border-style: solid;
@@ -8,6 +9,7 @@
     border-radius: 10px;
     margin-bottom: 10px;
     align-items: center;
+    padding-right: 10px;
     justify-content: center;
 }
 

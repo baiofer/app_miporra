@@ -1,3 +1,10 @@
+.closeClub-first-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
 .closeClub-title {
-    color: var(--primary-green-main);
+    display: flex;
+    justify-content: center;
+    color: var(--primary-green-light);
 }

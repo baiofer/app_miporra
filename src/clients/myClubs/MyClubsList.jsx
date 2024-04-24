@@ -6,6 +6,7 @@ import ClubCard from '../../components/ClubCard'
 import ErrorComponent from '../../components/ErrorComponent'
 import adelante from '../../images/adelante.svg'
 import { useNavigate } from 'react-router-dom'
+import bares from '../../images/Bares.svg'
 
 
 const MyClubsList = () => {
@@ -53,15 +54,16 @@ const MyClubsList = () => {
     }
 
     return (
-        <div>
+        <div className='myClubList-first-container'>
+            <img src={bares} alt='header' className="activeBetList-header-bet"/>
             <button className='back-image-button' onClick={ () => navigate('/client')}>
-                <img className="back-image" src={adelante} alt="Atras" />
+                <img className="clubs-image" src={adelante} alt="Atras" />
             </button>
             {
                 clubs.length === 0 ?
-                    <h2 className='myClubList-title'>No tiene ninguna porra creada</h2>
+                    <h2 className='myClubList-first-title'>No tiene ninguna porra creada</h2>
                 :
-                    <h2 className='myClubList-title'>Mis porras</h2>
+                    <h2 className='myClubList-first-title'>Mis porras</h2>
             }
             <div>
                 {
@@ -82,7 +84,6 @@ const MyClubsList = () => {
                     </div>
                 )}
             </div>
-
         </div>
     )
 }

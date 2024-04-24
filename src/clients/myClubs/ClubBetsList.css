@@ -1,5 +1,5 @@
 .clubBetsList-container {
-    width: 500px;
+    max-width: 415px;
     background-color: var(--primary-green-main);
     border-radius: 30px;
     padding: 10px;

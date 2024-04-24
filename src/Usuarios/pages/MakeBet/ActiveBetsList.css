@@ -4,7 +4,7 @@
 }
 
 .clubBetsList-container {
-    width: 500px;
+    max-width: 415px;
     margin: 0 auto;
     background-color: var(--primary-green-main);
     border-radius: 30px;

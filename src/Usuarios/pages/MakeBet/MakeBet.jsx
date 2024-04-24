@@ -171,8 +171,8 @@ export const MakeBet = () => {
 						</form>
 					) : (
 						<div className={`${createdBetId} ? "lottery-bet" : ""`}>
-							<h2>Este es tu código de identificación de la apuesta:</h2>
-							<p>{createdBetId}</p>
+							<h3>Este es tu código de identificación de la apuesta:</h3>
+							<h2>{createdBetId}</h2>
 							<Button
 								onClick={() => navigate('/activeBetsList', { state: { club: currentClub } })}
 								variant="primary-cta"

@@ -12,7 +12,12 @@ import { useState } from 'react'
 const LotteryCard = ({ lottery, type="", onChange }) => {
 
     const clientLogged = useSelector (state => state.origin.clientLogged)
-    const logo = clientLogged.logo
+    let logo 
+    if (clientLogged.logo) {
+        logo = clientLogged.logo
+    } else {
+        logo = lottery.client.logo
+    }
 
     const [result, setResult] = useState(0)
 

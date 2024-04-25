@@ -22,8 +22,6 @@ const ClubCard = ({ club, type="", onChange }) => {
         logo = club.client.logo
     }
 
-    console.log(club)
-
     const [result1Home, setResult1Home] = useState(0)
     const [result1Away, setResult1Away] = useState(0)
     const [result2Home, setResult2Home] = useState(0)

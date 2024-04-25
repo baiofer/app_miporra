@@ -7,10 +7,10 @@
     border-radius: 20px;
 }
 .clubs-title {
+    display: flex;
+    justify-content: center;
     color: var(--primary-green-light);
     margin-top: 0;
-    margin-left: 10vw;
-
 }
 
 .clubs-image {
@@ -22,9 +22,8 @@
 
 .clubs-presentation {
     display: flex;
-    flex-wrap: wrap;
-  
-    gap: 3rem;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .clubs-center-items {

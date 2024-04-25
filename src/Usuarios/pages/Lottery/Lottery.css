@@ -1,0 +1,85 @@
+.lottery-first-container {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.lottery-body-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+.lotteries {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.lottery-card {
+  display: flex;
+  padding: 2rem;
+  border: 1px solid var(--primary-green-light);
+  border-radius: 18px;
+  justify-content: space-between;
+  gap: 1rem;
+  min-width: 600px;
+  background-color: transparent;
+}
+
+.make-lottery-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.lottery-bet {
+  border: 1px solid var(--primary-green-main);
+  border-radius: 18px;
+  background-color: var(--primary-green-lighter);
+  padding: 2rem;
+}
+
+.make-lottery-card {
+  display: flex;
+  flex-wrap: wrap;
+  width: 560px;
+  gap: 0.5rem;
+}
+
+.lottery-button {
+  width: 45px;
+}
+
+.lottery-error {
+  color: red;
+}
+
+/*TODO COMPONENT LOGO CIRCULO*/
+
+.circle-logo {
+  display: flex;
+  padding: 0.5rem;
+  border: 1px solid var(--primary-green-main);
+  border-radius: 100%;
+  width: 15px;
+  height: 15px;
+  color: var(--primary-green-main);
+}
+
+.lottery-client {
+  width: 100px;
+}
+
+.lottery-description {
+  min-width: 315px;
+}
+
+.generateQR-container {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1100px;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+}

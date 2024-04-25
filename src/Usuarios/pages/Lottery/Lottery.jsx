@@ -1,63 +1,89 @@
 import { useEffect, useState } from "react";
 import { client } from "/src/api/config/client.js";
 import { useNavigate } from "react-router-dom";
-import QRCode from "qrcode.react";
+import apostar from '../../../images/Apostar.svg'
+import adelante from '../../../images/adelante.svg'
+import './Lottery.css'
+import ErrorComponent from "../../../components/ErrorComponent";
+import { Button } from "@mui/material";
+import LotteryCard from "../../../components/LotteryCard";
+
 
 export const LotteryPage = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [lotteries, setLottery] = useState([]);
-  const navigate = useNavigate();
+	const [isLoading, setIsLoading] = useState(false);
+	const [lotteries, setLottery] = useState([]);
+	const [error, setError] = useState(null)
 
-  useEffect(() => {
-    const fetchLottery = async () => {
-      try {
-        setIsLoading(true);
-        const { data } = await client.get("/lotteries");
-        setIsLoading(false);
-        setLottery(data.results);
-      } catch (error) {
-        console.log(error);
-        setIsLoading(false);
-      }
-    };
-    fetchLottery();
-  }, []);
+	const navigate = useNavigate();
 
-  const handleMakeLotteryBet = (id) => {
-    navigate(`/make-lottery-bet/${id}`);
-  };
+	useEffect(() => {
+		const fetchLottery = async () => {
+			try {
+				setIsLoading(true);
+				const { data } = await client.get("/lotteries");
+				setIsLoading(false);
+				setLottery(data.results);
+			} catch (error) {
+				console.log(error);
+				setIsLoading(false);
+			}
+		};
+		fetchLottery();
+	}, []);
 
-  return (
-    <main className="new-lottery-container center-items">
-      <h1>Escoge tu rifa</h1>
-      {isLoading ? (
-        <p>Cargando...</p>
-      ) : (
-        <section className="lotteries center-items">
-          {lotteries?.map(
-            (bet) =>
-              bet?.state === "in progress" && (
-                <button
-                  key={bet.id}
-                  className="lottery-card center-items"
-                  onClick={() => handleMakeLotteryBet(bet.id)}
-                >
-                  <div className="circle-logo center-items">R</div>
-                  <img src={bet.client.logo} className="lottery-client" />
-                  <div className="lottery-description">{bet.lotteryPrize}</div>
-                  <div className="generateQR-container">
-                    <QRCode
-                      value={`https://miporra.es/make-lottery-bet/${bet.id}`}
-                      size="200"
-                    />
-                  </div>
-                </button>
-              )
-          )}
-        </section>
-      )}
-    </main>
-  );
+	useEffect(() => {
+        if (error) {
+          const timer = setTimeout(() => {
+            setError(null);
+          }, 5000);
+          return () => {
+            clearTimeout(timer);
+          };
+        }
+    }, [error]);
+
+	const handleMakeLotteryBet = (lottery) => {
+		navigate(`/make-lottery-bet/${lottery.id}`);
+	};
+
+	return (
+		<div className="lottery-first-container">
+			<img src={apostar} alt='header' className="clubs-imageBets"/>
+			<button className='back-image-button' onClick={ () => navigate('/porras')}>
+				<img className="clubs-image" src={adelante} alt="Atras" />
+			</button>
+			{
+				lotteries.length === 0 ?
+					<h2 className='clubs-title'>No hay rifas disponibles</h2>
+				:
+					<h2 className='clubs-title'>Escoge tu rifa</h2>
+			}
+			{
+				isLoading ? 
+					<p>Cargando rifas ...</p>
+				: null
+			}
+			<div className='lottery-body-container'>
+                {
+                    lotteries ?
+                        lotteries.map( lottery => {
+                            return(
+                                <Button key={lottery.id} onClick={() => handleMakeLotteryBet(lottery)}>
+                                    <LotteryCard lottery={ lottery } />
+                                </Button>
+                            )
+                        })
+                        :
+                        <p>No hay ninguna rifa creada</p>
+                }
+                {error && (
+                    <div>
+                        <ErrorComponent errorText={error} />
+                    </div>
+                )}
+            </div>
+		</div>
+	);
 };
 
 export default LotteryPage;

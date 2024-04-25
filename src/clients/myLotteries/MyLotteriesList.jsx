@@ -45,6 +45,10 @@ const MyLotteriesList = () => {
         }
     }, [error]);
 
+    const handleMakeLotteryBet = (lottery) => {
+		navigate(`/make-lottery-bet/${lottery.id}`);
+	};
+
     
 
     return (
@@ -69,8 +73,8 @@ const MyLotteriesList = () => {
                     lotteries ?
                         lotteries.map( lottery => {
                             return(
-                                <Button key={lottery.id}>
-                                    <LotteryCard key={lottery.id} lottery={ lottery } />
+                                <Button key={lottery.id} onClick={() => handleMakeLotteryBet(lottery)}>
+                                    <LotteryCard lottery={ lottery } />
                                 </Button>
                             )
                         })

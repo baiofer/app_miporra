@@ -9,27 +9,30 @@ import Button from '../../components/Button'
 import bares from '../../images/Bares.svg'
 import adelante from '../../images/adelante.svg'
 import { useNavigate } from 'react-router-dom'
+import MessageComponent from '../../components/MessageComponent'
 
 
 const ValidationsList = () => {
 
     const [validations, setValidations] = useState([])
     const [error, setError] = useState(null)
+    const [message, setMessage] = useState(null)
     const [isChanged, setIsChanged] = useState(true)
     const [isFetching, setIsFetching] = useState(false)
 
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (error) {
+        if (error || message) {
           const timer = setTimeout(() => {
             setError(null);
+            setMessage(null)
           }, 5000);
           return () => {
             clearTimeout(timer);
           };
         }
-      }, [error]);
+      }, [error, message]);
     
     useEffect(() => {
         if (isChanged) {
@@ -51,7 +54,6 @@ const ValidationsList = () => {
     }, [isChanged])
 
     const handleValidate = async (bet) => {
-        console.log('Validate: ', bet)
         // Create club or Lottery bet
         try {
             if (bet.type === 'club') {
@@ -63,6 +65,7 @@ const ValidationsList = () => {
             }
             // Delete validation
             await deleteValidation(bet.id)
+            setMessage(`Validada apuesta ${bet.number}`)
             setIsChanged(true)
         } catch (error) {
             setError(error)
@@ -109,11 +112,20 @@ const ValidationsList = () => {
             <div className='validationsList-refresh'>
                 <Button  variant='primary-cta' onClick={ () => setIsChanged(true) }>Refrescar validaciones</Button>
             </div>
-            {error && (
-          <div style={{ marginTop: '20px' }}>
-            <ErrorComponent errorText={error} />
-          </div>
-        )}
+            {
+                error && (
+                    <div style={{ marginTop: '20px' }}>
+                        <ErrorComponent errorText={error} />
+                    </div>
+                )
+            }
+            {
+                message && (
+                    <div style={{ marginTop: '20px' }}>
+                        <MessageComponent messageText={message} />
+                    </div>
+                )
+            }
         </div>
     )
 }

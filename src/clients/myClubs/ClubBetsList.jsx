@@ -6,7 +6,7 @@ import './ClubBetsList.css'
 import adelante from '../../images/adelante.svg'
 import ErrorComponent from "../../components/ErrorComponent"
 import MessageComponent from "../../components/MessageComponent"
-import apostar from '../../images/Apostar.svg'
+import results from '../../images/Resultados.svg'
 
 const ClubBetsList = () => {
 
@@ -52,16 +52,19 @@ const ClubBetsList = () => {
         }
     }, [error]);
 
-    if (isFetching) return (
-        <div>Loading ...</div>
-    )
+    
 
     return(
         <div className="activeBetList-first-container">
-            <img src={apostar} alt='header' className="activeBetList-header-bet"/>
+            <img src={results} alt='header' className="activeBetList-header-bet"/>
             <button className='back-image-button' onClick={ () => navigate('/myClubsList')}>
                 <img className="clubs-image" src={adelante} alt="Atras" />
             </button>
+            {
+                isFetching ?
+                    <div className="clubBetsList-loading">Cargando apuestas ...</div>
+                : null
+            }
             <h2 className="activeBetList-title">Apuestas activas</h2>
             <div className="clubBetsList-container">
                 <div className="clubBetsList-line">

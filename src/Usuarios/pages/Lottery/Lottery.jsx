@@ -7,6 +7,7 @@ import './Lottery.css'
 import ErrorComponent from "../../../components/ErrorComponent";
 import { Button } from "@mui/material";
 import LotteryCard from "../../../components/LotteryCard";
+import { getLotteries } from "./service";
 
 
 export const LotteryPage = () => {
@@ -20,9 +21,10 @@ export const LotteryPage = () => {
 		const fetchLottery = async () => {
 			try {
 				setIsLoading(true);
-				const { data } = await client.get("/lotteries");
+				const lotteriesList = await getLotteries();
+				const sortedLotteries = lotteriesList.data.results.sort((a, b) => new Date(b.dateLimitOfBets) - new Date(a.dateLimitOfBets))
 				setIsLoading(false);
-				setLottery(data.results);
+				setLottery(sortedLotteries);
 			} catch (error) {
 				console.log(error);
 				setIsLoading(false);

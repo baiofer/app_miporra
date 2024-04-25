@@ -115,9 +115,7 @@ const MyClubDetail = () => {
         navigate('/client')
     }
    
-    if (isFetching) return (
-        <div>Cargando apuestas ...</div>
-    )
+    
     
     return(
         <div className="myClubDetail-first-container">
@@ -125,6 +123,11 @@ const MyClubDetail = () => {
             <button className='back-image-button' onClick={ () => navigate('/client')}>
                 <img className="clubs-image" src={adelante} alt="Atras" />
             </button>
+            {
+                isFetching ?
+                    <div className="myClubDetail-fetching">Cargando porras ...</div>
+                : null
+            }
             <h2 className='myClubList-first-title'>Introduce los resultados</h2>
             <div className="myClubDetail-container">
                 <Button className="myClubDetail-card">

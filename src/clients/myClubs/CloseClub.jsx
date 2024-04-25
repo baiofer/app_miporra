@@ -48,11 +48,6 @@ const CloseClub = () => {
         navigate('/myClubDetail', {state: { club } })
     }
 
-    // Al seleccionar una porra, voy al detail a cerrarla
-    if (isFetching) return (
-        <div>Loading ...</div>
-    )
-
     return (
         <div className="closeClub-first-container">
             <img src={bares} alt='header' className="activeBetList-header-bet"/>
@@ -60,12 +55,17 @@ const CloseClub = () => {
                 <img className="clubs-image" src={adelante} alt="Atras" />
             </button>
             {
+                isFetching ?
+                    <div className="closeClub-loading">Cargando porras ...</div>
+                : null
+            }
+            {
                 clubs.length === 0 ?
                     <h2 className='closeClub-title'>No tiene ninguna porra creada</h2>
                 :
                     <h2 className='closeClub-title'>Mis porras</h2>
             }
-            <div>
+            <div className="closeClub-clubsList">
                 {
                     clubs ?
                         clubs.map( club => {

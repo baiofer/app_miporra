@@ -5,6 +5,10 @@ import { createClubBet, createLotteryBet, deleteValidation, getValidations } fro
 import validar from '../../images/validar.svg'
 import deleteBet from '../../images/delete.svg'
 import ErrorComponent from '../../components/ErrorComponent'
+import Button from '../../components/Button'
+import bares from '../../images/Bares.svg'
+import adelante from '../../images/adelante.svg'
+import { useNavigate } from 'react-router-dom'
 
 
 const ValidationsList = () => {
@@ -12,6 +16,9 @@ const ValidationsList = () => {
     const [validations, setValidations] = useState([])
     const [error, setError] = useState(null)
     const [isChanged, setIsChanged] = useState(true)
+    const [isFetching, setIsFetching] = useState(false)
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         if (error) {
@@ -28,12 +35,15 @@ const ValidationsList = () => {
         if (isChanged) {
             const fetchValidations = async () => {
                 try {
+                    setIsFetching(true)
                     const validationsList = await getValidations()
                     setValidations(validationsList.results)
                     setIsChanged(false)
+                    setIsFetching(false)
                 } catch (error) {
                     setError(error)
-                    setIsChanged(false) 
+                    setIsChanged(false)
+                    setIsFetching(false) 
                 }
             }
             fetchValidations()
@@ -65,11 +75,21 @@ const ValidationsList = () => {
         setIsChanged(true)
     }
 
+    
+
     return (
         <div className='validationsList-container'>
-            
+            <img src={bares} alt='header' className="activeBetList-header-bet"/>
+            <button className='back-image-button' onClick={ () => navigate('/client')}>
+                <img className="clubs-image" src={adelante} alt="Atras" />
+            </button>
             {
-                !validations ? 
+                isFetching ?
+                    <p className='validationsList-isFetching'>Cargando validaciones ...</p>
+                : null
+            }
+            {
+                validations.length > 0 ? 
                     <h2 className='validationsList-title'>Apuestas pendientes de validar</h2> 
                 : 
                     <h2 className='validationsList-title'>No hay validaciones pendientes</h2>
@@ -86,6 +106,9 @@ const ValidationsList = () => {
                     </div>
                 ))
             }
+            <div className='validationsList-refresh'>
+                <Button  variant='primary-cta' onClick={ () => setIsChanged(true) }>Refrescar validaciones</Button>
+            </div>
             {error && (
           <div style={{ marginTop: '20px' }}>
             <ErrorComponent errorText={error} />

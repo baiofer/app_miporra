@@ -8,3 +8,13 @@
     justify-content: center;
     color: var(--primary-green-light);
 }
+
+.myClubList-clubs-list {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.myClubsList-fetching {
+    color: var(--primary-green-main);
+}

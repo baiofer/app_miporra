@@ -1,6 +1,6 @@
 
 .validationsList-container {
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
     max-width: 800px;
     min-width: 400px;
@@ -12,6 +12,12 @@
     display: flex;
     justify-content: center;
     color: var(--primary-green-main);
+}
+
+.validationsList-isFetching {
+    width: 90%;
+    margin: 0 auto;
+    color: var(--primary-green-main);   
 }
 
 .validationsList-validation {
@@ -54,4 +60,10 @@
     height: 60px;
     align-items: center;
     justify-content: flex-start;
+}
+
+.validationsList-refresh {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
 }

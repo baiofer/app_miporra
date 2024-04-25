@@ -45,10 +45,6 @@ const MyClubsList = () => {
         }
     }, [error]);
 
-    if (isFetching) return (
-        <div>Loading ...</div>
-    )
-
     const handleList = (club) => {
         navigate('/clubBetsList', { state: { club } })
     }
@@ -60,12 +56,17 @@ const MyClubsList = () => {
                 <img className="clubs-image" src={adelante} alt="Atras" />
             </button>
             {
+                isFetching ?
+                    <div className='myClubsList-fetching'>Cargando porras ...</div>
+                : null
+            }
+            {
                 clubs.length === 0 ?
                     <h2 className='myClubList-first-title'>No tiene ninguna porra creada</h2>
                 :
                     <h2 className='myClubList-first-title'>Mis porras</h2>
             }
-            <div>
+            <div className='myClubList-clubs-list'>
                 {
                     clubs ?
                         clubs.map( club => {

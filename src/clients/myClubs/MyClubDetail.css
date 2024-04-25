@@ -23,3 +23,7 @@
 .myClubDetail-error {
     margin-top: 20px;
 }
+
+.myClubDetail-fetching {
+    color: var(--primary-green-main);
+}

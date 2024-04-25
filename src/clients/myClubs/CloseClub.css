@@ -3,8 +3,18 @@
     margin: 0 auto;
 }
 
+.closeClub-loading {
+    color: var(--primary-green-light);
+}
+
 .closeClub-title {
     display: flex;
     justify-content: center;
     color: var(--primary-green-light);
+}
+
+.closeClub-clubsList {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }

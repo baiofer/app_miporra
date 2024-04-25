@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import LotteryCard from "../../components/LotteryCard"
 import ErrorComponent from "../../components/ErrorComponent"
 import adelante from '../../images/adelante.svg'
+import bares from '../../images/Bares.svg'
 import './CloseLottery.css'
 
 const CloseLottery = () => {
@@ -48,22 +49,26 @@ const CloseLottery = () => {
     }
 
     // Al seleccionar una porra, voy al detail a cerrarla
-    if (isFetching) return (
-        <div>Cargando rifas ...</div>
-    )
+    
 
     return (
-        <div>
+        <div className="closeLottery-first-container">
+            <img src={bares} alt='header' className="activeBetList-header-bet"/>
             <button className='back-image-button' onClick={ () => navigate('/client')}>
-                <img className="back-image" src={adelante} alt="Atras" />
+                <img className="clubs-image" src={adelante} alt="Atras" />
             </button>
+            {
+                isFetching ?
+                    <div className="closeLottery-fetching">Cargando rifas ...</div>
+                : null
+            }
             {
                 lotteries.length === 0 ?
                     <h2 className='closeLottery-title'>No tiene ninguna rifa creada</h2>
                 :
                     <h2 className='closeLottery-title'>Mis rifas</h2>
             }
-            <div>
+            <div className="closeLottery-container">
                 {
                     lotteries ?
                         lotteries.map( lottery => {

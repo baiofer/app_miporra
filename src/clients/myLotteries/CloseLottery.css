@@ -1,3 +1,20 @@
 .closeLottery-title {
+    display: flex;
+    justify-content: center;
+    color: var(--primary-green-light);
+}
+
+.closeLottery-first-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.closeLottery-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.closeLottery-fetching {
     color: var(--primary-green-main);
 }

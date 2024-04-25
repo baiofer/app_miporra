@@ -1,6 +1,12 @@
-.myLotteryDetail-container {
-    width: 600px;
+.myLotteryDetail-first-container {
+    width: 90%;
     margin: 0 auto;
+}
+
+.myLotteryDetail-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .myLotteryDetail-card {

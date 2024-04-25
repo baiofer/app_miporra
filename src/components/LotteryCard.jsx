@@ -29,9 +29,11 @@ const LotteryCard = ({ lottery, type="", onChange }) => {
         onChange(res)   
     }
 
-    const borderColor = lottery.state === 'in progress' ? 'green' : 'red'
+    const borderColor = lottery.state === 'in progress' ? 'var(--primary-green-light)' : 'var(--secondary-light)'
+    const backgroundColor = lottery.state === 'in progress' ? 'var(--secondary-white)' : 'var(--secondary-light)'
+    
     return (
-        <div className='lottery-container' style={{ borderColor: borderColor}}>
+        <div className='lottery-container' style={{ borderColor: borderColor, backgroundColor: backgroundColor}}>
             <div className='lottery-betZone'>
                 <div className='lottery-header'>
                     <div className='lottery-header-date'>

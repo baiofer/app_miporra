@@ -1,3 +1,20 @@
+.myLotteriesList-first-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
 .myClubList-title {
-    color: var(--primary-green-main);
+    display: flex;
+    justify-content: center;
+    color: var(--primary-green-light);
+}
+
+.myLotteriesList-loading {
+    color: var(--primary-green-main)
+}
+
+.myLotteriesList-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }

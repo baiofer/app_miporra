@@ -7,6 +7,8 @@ import { getLotteryBets, updateLottery } from "./service"
 import ErrorComponent from "../../components/ErrorComponent"
 import MessageComponent from "../../components/MessageComponent"
 import { useNavigate } from 'react-router-dom'
+import results from '../../images/Resultados.svg'
+import adelante from '../../images/adelante.svg'
 
 
 const MyLotteryDetail = () => {
@@ -84,26 +86,37 @@ const MyLotteryDetail = () => {
     )
     
     return(
-        <div className="myLotteryDetail-container">
-            <Button className="myLotteryDetail-card">
-                <LotteryCard lottery={ lottery } type="result" onChange={onChange}/>
-            </Button>
-            <div className="myLotteryDetail-button">
-                <Button variant="primary-cta" onClick={handleClick}>{lotteryUpdated ? "Salir" : "Cierra la rifa"}</Button>
+        <div className="myLotteryDetail-first-container">
+            <img src={results} alt='header' className="activeBetList-header-bet"/>
+            <button className='back-image-button' onClick={ () => navigate('/client')}>
+                <img className="clubs-image" src={adelante} alt="Atras" />
+            </button>
+            {
+                isFetching ?
+                    <div className="myClubDetail-fetching">Cargando porras ...</div>
+                : null
+            }
+            <h2 className='myClubList-first-title'>Introduce los resultados</h2>
+            <div className="myLotteryDetail-container">
+                <Button className="myLotteryDetail-card">
+                    <LotteryCard lottery={ lottery } type="result" onChange={onChange}/>
+                </Button>
+                <div className="myLotteryDetail-button">
+                    <Button variant="primary-cta" onClick={handleClick}>{lotteryUpdated ? "Salir" : "Cierra la rifa"}</Button>
+                </div>
+                <div className="myLotteryDetail-error" onClick={handleExit}>
+                    {error && (
+                        <div>
+                            <ErrorComponent errorText={error.message} />
+                        </div>
+                    )}
+                    {message && (
+                        <div>
+                            <MessageComponent messageText={message} />
+                        </div>
+                    )}
+                </div>
             </div>
-            <div className="myLotteryDetail-error" onClick={handleExit}>
-                {error && (
-                    <div>
-                        <ErrorComponent errorText={error.message} />
-                    </div>
-                )}
-                {message && (
-                    <div>
-                        <MessageComponent messageText={message} />
-                    </div>
-                )}
-            </div>
-            
         </div>
     )
 }

@@ -5,6 +5,7 @@ import { Button } from '@mui/material'
 import LotteryCard from '../../components/LotteryCard'
 import ErrorComponent from '../../components/ErrorComponent'
 import adelante from '../../images/adelante.svg'
+import bares from '../../images/Bares.svg'
 import { useNavigate } from 'react-router-dom'
 
 const MyLotteriesList = () => {
@@ -44,22 +45,26 @@ const MyLotteriesList = () => {
         }
     }, [error]);
 
-    if (isFetching) return (
-        <div>Loading ...</div>
-    )
+    
 
     return (
-        <div>
+        <div className='myLotteriesList-first-container'>
+            <img src={bares} alt='header' className="activeBetList-header-bet"/>
             <button className='back-image-button' onClick={ () => navigate('/client')}>
-                <img className="back-image" src={adelante} alt="Atras" />
+                <img className="clubs-image" src={adelante} alt="Atras" />
             </button>
+            {
+                isFetching ?
+                    <div className='myLotteriesList-loading'>Cargando rifas ...</div>
+                : null
+            }
             {
                 lotteries.length === 0 ?
                     <h2 className='myClubList-title'>No tiene ninguna rifa creada</h2>
                 :
                     <h2 className='myClubList-title'>Mis rifas</h2>
             }
-            <div>
+            <div className='myLotteriesList-container'>
                 {
                     lotteries ?
                         lotteries.map( lottery => {

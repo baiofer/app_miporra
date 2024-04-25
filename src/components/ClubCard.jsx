@@ -29,8 +29,6 @@ const ClubCard = ({ club, type="", onChange }) => {
     const [result2Home, setResult2Home] = useState(0)
     const [result2Away, setResult2Away] = useState(0)
 
-    const borderColor = club.state === 'in progress' ? 'green' : 'red'
-
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         const day = date.getDate().toString().padStart(2, '0');
@@ -61,9 +59,12 @@ const ClubCard = ({ club, type="", onChange }) => {
     }
 
     const price = parseInt(club.accumulatedPrize) + parseInt(club.accumulatedJackpot)
+
+    const borderColor = club.state === 'in progress' ? 'var(--primary-green-light)' : 'var(--secondary-light)'
+    const backgroundColor = club.state === 'in progress' ? 'var(--secondary-white)' : 'var(--secondary-light)'
     
     return (
-        <div className='club-container' style={{ borderColor: borderColor}}>
+        <div className='club-container' style={{ borderColor: borderColor, backgroundColor: backgroundColor}}>
             <div className='club-betZone'>
                 <div className='club-header'>
                     <div className='club-header-date'>

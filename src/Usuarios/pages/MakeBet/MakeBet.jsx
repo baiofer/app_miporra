@@ -172,6 +172,7 @@ export const MakeBet = () => {
 					) : (
 						<div className={`${createdBetId} ? "lottery-bet" : ""`}>
 							<h3>Este es tu código de identificación de la apuesta:</h3>
+							<p>Muestraselo al responsable del bar para que te valide la apuesta.</p>
 							<h2>{createdBetId}</h2>
 							<Button
 								onClick={() => navigate('/activeBetsList', { state: { club: currentClub } })}

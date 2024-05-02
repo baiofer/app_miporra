@@ -53,16 +53,17 @@ const ActiveBetsList = () => {
         }
     }, [error]);
 
-    if (isFetching) return (
-        <div>Loading ...</div>
-    )
-
     return(
         <div className="activeBetList-first-container">
             <img src={apostar} alt='header' className="activeBetList-header-bet"/>
 			<button className='back-image-button' onClick={ () => navigate("/make-bet", { state: { club } })}>
 				<img className="clubs-image" src={adelante} alt="Atras" />
 			</button>
+            {
+				isFetching ? 
+					<p className="activeBetList-title">Cargando apuestas ...</p>
+				: null
+			}
 			<h2 className="activeBetList-title">Apuestas activas</h2>
             <div className="clubBetsList-container">
                 <div className="clubBetsList-line">

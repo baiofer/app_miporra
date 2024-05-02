@@ -158,10 +158,10 @@ export const MakeLotteryBet = () => {
 							selectedNumber ?
 								<div className={`${createdLotteryId} ? "lottery-bet" : ""`}>				
 									<h3>Este es tu código de identificación de la apuesta:</h3>
+									<p>Muestraselo al responsable del bar para que te valide la apuesta.</p>
 										<h2>{createdLotteryId}</h2>
 								</div>
-							: null
-								
+							: null	
 					}
 				</div>
 			</div>

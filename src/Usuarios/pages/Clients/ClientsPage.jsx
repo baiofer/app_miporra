@@ -40,7 +40,7 @@ export const ClientsPage = () => {
 			<main className="clientsPage-container clientsPage-center-items">
 				{
 					isLoading ? (
-						<p className="clientsPage-loading">Cargando...</p>
+						<p className="clientsPage-loading">Cargando bares...</p>
 					) : (
 						<section className="clientsPage-section clientsPage-center-items">
 							{

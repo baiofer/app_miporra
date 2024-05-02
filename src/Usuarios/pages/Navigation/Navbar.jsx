@@ -43,7 +43,7 @@ function Navbar() {
 			{
 				isMenuOpen && (
 				<div className="navBar-menu-container">
-					<button onClick={handleClubBets} className="mavBar-menu-item">
+					<button onClick={handleClubBets} className="navBar-menu-item">
 						Apostar
 					</button>
 					<button onClick={handleLotteryBets} className="navBar-menu-item">

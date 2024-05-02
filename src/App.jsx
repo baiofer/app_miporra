@@ -71,7 +71,7 @@ function App() {
             <Route path="homepage" element={<Homepage />} />
             <Route path="make-bet" element={<MakeBet />} />
             <Route path="active-bets" element={<ActiveBets />} />
-            <Route path="make-lottery-bet/:id" element={<MakeLotteryBet />} />
+            <Route path="make-lottery-bet" element={<MakeLotteryBet />} />
             <Route path="client-detail/:id" element={<ClientDetail />} />
           </Route>
         </Routes>

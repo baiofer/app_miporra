@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { client } from "/src/api/config/client.js";
 import { useNavigate } from "react-router-dom";
 import apostar from '../../../images/Apostar.svg'
 import adelante from '../../../images/adelante.svg'
@@ -45,7 +44,7 @@ export const LotteryPage = () => {
     }, [error]);
 
 	const handleMakeLotteryBet = (lottery) => {
-		navigate(`/make-lottery-bet/${lottery.id}`);
+		navigate('/make-lottery-bet', { state: { lottery } });
 	};
 
 	return (

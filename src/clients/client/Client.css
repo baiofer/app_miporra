@@ -35,39 +35,45 @@
     margin: 0 auto;
     align-items: center;
     flex-direction: column;
+    padding: 10px;
+    background-color: var(--primary-green-main);
+    border-radius: 30px;
+    max-width: 200px;
 }
 
 .client-button-add-club {
+    display: flex;
+    width: 100%;
+    justify-content: center;
     background-color: var(--primary-green-main) 
 }
 
 .client-club-container-back {
     display: flex;
     flex-direction: column;
-    background-color: var(--primary-green-main);
-    border-radius: 30px;
+    
     align-items: center;
 }
 
 .client-club {
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    
     background-color: var(--primary-green-main);
-    border-radius: 30px;
     align-items: center;
 }
 
 .client-lottery {
     display: flex;
     flex-direction: column;
-    padding: 10px;
     background-color: var(--primary-green-light);
-    border-radius: 30px;
     align-items: center;
 }
 
 .client-button-add-lottery {
+    display: flex;
+    width: 100%;
+    justify-content: center;
     background-color: var(--primary-green-light) 
 }
 
@@ -76,13 +82,15 @@
     margin: 0 auto;
     align-items: center;
     flex-direction: column;
+    background-color: var(--primary-green-light);
+    border-radius: 30px;
+    padding: 10px;
+    max-width: 200px;
 }
 
 .client-lottery-container-back {
     display: flex;
     flex-direction: column;
-    background-color: var(--primary-green-light);
-    border-radius: 30px;
     align-items: center;
 }
 
